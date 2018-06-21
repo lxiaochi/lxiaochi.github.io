@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="初识C语言发展历史B语言与UNIX20世纪60年代，贝尔实验室的研究员Ken Thompson（肯·汤普森）发明了B语言，并使用B编了个游戏 - Space Travel，他想玩自己这个游戏，所以他背着老板找到了台空闲的机器 - PDP-7，但是这台机器没有操作系统，于是Thompson着手为PDP-7开发操作系统，后来这个OS被命名为 - UNIX。">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识C语言">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/初识C语言/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="初识C语言发展历史B语言与UNIX20世纪60年代，贝尔实验室的研究员Ken Thompson（肯·汤普森）发明了B语言，并使用B编了个游戏 - Space Travel，他想玩自己这个游戏，所以他背着老板找到了台空闲的机器 - PDP-7，但是这台机器没有操作系统，于是Thompson着手为PDP-7开发操作系统，后来这个OS被命名为 - UNIX。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/05/30/初识C语言/1527690733800.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/30/初识C语言/1527690834250.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/30/初识C语言/1527690863681.png">
+<meta property="og:updated_time" content="2018-05-30T15:51:31.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识C语言">
+<meta name="twitter:description" content="初识C语言发展历史B语言与UNIX20世纪60年代，贝尔实验室的研究员Ken Thompson（肯·汤普森）发明了B语言，并使用B编了个游戏 - Space Travel，他想玩自己这个游戏，所以他背着老板找到了台空闲的机器 - PDP-7，但是这台机器没有操作系统，于是Thompson着手为PDP-7开发操作系统，后来这个OS被命名为 - UNIX。">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/30/初识C语言/1527690733800.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/初识C语言/"/>
+
+
+
+
+
+  <title>初识C语言 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/初识C语言/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初识C语言</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T23:46:45+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,308
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="初识C语言"><a href="#初识C语言" class="headerlink" title="初识C语言"></a>初识C语言</h1><h2 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h2><h3 id="B语言与UNIX"><a href="#B语言与UNIX" class="headerlink" title="B语言与UNIX"></a>B语言与UNIX</h3><p>20世纪60年代，贝尔实验室的研究员Ken Thompson（肯·汤普森）发明了B语言，并使用B编了个游戏 - Space Travel，他想玩自己这个游戏，所以他背着老板找到了台空闲的机器 - PDP-7，但是这台机器没有操作系统，于是Thompson着手为PDP-7开发操作系统，后来这个OS被命名为 - UNIX。<br><a id="more"></a><br><img src="/2018/05/30/初识C语言/1527690733800.png"><br>Thompson（肯·汤普森）发明了UNIX</p>
+<h3 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h3><p>1971年，Ken Thompson的同事D.M.Ritchie（DM里奇），也很想玩Space Travel，所以加入了Ken Thompson，合作开发UNIX，他的主要工作是改进Thompson的B语言。</p>
+<p>最终，在1972年这个新语言被称为C，取BCPL的第二个字母，也是B的下一个字母。<br><img src="/2018/05/30/初识C语言/1527690834250.png"></p>
+<h3 id="C与UNIX"><a href="#C与UNIX" class="headerlink" title="C与UNIX"></a>C与UNIX</h3><p>1973年，C主体完成。Ken Thompson和D.M.Ritchie迫不及待的开始用C语言完全重写了UNIX。此时编程的乐趣已经使他们完全忘记了那个“Space Travel”，一门心思的投入到了UNIX和C语言的开发中。自此，C语言和UNIX相辅相成的发展至今。<br><img src="/2018/05/30/初识C语言/1527690863681.png"><br>Ken Thompson（left）和D.M.Ritchie（right）</p>
+<blockquote>
+<p>贝尔实验室太过伟大，甚至关于编程语言如此重要的发展历史部分，在实验室整体历史中都显得那么”微不足道”。</p>
+</blockquote>
+<h3 id="类C语言起源、历史"><a href="#类C语言起源、历史" class="headerlink" title="类C语言起源、历史"></a>类C语言起源、历史</h3><p>C语言、C语言的起源以及类似C语言的编程语言的历史简直不要太漫长，我简单总结列表如下：</p>
+<p>CPL（Combined Programming Language） - 1963<br>CPL是1963年剑桥大学发明的</p>
+<p>BCPL（Base Combined Programming Language） - 1967<br>剑桥的Matin Richards 对CPL做了简化，推出了BCPL</p>
+<p>B（B Programming Language） - 1969<br>贝尔实验室的Ken Thompson（肯·汤普森） 对BCPL又做了改进，设计出了简单的且接近硬件的B语言，并用B语言写了第一个UNIX OS</p>
+<p>C（C Programming Language） - 1972<br>贝尔实验室的另外一个人Dennis MacAlistair Ritchie（D.M.Ritchie - DM里奇）在B的基础上设计出了C语言。C 保持了B的优点（精炼、接近硬件），又克服了他的缺点（过于简单，数据无类型）</p>
+<p>C++（C plus plus Programming Language） - 1983<br>还是贝尔实验室的人，Bjarne Stroustrup（本贾尼·斯特劳斯特卢普） 在C语言的基础上推出了C++，它扩充和完善了C语言，特别是在面向对象编程方面。一定程度上克服了C语言编写大型程序时的不足。</p>
+<p>Java（Java Programming Language） - 1995<br>Sun公司的Patrick Naughton的工作小组研发了Java语言，主要成员是James Gosling（詹姆斯·高斯林）</p>
+<p>C#（C Sharp Programming Language） - 2000<br>Microsoft公司的Anders Hejlsberg（安德斯·海尔斯伯格）发明了C#，他也是Delphi语言之父。</p>
+<h2 id="语言特点"><a href="#语言特点" class="headerlink" title="语言特点"></a>语言特点</h2><h3 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h3><p><strong>1. 高级语言:</strong> 它是把高级语言的基本结构和语句玉低级语言的实用性结合起来的工作单元。</p>
+<p><strong>2. 结构式语言:</strong>结构式语言的显著特点是代码及数据的分隔化，即程序的各个部分除了必要的信息交流外彼此独立。这种结构化方式可使程序层次清晰，便于使用、维护以及调试。C 语言是以函数形式提供给用户的，这些函数可方便的调用，并具有多种循环、条件语句控制程序流向，从而使程序完全结构化。 </p>
+<p><strong>3.代码级别的跨平台：</strong>由于标准的存在，使得几乎同样的C代码可用于多种操作系统，如Windows、DOS、UNIX等等；也适用于多种机型。C语言对编写需要进行硬件操作的场合，优于其它高级语言。</p>
+<p><strong>5. 使用指针:</strong> 可以直接进行靠近硬件的操作，但是C的指针操作不做保护，也给它带来了很多不安全的因素。C++在这方面做了改进，在保留了指针操作的同时又增强了安全性，受到了一些用户的支持，但是，由于这些改进增加语言的复杂度，也为另一部分所诟病。Java则吸取了C++的教训，取消了指针操作，也取消了C++改进中一些备受争议的地方，在安全性和适合性方面均取得良好的效果，但其本身解释在虚拟机中运行，运行效率低于C++/C。一般而言，C，C++，java被视为同一系的语言，它们长期占据着程序使用榜的前三名。</p>
+<h3 id="特有特点"><a href="#特有特点" class="headerlink" title="特有特点"></a>特有特点</h3><ol>
+<li>C语言是一个有结构化程序设计、具有变量作用域（variable scope）以及递归功能的过程式语言。</li>
+<li>C语言传递参数均是以值传递（pass by value），另外也可以传递指针（a pointer passed by value）。</li>
+<li>不同的变量类型可以用结构体（struct）组合在一起。</li>
+<li>只有32个保留字（reserved keywords），使变量、函数命名有更多弹性。</li>
+<li>部份的变量类型可以转换，例如整型和字符型变量。</li>
+<li>通过指针（pointer），C语言可以容易的对存储器进行低级控制。</li>
+<li>预编译处理（preprocessor）让C语言的编译更具有弹性。</li>
+</ol>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>简洁紧凑、灵活方便<br>C语言一共只有32个关键字,9种控制语句,程序书写形式自由,区分大小写。把高级语言的基本结构和语句与低级语言的使用性结合起来。C语言可以向汇编语言一样对位、字节和地址进行操作,而这三者是计算机最基本的工作单元。</li>
+<li>运算符丰富<br>C语言的运算符包含的范围很广泛，共有34种运算符。C语言把括号、赋值、强制类型转换等都作为运算符处理。从而使C语言的运算类型极其丰富，表达式类型多样化。灵活使用各种运算符可以实现在其它高级语言中难以实现的运算。</li>
+<li>数据类型丰富<br>C语言的数据类型有：整型、实型、字符型、数组类型、指针类型、结构体类型、共用体类型等。能用来实现各种复杂的数据结构的运算。并引入了指针概念，使程序效率更高。</li>
+<li>表达方式灵活实用<br>C语言提供多种运算符和表达式值的方法，对问题的表达可通过多种途径获得，其程序设计更主动、灵活。它语法限制不太严格，程序设计自由度大，如对整型量与字符型数据及逻辑型数据可以通用等。</li>
+<li>允许直接访问物理地址，对硬件进行操作<br>由于C语言允许直接访问物理地址，可以直接对硬件进行操作，因此它既具有高级语言的功能，又具有低级语言的许多功能，能够像汇编语言一样对位（bit）、字节和地址进行操作，而这三者是计算机最基本的工作单元，可用来写系统软件。</li>
+<li>生成目标代码质量高,程序执行效率高<br>C语言描述问题比汇编语言迅速，工作量小、可读性好，易于调试、修改和移植，而代码质量与汇编语言相当。C语言一般只比汇编程序生成的目标代码效率低10%～20%。</li>
+<li>可移植性好<br>C语言在不同机器上的C编译程序，86%的代码是公共的，所以C语言的编译程序便于移植。在一个环境上用C语言编写的程序，不改动或稍加改动，就可移植到另一个完全不同的环境中运行。</li>
+<li>表达力强</li>
+<li>C语言有丰富的数据结构和运算符。包含了各种数据结构，如整型、数组类型、指针类型和联合类型等，用来实现各种数据结构的运算。C语言的运算符有34种，范围很宽，灵活使用各种运算符可以实现难度极大的运算。<br>C语言能直接访问硬件的物理地址，能进行位（bit）操作。兼有高级语言和低级语言的许多优点。<br>它既可用来编写系统软件，又可用来开发应用软件，已成为一种通用程序设计语言。<br>另外C语言具有强大的图形功能，支持多种显示器和驱动器。且计算功能、逻辑判断功能强大。 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3>1、 C语言的缺点主要表现在数据的封装性上，这一点使得C在数据的安全性上有很大缺陷，这也是C和C++的一大区别。<br>2、 C语言的语法限制不太严格，对变量的类型约束不严格，影响程序的安全性，对数组下标越界不作检查等。从应用的角度，C语言比其他高级语言较难掌握。也就是说，对用C语言的人，要求对程序设计更熟练一些。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/28/css3之过渡动画/" rel="next" title="css3之过渡动画">
+                <i class="fa fa-chevron-left"></i> css3之过渡动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/01/C-数据类型/" rel="prev" title="C-数据类型">
+                C-数据类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初识C语言"><span class="nav-number">1.</span> <span class="nav-text">初识C语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#发展历史"><span class="nav-number">1.1.</span> <span class="nav-text">发展历史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B语言与UNIX"><span class="nav-number">1.1.1.</span> <span class="nav-text">B语言与UNIX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言"><span class="nav-number">1.1.2.</span> <span class="nav-text">C语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C与UNIX"><span class="nav-number">1.1.3.</span> <span class="nav-text">C与UNIX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类C语言起源、历史"><span class="nav-number">1.1.4.</span> <span class="nav-text">类C语言起源、历史</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言特点"><span class="nav-number">1.2.</span> <span class="nav-text">语言特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本特征"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特有特点"><span class="nav-number">1.2.2.</span> <span class="nav-text">特有特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">1.2.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.4.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

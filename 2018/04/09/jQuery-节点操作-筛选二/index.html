@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="元素处理节点操作">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 节点操作 筛选二">
+<meta property="og:url" content="http://yoursite.com/2018/04/09/jQuery-节点操作-筛选二/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="元素处理节点操作">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-08T16:18:54.208Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery 节点操作 筛选二">
+<meta name="twitter:description" content="元素处理节点操作">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/09/jQuery-节点操作-筛选二/"/>
+
+
+
+
+
+  <title>jQuery 节点操作 筛选二 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/09/jQuery-节点操作-筛选二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery 节点操作 筛选二</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T00:15:24+08:00">
+                2018-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  738
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="元素处理"><a href="#元素处理" class="headerlink" title="元素处理"></a>元素处理</h1><h2 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h2><a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><code>$</code>(content).method( target )</th>
+<th style="text-align:left"><code>$</code>(content).method( target )</th>
+<th style="text-align:right">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>before()</code></td>
+<td style="text-align:left"><code>insertBefore()</code></td>
+<td style="text-align:right">在目标元素前面插入内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>after()</code></td>
+<td style="text-align:left"><code>insertAfter()</code></td>
+<td style="text-align:right">在目标元素后面插入内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>append()</code></td>
+<td style="text-align:left"><code>appendTo()</code></td>
+<td style="text-align:right">在目标元素开始处插入内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>prepend()</code></td>
+<td style="text-align:left"><code>preppendTo()</code></td>
+<td style="text-align:right">在目标元素结尾处插入内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>replaceWidth()</code></td>
+<td style="text-align:left"><code>replaceAll()</code></td>
+<td style="text-align:right">在目标元素替换为内容</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><code>clone()</code>克隆元素</p>
+<blockquote>
+<p>clone() 会拷贝所有的子元素<br><code>clone( true )</code> 深度克隆，会克隆事件</p>
+</blockquote>
+</li>
+<li><p><code>empty()</code> 清空元素内容</p>
+</li>
+<li><code>remove()</code>删除元素及内容 ，会删除元素事件<blockquote>
+<p>remove() 不带参数移除所有选中元素<br>remove( selector ) 带参数移除选择器匹配的选中元素</p>
+</blockquote>
+</li>
+</ul>
+<p><code>detach()</code> 删除元素，并且会返回元素本身，且保留了事件</p>
+<h1 id="筛选二"><a href="#筛选二" class="headerlink" title="筛选二"></a>筛选二</h1><h2 id="parent-offsetParent-parents-close"><a href="#parent-offsetParent-parents-close" class="headerlink" title="parent() offsetParent() parents() close()"></a><code>parent()</code> <code>offsetParent()</code> <code>parents()</code> <code>close()</code></h2><blockquote>
+<ul>
+<li><code>parent()</code> -父级</li>
+<li><code>offsetParent()</code> -定位父级</li>
+<li><code>parents([selector])</code> -所有祖级</li>
+<li><code>parentsUntil(selector)</code> 截止到~的父级 不包含起止</li>
+<li><code>closest ( selector )</code> -最近祖级,(<strong>包含自身</strong>!!)必须写入参数</li>
+</ul>
+</blockquote>
+<h2 id="prevAll-prevUntil-selector-—–-上截止到"><a href="#prevAll-prevUntil-selector-—–-上截止到" class="headerlink" title="prevAll() / prevUntil( selector ) —– 上截止到"></a><code>prevAll()</code> / <code>prevUntil( selector )</code> —– 上截止到</h2><blockquote>
+<ul>
+<li><code>prevAll( [selector] )</code> —所有的上兄弟节点</li>
+</ul>
+</blockquote>
+<h2 id="nextAll-nextUntil-selector-—–-上截止到"><a href="#nextAll-nextUntil-selector-—–-上截止到" class="headerlink" title="nextAll() / nextUntil( selector ) —– 上截止到"></a><code>nextAll()</code> / <code>nextUntil( selector )</code> —– 上截止到</h2><blockquote>
+<ul>
+<li><code>nextAll( [selector] )</code> —所有的下兄弟节点</li>
+</ul>
+</blockquote>
+<h2 id="slice-selector-end-–把匹配元素集合缩减为指定的指数范围的子集"><a href="#slice-selector-end-–把匹配元素集合缩减为指定的指数范围的子集" class="headerlink" title="slice( selector,end )–把匹配元素集合缩减为指定的指数范围的子集"></a><code>slice( selector,end )</code>–把匹配元素集合缩减为指定的指数范围的子集</h2><blockquote>
+<p>selector 基于 0 的整数值，指示开始选取元素的位置。<br>如果是负数，则指示从集合末端开始的偏移量。<br>end基于 0 的整数值，指示结束选取元素的位置。<br>如果是负数，则指示从集合末端开始的偏移量。<br>如果省略，则选取范围会在集合末端结束。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;li&apos;).slice(2, 4).css(&apos;background-color&apos;, &apos;red&apos;);</span><br></pre></td></tr></table></figure>
+<h1 id="包装"><a href="#包装" class="headerlink" title="包装"></a>包装</h1><h2 id="wrap-外包装"><a href="#wrap-外包装" class="headerlink" title="wrap()外包装"></a><code>wrap()</code>外包装</h2><blockquote>
+<p>ele.wrap( selector ) selector 包在ele元素外面</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.box&apos;).wrap( $(&apos;&lt;a&gt;&apos;) );   </span><br><span class="line">//&lt;a href=&quot;&quot;&gt; &lt;div class=&quot;box&quot;&gt;div&lt;/div&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="wrapInner-内包装"><a href="#wrapInner-内包装" class="headerlink" title="wrapInner()内包装"></a><code>wrapInner()</code>内包装</h2><blockquote>
+<p>ele.wrapInner( selector ) selector 包在ele元素里面</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.box&apos;).wrapInner( $(&apos;&lt;a&gt;&apos;) );</span><br><span class="line">//&lt;div class=&quot;box&quot;&gt; &lt;a href=&quot;&quot;&gt; div &lt;/a&gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="wrapAll-整体包装"><a href="#wrapAll-整体包装" class="headerlink" title="wrapAll()整体包装"></a><code>wrapAll()</code>整体包装</h2><blockquote>
+<p>ele.wrapAll(seletor) 把匹配的 ele 提取出来 ，然后用seletor 整体包装</p>
+</blockquote>
+<h2 id="unwrap-移除包装"><a href="#unwrap-移除包装" class="headerlink" title="unwrap()移除包装"></a><code>unwrap()</code>移除包装</h2><blockquote>
+<p>ele.unwrap(seletor) 移除ele的父级</p>
+</blockquote>
+<h2 id="toArray-转为数组"><a href="#toArray-转为数组" class="headerlink" title="toArray() 转为数组"></a><code>toArray()</code> 转为数组</h2><p>可以吧jQuery对象转为真实数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=$(&quot;li&quot;).toArray()</span><br><span class="line"> for (i=0;i&lt;x.length;i++)</span><br><span class="line">   &#123;</span><br><span class="line">   alert(x[i].innerHTML);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="serialize-数组串联"><a href="#serialize-数组串联" class="headerlink" title="serialize() 数组串联"></a><code>serialize()</code> 数组串联</h2><blockquote>
+<p>序列表表格内容为字符串,用于Ajax请求</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=&quot;results&quot;&gt;&lt;b&gt;Results: &lt;/b&gt; &lt;/p&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">      &lt;select name=&quot;single&quot;&gt;</span><br><span class="line">        &lt;option&gt;Single&lt;/option&gt;</span><br><span class="line">        &lt;option&gt;Single2&lt;/option&gt;</span><br><span class="line">      &lt;/select&gt;</span><br><span class="line">      &lt;select name=&quot;multiple&quot; multiple=&quot;multiple&quot;&gt;</span><br><span class="line">        &lt;option selected=&quot;selected&quot;&gt;Multiple&lt;/option&gt;</span><br><span class="line">        &lt;option&gt;Multiple2&lt;/option&gt;</span><br><span class="line">        &lt;option selected=&quot;selected&quot;&gt;Multiple3&lt;/option&gt;</span><br><span class="line">      &lt;/select&gt;&lt;br/&gt;</span><br><span class="line">      &lt;input type=&quot;checkbox&quot; name=&quot;check&quot; value=&quot;check1&quot;/&gt; check1</span><br><span class="line">      &lt;input type=&quot;checkbox&quot; name=&quot;check&quot; value=&quot;check2&quot; checked=&quot;checked&quot;/&gt; check2</span><br><span class="line">      &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;radio1&quot; checked=&quot;checked&quot;/&gt; radio1</span><br><span class="line">      &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;radio2&quot;/&gt; radio2</span><br><span class="line">    &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#results&apos;).append(&quot;&lt;tt&gt;&quot; + $(&quot;form&quot;).serialize() + &quot;&lt;/tt&gt;&quot;);</span><br><span class="line">//Results: single=Single&amp;multiple=Multiple&amp;multiple=Multiple3&amp;check=check2&amp;radio=radio1</span><br></pre></td></tr></table></figure>
+<h2 id="serializeArray-数据串联成数组"><a href="#serializeArray-数据串联成数组" class="headerlink" title="serializeArray()数据串联成数组"></a><code>serializeArray()</code>数据串联成数组</h2><p>序列化表格元素(类似’.serialize()’方法)返回JSON数据结构数据<br>注意:此方法返回的是<strong>JSON对象</strong>而非JSON字符串。需要使用插件或者第三方库进行字符串化操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ </span><br><span class="line">    &#123;name: &apos;firstname&apos;, value: &apos;Hello&apos;&#125;, </span><br><span class="line">    &#123;name: &apos;lastname&apos;, value: &apos;World&apos;&#125;,</span><br><span class="line">    &#123;name: &apos;alias&apos;&#125;, // this one was empty</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/09/jQuery-事件-event对象-遍历/" rel="next" title="jQuery 事件 event对象 遍历">
+                <i class="fa fa-chevron-left"></i> jQuery 事件 event对象 遍历
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/09/jQuery-常用工具函数-ajax/" rel="prev" title="jQuery 常用工具函数 ajax()">
+                jQuery 常用工具函数 ajax() <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#元素处理"><span class="nav-number">1.</span> <span class="nav-text">元素处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点操作"><span class="nav-number">1.1.</span> <span class="nav-text">节点操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#筛选二"><span class="nav-number">2.</span> <span class="nav-text">筛选二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#parent-offsetParent-parents-close"><span class="nav-number">2.1.</span> <span class="nav-text">parent() offsetParent() parents() close()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prevAll-prevUntil-selector-—–-上截止到"><span class="nav-number">2.2.</span> <span class="nav-text">prevAll() / prevUntil( selector ) —– 上截止到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nextAll-nextUntil-selector-—–-上截止到"><span class="nav-number">2.3.</span> <span class="nav-text">nextAll() / nextUntil( selector ) —– 上截止到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slice-selector-end-–把匹配元素集合缩减为指定的指数范围的子集"><span class="nav-number">2.4.</span> <span class="nav-text">slice( selector,end )–把匹配元素集合缩减为指定的指数范围的子集</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包装"><span class="nav-number">3.</span> <span class="nav-text">包装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wrap-外包装"><span class="nav-number">3.1.</span> <span class="nav-text">wrap()外包装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wrapInner-内包装"><span class="nav-number">3.2.</span> <span class="nav-text">wrapInner()内包装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wrapAll-整体包装"><span class="nav-number">3.3.</span> <span class="nav-text">wrapAll()整体包装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unwrap-移除包装"><span class="nav-number">3.4.</span> <span class="nav-text">unwrap()移除包装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toArray-转为数组"><span class="nav-number">3.5.</span> <span class="nav-text">toArray() 转为数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#serialize-数组串联"><span class="nav-number">3.6.</span> <span class="nav-text">serialize() 数组串联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#serializeArray-数据串联成数组"><span class="nav-number">3.7.</span> <span class="nav-text">serializeArray()数据串联成数组</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

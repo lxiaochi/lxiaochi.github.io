@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day02视频笔记变量的基本格式逛超市(存包)储物柜(用来存放物品的)  ——- 变量(用来存放数据的)物品类型(只能存放小型物品) —— 数据类型(也就是存放那种数据的种类)变量的概念:程序运行期间,可以在一定范围之内发生改变的量.变量的本质:其实就是一小块内存空间.">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day02">
+<meta property="og:url" content="http://yoursite.com/2018/06/21/大数据基础day02/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day02视频笔记变量的基本格式逛超市(存包)储物柜(用来存放物品的)  ——- 变量(用来存放数据的)物品类型(只能存放小型物品) —— 数据类型(也就是存放那种数据的种类)变量的概念:程序运行期间,可以在一定范围之内发生改变的量.变量的本质:其实就是一小块内存空间.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-21T13:27:34.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day02">
+<meta name="twitter:description" content="大数据基础班day02视频笔记变量的基本格式逛超市(存包)储物柜(用来存放物品的)  ——- 变量(用来存放数据的)物品类型(只能存放小型物品) —— 数据类型(也就是存放那种数据的种类)变量的概念:程序运行期间,可以在一定范围之内发生改变的量.变量的本质:其实就是一小块内存空间.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/21/大数据基础day02/"/>
+
+
+
+
+
+  <title>大数据基础day02 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/21/大数据基础day02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day02</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T21:15:00+08:00">
+                2018-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,342
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day02视频笔记"><a href="#大数据基础班day02视频笔记" class="headerlink" title="大数据基础班day02视频笔记"></a>大数据基础班day02视频笔记</h1><h3 id="变量的基本格式"><a href="#变量的基本格式" class="headerlink" title="变量的基本格式"></a>变量的基本格式</h3><p>逛超市(存包)<br>储物柜(用来存放物品的)  ——- 变量(用来存放数据的)<br>物品类型(只能存放小型物品) —— 数据类型(也就是存放那种数据的种类)<br>变量的概念:程序运行期间,可以在一定范围之内发生改变的量.<br>变量的本质:其实就是一小块内存空间.<br><a id="more"></a><br>理解</p>
+<ol>
+<li>用来存放数据的.</li>
+<li>内容可以发生改变</li>
+<li>一次只能存放一个数据</li>
+<li>可以通过变量的名称来使用其中的数据</li>
+<li>里面的数据必须符合数据类型的要求</li>
+</ol>
+<p>如何使用变量<br>方案一(两个步骤)</p>
+<ol>
+<li>创建一个变量</li>
+<li>放入数据<br>方案二(一个步骤)</li>
+<li>创建变量的同事立刻放入数据</li>
+</ol>
+<p>使用变量的基本格式<br>方案一<br>1.数据类型 变量名称;//创建变量<br>2.变量名称 = 值;//放入数据,等于号为赋值运算符<br>方案二<br>1.数据类型 变量名称 = 值 //声明变量并且给变量初始化</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>作用:给类、变量、包、方法等起名字.<br>组成规则(硬性规定)</p>
+<ol>
+<li>只能由字符、下划线<em>、美元符$组成<br>这里的字符包括大小写字母、中文字符、数字字符等、但符号只能有两个:下划线</em>和美元符$<ol start="2">
+<li>不能以数字开头.</li>
+<li>不能是Java中的关键字<br>命名规则(软性建议)</li>
+<li>基本要求 : 见名知意</li>
+<li>建议只使用英文字母和数字</li>
+<li>常见命名的规则:<br>a) 类<br> 每个单词首字母大写,例如Student、HelloWorld<br>b) 变量<br> 第一个单词完全小写,后续更多单词首字母大写,例如age、ageOfMyGirlfriend<br>c) 方法<br> 与变量规则一样、例如show()、getAge()<br>d) 包(其实就是文件夹,用于对类进行管理)<br> 全部小写,多级包用点隔开.公司域名的反写<br> cn.itcast                 (相当于两级文件夹:cn\itcast)<br> com.itheima           (相当于两级文件夹:com\itcast)</li>
+</ol>
+</li>
+</ol>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol>
+<li>基本类型<ul>
+<li>整数类型:   byte short int long 字节: 1 2 4 8</li>
+<li>浮点类型:   float double 字节: 4 8 </li>
+<li>字符类型:   char 字节:2</li>
+<li>布尔类型:   boolean 字节:1</li>
+</ul>
+</li>
+<li>引用类型<br> 字符串、类、接口、数组、Lambda…</li>
+</ol>
+<p><strong>注意事项</strong></p>
+<ol>
+<li>整数类型有4种,默认为int类型.</li>
+<li>浮点数类型有2种,默认为double类型.</li>
+<li>定义一个long型数据,在数值后面要用字母L作为后缀(大小写均可,推荐大写)</li>
+<li>定义一个float型数据,在数值后面要用字母F作为后缀(大小写均可,推荐大写)</li>
+<li>字符char型数据,是可以包含中文的 </li>
+</ol>
+<p>使用变量的注意事项:</p>
+<ol>
+<li>创建的多个变量不能重名</li>
+<li>变量如果没有赋值,不能直接使用,如果要想使用,必须初始化变量</li>
+<li>变量的作用域问题<br> 变量定义在哪个大括号当做就只能在哪里使用,超出了直接所属的大括号.就不能使用</li>
+<li>可以通过一个步骤同时定义多个类型相同的变量</li>
+</ol>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>概述<br>运算符:对常量或变量进行操作的符号,叫做运算符.例如”+”<br>表达式:用运算符将多个常量或变量连起来的式子,叫做表达式.例如a+b<br>常用的运算符分类有:</p>
+<ul>
+<li>算数运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符</li>
+<li>逻辑运算符</li>
+</ul>
+<p><strong>算数运算符</strong>:<br>四则运算:加、减、乘、除<br>取模运算:只对整数进行取模运算<br>(+)对于字符串来说,并不是相加的意思,而是连接的功能<br>注意事项:</p>
+<ol>
+<li>任何数据类型和字符串进行连接操作,结果都一定是字符串</li>
+<li>字符串连接的时候,要注意先后顺序,优先级问题</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		String str1 = &quot;Hello&quot;;</span><br><span class="line">		String str2 = str1 + &quot;World&quot;;</span><br><span class="line">		System.out.println(str2);//HelloWorld</span><br><span class="line">		String str3 = &quot;Hello&quot;+&quot;Java&quot;+&quot;!&quot;;</span><br><span class="line">		System.out.println(str3);//HelloJava!</span><br><span class="line">		String str4 = &quot;Hello&quot; + 30;</span><br><span class="line">		System.out.println(str4);//Hello30</span><br><span class="line">		String str5 = &quot;Hello&quot; + 10 + 20;</span><br><span class="line">		System.out.println(str5);//Hello1020</span><br><span class="line">		String str6 = &quot;Hello&quot; + (10 + 20);</span><br><span class="line">		System.out.println(str6);//Hello30</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>自增运算:++  就是在变量原有的基础上,累加一个1<br>自减运算:–      就是在变量原有的基础上,累减一个1<br>使用格式:</p>
+<ol>
+<li>可以用在变量的前面,例如:++num</li>
+<li>也可以用在变量的后面,例如:num++<br>使用方式:</li>
+<li>单独使用: 自己独立成为一个步骤语句,不和其他任何操作混合</li>
+<li>混合使用: 和其他操作一起混合<br>前和后两个使用方式的区别:</li>
+<li>单独的时候,前++和后++没有任何区别</li>
+<li>混合使用的时候,前++和后++存在<strong>重大区别</strong><br> A. 如果是前++,那么变量立刻马上+1,然后拿着结果进行使用.先加后用<br> B. 如果是后++,那么首先使用变量当前的本来数据然后再进行+1操作.后用先加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		int num1 = 20;</span><br><span class="line">		//和输出语句一起混合使用</span><br><span class="line">		System.out.println(++num1);//21</span><br><span class="line">		System.out.println(num1);//21</span><br><span class="line">		int num2 = 20;</span><br><span class="line">		System.out.println(num2++);//20</span><br><span class="line">		System.out.println(num2);//21</span><br><span class="line">		//和赋值一起混合使用</span><br><span class="line">		int x=10;</span><br><span class="line">		int y = 20;</span><br><span class="line">		int result1  =  x++;</span><br><span class="line">		System.out.println(result1);//10</span><br><span class="line">		System.out.println(x);//11</span><br><span class="line">		int result2  = ++y;</span><br><span class="line">		System.out.println(result2);//21</span><br><span class="line">		System.out.println(y);//21</span><br><span class="line">		int a = 10;</span><br><span class="line">		int b = 20;</span><br><span class="line">		int result3 = ++a + b--;</span><br><span class="line">		System.out.println(result3);//31</span><br><span class="line">		System.out.println(a);//11</span><br><span class="line">		System.out.println(b);//19</span><br><span class="line">		System.out.println(100++);//常量不能++</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意事项:</strong><br>自增运算符和自减运算符,只能用于变量,不能用于常量</p>
+<p><strong>赋值运算符</strong></p>
+<ol>
+<li>基本赋值运算符: = 不是数学当中相等的意思,而是代表一个动作,将右侧的数据交给左边的变量进行存储</li>
+<li>复合赋值运算符: += -= *= /=<br><strong>注意事项:</strong><br>赋值运算符只能左侧是一个变量,左侧不能是常量 右侧无所谓</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		int num1 = 10;</span><br><span class="line">		num1 ++;</span><br><span class="line">		num1 ++;</span><br><span class="line">		num1 ++;</span><br><span class="line">		System.out.println(num1);//13</span><br><span class="line">		</span><br><span class="line">		int num2 = 20;</span><br><span class="line">		num2 += 5;</span><br><span class="line">		System.out.println(num2);//25</span><br><span class="line">		</span><br><span class="line">		int a = 10;</span><br><span class="line">		a %= 3; // a = a  %  3;</span><br><span class="line">		System.out.println(a);//a</span><br><span class="line">		</span><br><span class="line">		int var1  = 100;</span><br><span class="line">		//200 = 100 //错误写法！左侧不能是常量</span><br><span class="line">		//200 = 200 //err</span><br><span class="line">		int var2 = var1; // 只要左边是变量，右边是变量常量都行</span><br><span class="line">		System.out.println(var2); //100</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>比较运算符</strong>:也叫做关系运算符,用来代表两个数据之间的关系<br>大于 &gt;<br>小于 &lt;<br>大于等于 &gt;=<br>小于等于 &lt;=<br>等于 ==      两个等号连写,才是相等的意思!<br>不等于 !=</p>
+<p>比较运算符结果一定是一个boolean值:成立true,不成立false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(4 &gt; 3);//true</span><br><span class="line">		System.out.println(4 &lt; 3);//false</span><br><span class="line">		System.out.println(10 &gt;= 6);//true</span><br><span class="line">		System.out.println(10 &gt;= 10);//true</span><br><span class="line">		System.out.println(10 &gt;= 20);//false</span><br><span class="line">		</span><br><span class="line">		int a = 10;</span><br><span class="line">		int b = 20;</span><br><span class="line">		System.out.println(a == b);//false</span><br><span class="line">		System.out.println(a != b);//true</span><br><span class="line">		System.out.println(a &lt;= b);//true</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>逻辑运算符:</strong><br>与(并且)   &amp;  全都是true才是true;否则就是false<br>或(或者)    |   至少一个true就是true;全都是false才是false<br>亦或             ^   相同就是false;不同才是true<br>非(取反)    !    本来是true变成false;本来是false变成true</p>
+<p><strong>注意事项:</strong></p>
+<ol>
+<li>逻辑运算符通常用来连接多个布尔值</li>
+<li>如果是两个布尔值进行连接:布尔值A  &amp;  布尔值B</li>
+<li>如果是多个布尔值进行连接:布尔值A  &amp;  布尔值B  &amp;  布尔值C</li>
+<li>如果是取反运算符,那么只能用于一个布尔值身上:  !布尔值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(true &amp;  true);//true</span><br><span class="line">		System.out.println(true &amp;  false);//false</span><br><span class="line">		System.out.println(false &amp;  false);//false</span><br><span class="line">		System.out.println(&quot;============&quot;);</span><br><span class="line">		boolean a = true;</span><br><span class="line">		boolean b = false;</span><br><span class="line">		System.out.println(a &amp; b);//false</span><br><span class="line">		System.out.println(4 &gt; 3 &amp; 10 &lt; 20);//true</span><br><span class="line">		System.out.println(&quot;============&quot;);</span><br><span class="line">		System.out.println(4 &gt; 3 | 10 &gt; 20);//true</span><br><span class="line">		System.out.println(4 &gt; 3 | 10 &gt; 5);//true</span><br><span class="line">		System.out.println(4 &lt; 3 | 10 &lt; 5);//false</span><br><span class="line">		System.out.println(&quot;============&quot;);</span><br><span class="line">		System.out.println(true ^ true);//false</span><br><span class="line">		System.out.println(false ^ false);//false</span><br><span class="line">		System.out.println(true ^ false);//true</span><br><span class="line">		System.out.println(false ^ true);//true</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>短路使用</strong><br>逻辑运算符当中的与(&amp;)、或(|)这两个运算符可以双写:<br>短路与:&amp;&amp;<br>短路或: ||</p>
+<ol>
+<li>短路:如果左侧已经可以判断到最终的结果,那么右侧将不再执行.</li>
+<li>凡是用到了与、或这两个逻辑运算的时候,都非常推荐使用双写.因为双写有可能提高代码执行效率</li>
+<li>只有与、或才能双写,亦或,非不能双写</li>
+</ol>
+<h3 id="Scanner键盘输入"><a href="#Scanner键盘输入" class="headerlink" title="Scanner键盘输入"></a>Scanner键盘输入</h3><p>使用引用类型</p>
+<ol>
+<li>导包<br>指定需要使用的目标在什么位置.在public class之前一行写代码<br>import 包路径名</li>
+<li>创建<br>通常需要创建之后才能使用<br>格式:<br>数据类型 变量名称 = new 数据类型()</li>
+<li>使用<br>需要使用什么功能,就点儿一个功能名称(方法名)<br>格式:<br>变量名称.方法名()<br>使用Scanner</li>
+<li>import java.util.Scanner;</li>
+<li>Scanner sc = new Scanner(System.in);</li>
+<li>int c  = sc.nextInt();String str = sc.next();</li>
+<li>System.out.printfln(c);</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/21/大数据基础day01/" rel="next" title="大数据基础day01">
+                <i class="fa fa-chevron-left"></i> 大数据基础day01
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day02视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day02视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的基本格式"><span class="nav-number">1.0.1.</span> <span class="nav-text">变量的基本格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符"><span class="nav-number">1.0.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.0.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符"><span class="nav-number">1.0.4.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scanner键盘输入"><span class="nav-number">1.0.5.</span> <span class="nav-text">Scanner键盘输入</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

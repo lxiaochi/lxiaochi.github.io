@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day01视频笔记java的概述:1.java发展史        95年 詹姆斯高斯林 加拿大人士 双博士学位 天文学/计算机学        c++ / oak 橡树 未遂 失败了        互联网 java        sun公司  s·斯坦福 u大学 n网络工程        Oracle 甲骨文 2000s 90年代        74亿美元">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day01">
+<meta property="og:url" content="http://yoursite.com/2018/06/21/大数据基础day01/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day01视频笔记java的概述:1.java发展史        95年 詹姆斯高斯林 加拿大人士 双博士学位 天文学/计算机学        c++ / oak 橡树 未遂 失败了        互联网 java        sun公司  s·斯坦福 u大学 n网络工程        Oracle 甲骨文 2000s 90年代        74亿美元">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-21T13:29:27.928Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day01">
+<meta name="twitter:description" content="大数据基础班day01视频笔记java的概述:1.java发展史        95年 詹姆斯高斯林 加拿大人士 双博士学位 天文学/计算机学        c++ / oak 橡树 未遂 失败了        互联网 java        sun公司  s·斯坦福 u大学 n网络工程        Oracle 甲骨文 2000s 90年代        74亿美元">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/21/大数据基础day01/"/>
+
+
+
+
+
+  <title>大数据基础day01 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/21/大数据基础day01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day01</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T21:12:47+08:00">
+                2018-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,365
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day01视频笔记"><a href="#大数据基础班day01视频笔记" class="headerlink" title="大数据基础班day01视频笔记"></a>大数据基础班day01视频笔记</h1><h3 id="java的概述"><a href="#java的概述" class="headerlink" title="java的概述:"></a>java的概述:</h3><p>1.java发展史<br>        95年 詹姆斯高斯林 加拿大人士 双博士学位 天文学/计算机学<br>        c++ / oak 橡树 未遂 失败了<br>        互联网 java<br>        sun公司  s·斯坦福 u大学 n网络工程<br>        Oracle 甲骨文 2000s 90年代<br>        74亿美元<br><a id="more"></a><br>2.java三大方向<br>        java1.0<br>        1.2<br>            j2se<br>            j2me<br>            j2ee<br>        1.5<br>            javase 桌面级<br>            javame  移动端<br>            javaee  企业级<br>        为什么划分?<br>            为了占领更大的市场,获取更大的市场份额<br>2.java的跨平台特性<br>        java程序借助于jvmjava虚拟机,就可以做到一次编译到处运行的目的<br>        深入理解jvm<br>3.jdk_jre_jvm<br>        jvm java虚拟机<br>        jre中 java runtime environment java运行环境<br>        只运行jre自带了一个jvm<br>        包括一些标准类库(sum公司java提供出厂标准类)<br>        jdk java develop kit  java开发工具<br>        jre–&gt;jvm</p>
+<h3 id="开发环境的配置"><a href="#开发环境的配置" class="headerlink" title="开发环境的配置"></a>开发环境的配置</h3><p>1.下载JDK<br>        <a href="http://www.oracle.com" target="_blank" rel="noopener">www.oracle.com</a></p>
+<ol start="2">
+<li>安装JDK</li>
+</ol>
+<ul>
+<li>不要带中文和空格</li>
+<li>尽量安装到除C盘外的盘符</li>
+</ul>
+<ol start="3">
+<li>配置环境变量</li>
+</ol>
+<ul>
+<li>我的电脑右键属性-高级-环境变量–系统变量新建—jdk安装路径 变量名 JAVA_HOME</li>
+<li>修改path 在path变量行首 %JAVA_HOME%\bin</li>
+<li>%表示引用的意思 引用JDK所在的路径</li>
+<li>;表示分隔</li>
+</ul>
+<ol start="4">
+<li>测试运行</li>
+</ol>
+<ul>
+<li>win+r 打开命令行 </li>
+<li>输入cmd</li>
+</ul>
+<h3 id="eclipese"><a href="#eclipese" class="headerlink" title="eclipese"></a>eclipese</h3><p>集成开发环境<br>        集中代码的校验 编译 辅助功能..大幅度提高我们开发效率<br>    IBM公司开发<br>    使用eclipse写代码的简单步骤<br>        1:选择一个工作空间 你的源码所在位置<br>        2:在左方空白处新建一个java项目<br>        3:新建一个包 src 包名一般都使用公司名倒叙<br>        4:在包下新建一个class 类<br>        5:在class类中写main方法 格式是固定的<br>            public static void main(String[]args){<br>                System.out.println(“我是黑马程序员 我骄傲!”);<br>            }</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释:"></a>注释:</h3><p>他是什么:java提供语法<br>他能干什么:用来解释说明程序的<br>以及如何使用:<br>        单行注释<br>            // 注释的内容<br>            ctrl + /<br>        多行注释<br>            /<em><br>                ctrl + shift + /
+            </em>/<br>        文档注释<br>            /*<em><br>                就是用来生成解释文档用的
+            </em>/</p>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><p>java语言赋予了特殊含义的单词<br>    1:所有字母都小写<br>    2:在常用的编辑器里 关键字有特殊的颜色标识<br>代码辅助键 alt + /</p>
+<h3 id="常量-字面量-在程序运行中其值不可以发生变化的量"><a href="#常量-字面量-在程序运行中其值不可以发生变化的量" class="headerlink" title="常量(字面量)    在程序运行中其值不可以发生变化的量"></a>常量(字面量)    在程序运行中其值不可以发生变化的量</h3><p>整数常量<br>        12 45 78<br>    小数常量<br>        12.34 56.12<br>    布尔常量boolean<br>        true/false<br>字符常量 ‘a’ ‘0’ ‘张’<br>字符串常量  “张三”<br>空常量 null</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量:"></a>变量:</h3><p>本质上内存中的一小块区域,他是可以在程序运行中 在指定范围内发生变化的量 叫做变量<br>    注意事项:<br>        1:要有数据限定的类型<br>        2:给他起个名字<br>        3:给他一个初始化值(就是在定义一个变量的时候给他赋值)<br>    定义变量格式:<br>        数据类型   变量名 = 初始化值; </p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>基本类型<br>        四类八种<br>        整型<br>            byte        1字节    -128-127<br>            short        2字节<br>            int            4字节<br>            long        8字节    需要在数值后面加1/L<br>        浮点型<br>            float        4字节    在数值后面加f/F<br>            double        8字节    不需要 默认定义的浮点型就是double<br>        字符型<br>            char        2字节    ‘a’ 在单引号内只能出现一个字符<br>        布尔型<br>            boolean(true/false) 1字节<br>引用类型<br>        字符串String..<br>        数组..<br>        集合..<br>        自定义类<br>        接口<br>        抽象类..<br>        java自带的类<br>字节:<br>    计算机电子元件开和关    1 0    莱布尼茨<br>    国际标准化组织规定 用8个这个符号来表示一个数据<br>    这个一个数据就叫做一个字节<br>    1 0 1 1 1 1 0 1    一个<br>    每个符号叫做1比特位    1bit<br>    1kb = 8bit<br>    1mb    = 1024kb<br>    1gb = 1024mb<br>    1tb = 1024gb<br>    ..<br>    pb    1千亿亿亿兆字节…</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>用来给项目 包 类 变量起名的符号<br>组成:<br>    1:数字<br>        2:大小写英文字母<br>        3:汉字(不用)<br>        4:下划线 _<br>        5:美元$<br>    命名规则:<br>        1:不能以数字开头<br>        2:不能以java中关键字作为标识符<br>    命名规范:<br>        1:见名知意    age    name<br>        2:驼峰命名法     myNameIsLisi<br>    //int myage = 19;</p>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量:"></a>定义变量:</h3><p>格式:<br>        数据类型    变量名 = 初始化值;<br>        先声明 后赋值<br>        数据类型    变量名;<br>        变量名 = 初始化值;<br>    byte short int long float  double boolean char<br>注意:<br>        int    定义整数的时候默认都是int类型    如果要把一个值赋值给long类型的变量 那么需要指明他的类型为long 在数值后面加L<br>        float    定义浮点型的时候默认都是double 如果要把一个浮点值赋值float 那么需要指明他的类型为float 在数值后面加f/F<br>定义变量注意事项:<br>    1:定义的变量如果要使用必须先赋值<br>    2:作用域 范围 定义的变量只在他所属的范围内有效<br>    3:一行上可以定义多个变量 但是不建议这么使用</p>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>隐式转换<br>        byte/short/char -&gt; int -&gt; long -&gt; float -&gt; double<br>                           4                  4<br>        如果给定的值没有超出该类型的取值范围那么就可以直接赋值<br>        byte<br>boolean类型不参与运算<br>强制转换<br>        目标类型 变量名 = (目标类型)(数值);<br>        有可能损失精度</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/01/C-分布编译/" rel="next" title="C-分布编译">
+                <i class="fa fa-chevron-left"></i> C-分布编译
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/21/大数据基础day02/" rel="prev" title="大数据基础day02">
+                大数据基础day02 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day01视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day01视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java的概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">java的概述:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发环境的配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">开发环境的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eclipese"><span class="nav-number">1.0.3.</span> <span class="nav-text">eclipese</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.0.4.</span> <span class="nav-text">注释:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字"><span class="nav-number">1.0.5.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量-字面量-在程序运行中其值不可以发生变化的量"><span class="nav-number">1.0.6.</span> <span class="nav-text">常量(字面量)    在程序运行中其值不可以发生变化的量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.0.7.</span> <span class="nav-text">变量:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.0.8.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符"><span class="nav-number">1.0.9.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义变量"><span class="nav-number">1.0.10.</span> <span class="nav-text">定义变量:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">1.0.11.</span> <span class="nav-text">类型转换</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

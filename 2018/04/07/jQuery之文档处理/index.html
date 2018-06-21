@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文档处理append(content|fn) 向每个匹配的元素内部追加内容。这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似。">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery之文档处理">
+<meta property="og:url" content="http://yoursite.com/2018/04/07/jQuery之文档处理/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="文档处理append(content|fn) 向每个匹配的元素内部追加内容。这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523084418366.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523084720211.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523085054918.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523085213532.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523085339058.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523085670741.png">
+<meta property="og:updated_time" content="2018-04-07T08:25:20.700Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery之文档处理">
+<meta name="twitter:description" content="文档处理append(content|fn) 向每个匹配的元素内部追加内容。这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似。">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/07/jQuery之文档处理/1523084418366.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/07/jQuery之文档处理/"/>
+
+
+
+
+
+  <title>jQuery之文档处理 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/07/jQuery之文档处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery之文档处理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T15:22:13+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  673
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="文档处理"><a href="#文档处理" class="headerlink" title="文档处理"></a>文档处理</h1><h3 id="append-content-fn"><a href="#append-content-fn" class="headerlink" title="append(content|fn)"></a><code>append(content|fn)</code></h3><blockquote>
+<p>向每个匹配的元素内部追加内容。<br>这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似。<br><a id="more"></a><br>A添加到B : B.append(A)<br>A可以是JQ对象,js对象,字符串,函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var $div = $(&quot;#box1&quot;);</span><br><span class="line">console.log($div)</span><br><span class="line">$div.append($(&quot;&lt;p&gt;通过append添加的元素&lt;/p&gt;&quot;))</span><br><span class="line">var oSpan = document.createElement(&quot;span&quot;);</span><br><span class="line">oSpan.innerHTML = &quot;1122334&quot;;</span><br><span class="line">$div.append(oSpan);</span><br><span class="line">$div.append(&quot;文字节点&quot;);</span><br><span class="line">$div.append(function()&#123;</span><br><span class="line">	return &quot;1234&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="appendTo-content"><a href="#appendTo-content" class="headerlink" title="appendTo(content)"></a><code>appendTo(content)</code></h2><blockquote>
+<p>把所有匹配的元素追加到另一个指定的元素元素集合中。</p>
+</blockquote>
+<p>A添加到B : A.appendTo(B)<br>A ==&gt; JQ对象<br>B ==&gt; JQ,JS<br><strong>只有JQ对象才能链式操作JQ方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var $div2 = $(&quot;#box2&quot;);</span><br><span class="line">$(&quot;&lt;p&gt;通过appendTo添加的元素&lt;/p&gt;&quot;).appendTo($div2);</span><br><span class="line">$(oSpan).appendTo($div2)</span><br></pre></td></tr></table></figure>
+<img src="/2018/04/07/jQuery之文档处理/1523084418366.png">
+<h3 id="prepend-content"><a href="#prepend-content" class="headerlink" title="prepend(content)"></a><code>prepend(content)</code></h3><blockquote>
+<p>向每个匹配的元素内部前置内容。<br>这是向所有匹配元素内部的开始处插入内容的最佳方式。</p>
+</blockquote>
+<p>A添加到B : B.prepend(A)<br>A可以是JQ对象,js对象,字符串,函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var $div3 = $(&quot;#box3&quot;);</span><br><span class="line">$div3.prepend($(&quot;&lt;p&gt;通过prepend添加的元素&lt;/p&gt;&quot;));</span><br><span class="line">$div3.prepend(&quot;文本节点&quot;);</span><br></pre></td></tr></table></figure>
+<img src="/2018/04/07/jQuery之文档处理/1523084720211.png">
+<h3 id="prependTo-content"><a href="#prependTo-content" class="headerlink" title="prependTo(content)"></a><code>prependTo(content)</code></h3><blockquote>
+<p>把所有匹配的元素前置到另一个、指定的元素元素集合中。</p>
+</blockquote>
+<p> <strong>与appendTo(content)相似</strong></p>
+<h3 id="after-content-fn"><a href="#after-content-fn" class="headerlink" title="after(content|fn)"></a><code>after(content|fn)</code></h3><blockquote>
+<p>在每个匹配的元素之后插入内容。</p>
+</blockquote>
+<h3 id="before-content-fn"><a href="#before-content-fn" class="headerlink" title="before(content|fn)"></a><code>before(content|fn)</code></h3><blockquote>
+<p>在每个匹配的元素之前插入内容。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$div3.after(&quot;&lt;span&gt;after&lt;/span&gt;&quot;)</span><br><span class="line">$div3.before(&quot;&lt;span&gt;before&lt;/span&gt;&quot;)</span><br></pre></td></tr></table></figure>
+<img src="/2018/04/07/jQuery之文档处理/1523085054918.png">
+<h3 id="empty"><a href="#empty" class="headerlink" title="empty()"></a><code>empty()</code></h3><blockquote>
+<p>删除匹配的元素集合中所有的子节点。<br>类似于 js 中的 innerHTML = “”</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$div.empty()</span><br></pre></td></tr></table></figure>
+<img src="/2018/04/07/jQuery之文档处理/1523085213532.png">
+<h3 id="remove-expr"><a href="#remove-expr" class="headerlink" title="remove([expr])"></a><code>remove([expr])</code></h3><blockquote>
+<p>从DOM中删除所有匹配的元素。<br>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。但除了这个元素本身得以保留之外，其他的比如绑定的事件，附加的数据等都会被移除。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$div2.remove()</span><br><span class="line">// $(&quot;div&quot;).remove(&quot;#box2&quot;)</span><br></pre></td></tr></table></figure>
+<img src="/2018/04/07/jQuery之文档处理/1523085339058.png">
+<h3 id="detach-expr"><a href="#detach-expr" class="headerlink" title="detach([expr])"></a><code>detach([expr])</code></h3><blockquote>
+<p>从DOM中删除所有匹配的元素。<br>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。与remove()不同的是，所有绑定的事件、附加的数据等都会保留下来。</p>
+</blockquote>
+<h3 id="clone-Even-deepEven"><a href="#clone-Even-deepEven" class="headerlink" title="clone([Even[,deepEven]])"></a><code>clone([Even[,deepEven]])</code></h3><blockquote>
+<p>克隆匹配的DOM元素并且选中这些克隆的副本。<br>在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。</p>
+</blockquote>
+<p>1:一个布尔值（true 或者 false）指示事件处理函数是否会被复制,默认为false。<br>2:一个布尔值，指示是否对事件处理程序和克隆的元素的所有子元素的数据应该被复制。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$div2.clone().appendTo($div3)</span><br></pre></td></tr></table></figure>
+<img src="/2018/04/07/jQuery之文档处理/1523085670741.png">
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/07/jQuery之HTML/" rel="next" title="jQuery之HTML">
+                <i class="fa fa-chevron-left"></i> jQuery之HTML
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/07/java连接数据库/" rel="prev" title="java连接数据库">
+                java连接数据库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文档处理"><span class="nav-number">1.</span> <span class="nav-text">文档处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#append-content-fn"><span class="nav-number">1.0.1.</span> <span class="nav-text">append(content|fn)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appendTo-content"><span class="nav-number">1.1.</span> <span class="nav-text">appendTo(content)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prepend-content"><span class="nav-number">1.1.1.</span> <span class="nav-text">prepend(content)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prependTo-content"><span class="nav-number">1.1.2.</span> <span class="nav-text">prependTo(content)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#after-content-fn"><span class="nav-number">1.1.3.</span> <span class="nav-text">after(content|fn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#before-content-fn"><span class="nav-number">1.1.4.</span> <span class="nav-text">before(content|fn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#empty"><span class="nav-number">1.1.5.</span> <span class="nav-text">empty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove-expr"><span class="nav-number">1.1.6.</span> <span class="nav-text">remove([expr])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detach-expr"><span class="nav-number">1.1.7.</span> <span class="nav-text">detach([expr])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clone-Even-deepEven"><span class="nav-number">1.1.8.</span> <span class="nav-text">clone([Even[,deepEven]])</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

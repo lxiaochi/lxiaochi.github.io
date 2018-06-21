@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="$ ().xxx() 是jQuery对象方法$.xxx() 工具方法,即可以给jQuery对象用,也可以给原生js对象用">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 常用工具函数 ajax()">
+<meta property="og:url" content="http://yoursite.com/2018/04/09/jQuery-常用工具函数-ajax/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="$ ().xxx() 是jQuery对象方法$.xxx() 工具方法,即可以给jQuery对象用,也可以给原生js对象用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-09T12:25:51.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery 常用工具函数 ajax()">
+<meta name="twitter:description" content="$ ().xxx() 是jQuery对象方法$.xxx() 工具方法,即可以给jQuery对象用,也可以给原生js对象用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/09/jQuery-常用工具函数-ajax/"/>
+
+
+
+
+
+  <title>jQuery 常用工具函数 ajax() | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/09/jQuery-常用工具函数-ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery 常用工具函数 ajax()</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T20:23:47+08:00">
+                2018-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,088
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>$ ().xxx() 是jQuery对象方法<br>$.xxx() 工具方法,即可以给jQuery对象用,也可以给原生js对象用<br><a id="more"></a></p>
+<h1 id="常用工具函数"><a href="#常用工具函数" class="headerlink" title="常用工具函数"></a>常用工具函数</h1><h3 id="jQuery-type-判断类型"><a href="#jQuery-type-判断类型" class="headerlink" title="jQuery.type() 判断类型"></a>jQuery.type() 判断类型</h3><h3 id="jQuery-each-object-callback-通用遍历方法-可用于遍历任何对象-如对象和数组"><a href="#jQuery-each-object-callback-通用遍历方法-可用于遍历任何对象-如对象和数组" class="headerlink" title="jQuery.each(object,[callback]) 通用遍历方法,可用于遍历任何对象,如对象和数组"></a>jQuery.each(object,[callback]) 通用遍历方法,可用于遍历任何对象,如对象和数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.each( [0,1,2], function(i, n)&#123;</span><br><span class="line">  alert( &quot;Item #&quot; + i + &quot;: &quot; + n );</span><br><span class="line">&#125;);</span><br><span class="line">$.each( &#123; name: &quot;John&quot;, lang: &quot;JS&quot; &#125;, function(i, n)&#123;</span><br><span class="line">  alert( &quot;Name: &quot; + i + &quot;, Value: &quot; + n );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-proxy-function-content-改变this指向"><a href="#jQuery-proxy-function-content-改变this指向" class="headerlink" title="jQuery.proxy( function,content ) 改变this指向"></a>jQuery.proxy( function,content ) 改变this指向</h3><p>function:将要被改变作用域的函数<br>context:一个object,那个函数的作用域会被设置到这个object上来.即function的内部的this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    var obj = &#123;</span><br><span class="line">  name: &quot;John&quot;,</span><br><span class="line">  test: function() &#123;</span><br><span class="line">    alert( this.name );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">$(&quot;#test&quot;).click( jQuery.proxy( obj, &quot;test&quot; ) );</span><br><span class="line"></span><br><span class="line">// 以下代码跟上面那句是等价的:</span><br><span class="line">// $(&quot;#test&quot;).click( jQuery.proxy( obj.test, obj ) );</span><br><span class="line"></span><br><span class="line">// 可以与单独执行下面这句做个比较。</span><br><span class="line">// $(&quot;#test&quot;).click( obj.test );</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-onconflict-bealoon-防止冲突-可以传递布尔值"><a href="#jQuery-onconflict-bealoon-防止冲突-可以传递布尔值" class="headerlink" title="jQuery.onconflict( bealoon ) 防止冲突 可以传递布尔值"></a>jQuery.onconflict( bealoon ) 防止冲突 可以传递布尔值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.noConflict(); //将变量$释放</span><br><span class="line">console.log( $ ); //undefined</span><br><span class="line">console.log(jQuery);//jQuery 依然可以使用</span><br><span class="line"></span><br><span class="line">var a = $.noConflict();</span><br><span class="line">onsole.log( a ); //此时a具有了$功能</span><br></pre></td></tr></table></figure>
+<h1 id="HTTP-AJAX"><a href="#HTTP-AJAX" class="headerlink" title="HTTP AJAX"></a>HTTP AJAX</h1><h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><p>$( selector ).load( url,data,function( response,status,xhr ) )<br>load()方法通过AJAX请求从服务器加载数据,并把返回的数据放置到指定的元素中,<strong>需后台环境</strong>,默认<strong>get请求</strong><br><code>url</code>规定要将请求发送到哪个URL<br><code>data</code>可选.规定连同请求发送到服务器的数据<br>function( response,status,xhr )<br>可选,规定当请求完成时运行的函数<br>额外的参数<br><code>resp</code> - 包含来自请求的结果数据<br><code>status</code> - 包含请求的状态（”success”, “notmodified”, “error”, “timeout” 或 “parsererror”）<br><code>xhr</code> - 包含XMLHttpRequest对象</p>
+<h4 id="加载文本"><a href="#加载文本" class="headerlink" title="加载文本"></a>加载文本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#box&apos;).click(function()&#123;</span><br><span class="line">    $(&apos;#box&apos;).load(&apos;test.txt&apos;);</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="加载html"><a href="#加载html" class="headerlink" title="加载html"></a>加载html</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#result&quot;).load(&quot;ajax/test.html&quot;);</span><br></pre></td></tr></table></figure>
+<h4 id="带回调函数"><a href="#带回调函数" class="headerlink" title="带回调函数"></a>带回调函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#box&apos;).click(function()&#123;</span><br><span class="line">         $(&apos;#box&apos;).load(&apos;test.html&apos;,function()&#123;</span><br><span class="line">                  console.log(&apos;ok&apos;)</span><br><span class="line">           &#125;);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="POST形式加载"><a href="#POST形式加载" class="headerlink" title="POST形式加载"></a>POST形式加载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#box&apos;).click(function()&#123;</span><br><span class="line">      $(&apos;#box&apos;).load(&apos;test.php&apos;,&#123;age:25&#125;,function()&#123;</span><br><span class="line">              console.log(&apos;ok&apos;)</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="ajax"><a href="#ajax" class="headerlink" title="ajax()"></a>ajax()</h3><p>jQuery.ajax(  ):json形式的配置参数</p>
+<h4 id="type请求类型"><a href="#type请求类型" class="headerlink" title="type请求类型"></a>type请求类型</h4><p>请求方式(“POST”或”GET”),默认为”GET”.</p>
+<h4 id="url-请求url"><a href="#url-请求url" class="headerlink" title="url 请求url"></a>url 请求url</h4><h4 id="async-是否异步"><a href="#async-是否异步" class="headerlink" title="async 是否异步"></a>async 是否异步</h4><blockquote>
+<p>(默认:true)默认设置下,所有请求均为异步请求.如果需要发送同步请求,请将此选项设置为false.注意,同步请求将锁住浏览器,用户其他操作必须等待请求完成才可以执行</p>
+</blockquote>
+<h4 id="data-Object-String"><a href="#data-Object-String" class="headerlink" title="data Object,String"></a>data Object,String</h4><blockquote>
+<p>发送到服务器的数据,将自动转换为请求字符串格式,GET请求中将附加在URL后,查看processData选项说明以禁止此自动转换.必须为key/value格式.如果为数组,jQuery将自动为不同值对应同一个名称,如{foo:[“bar1”,”bar2”]}转换为”&amp;foo=bar1&amp;foo’=bar2”.</p>
+</blockquote>
+<h4 id="dataType-预期服务器返回的数据类型"><a href="#dataType-预期服务器返回的数据类型" class="headerlink" title="dataType 预期服务器返回的数据类型"></a>dataType 预期服务器返回的数据类型</h4><blockquote>
+<p>“<code>xml</code>“:返回XML文档,可用jQuery处理<br>“<code>html</code>“:返回纯文本HTML信息;<br>“<code>script</code>“:返回纯文本JavaScript代码,不会自动缓存结果。除非设置了”cache”参数。”注意：”在远程请求时( 不在同一个域下 ),所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)<br>“<code>json</code>“:返回JSON数据。<br>“<code>jsonp</code>“:JSONP格式。使用JSONP形式调用函数时,如”myurl?callback=?”jQuery将自动替换？为正确的函数名,以执行回调函数.。<br>“<code>text</code>“:返回纯文本字符串</p>
+</blockquote>
+<h4 id="cache-缓存"><a href="#cache-缓存" class="headerlink" title="cache 缓存"></a>cache 缓存</h4><blockquote>
+<p>(默认：true，dataType为script和jsonp时默认为false)设置为false将不缓存此页面</p>
+</blockquote>
+<h4 id="success"><a href="#success" class="headerlink" title="success"></a>success</h4><blockquote>
+<p>success(response,Status,jqXHR)</p>
+</blockquote>
+<h4 id="error"><a href="#error" class="headerlink" title="error"></a>error</h4><blockquote>
+<p>function(xhr,status,errorMessage)<br>有以下三个参数：XMLHttpRequest对象、错误信息、(可选)捕获的异常对象</p>
+</blockquote>
+<h4 id="contentType"><a href="#contentType" class="headerlink" title="contentType"></a>contentType</h4><blockquote>
+<p>(默认：”application/x-www-form-urlencoded”)发送信息至服务器时内容编码类型。默认值适合大多数情况。如果你明确地传递了一个content-tyoe给$.ajax()那么它必定会发送给服务器( 即使没有数据要发送 )</p>
+</blockquote>
+<h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><blockquote>
+<p>在一个jsonp请求中重写回调函数的名字。这个值用来代替在”callback=?”这种GET或POST请求中URL参数里的”callback”部分,比如{jsonp:’onJsonPLoad’}会导致将”onJsonPLoad”传给服务器。</p>
+</blockquote>
+<h4 id="jsonpCallback"><a href="#jsonpCallback" class="headerlink" title="jsonpCallback"></a>jsonpCallback</h4><blockquote>
+<p>为jsonp请求指定一个回调函数名。这个值将用来取代jQuery自动生成的随机函数名。这主要用来让jQuery生成度独特的函数名，这样管理请求更容易，也能方便地提供回调函数和错误处理。你也可以在想让浏览器缓存GET请求的时候，指定这个回调函数名。</p>
+</blockquote>
+<h4 id="context"><a href="#context" class="headerlink" title="context"></a>context</h4><blockquote>
+<p>这个对象用于设置Ajax相关回调函数的上下文。也就是说，让回调函数内this指向这个对象（如果不设定这个参数，那么this就指向调用本次AJAX请求时传递的options参数）。比如指定一个DOM元素作为context参数，这样就设置了success回调函数的上下文为这个DOM元素。就像这样：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123; url: &quot;test.html&quot;, context: document.body, success: function()&#123;</span><br><span class="line">    $(this).addClass(&quot;done&quot;);</span><br><span class="line">&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-get-方法通过远程HTTP-GET请求载入信息。"><a href="#jQuery-get-方法通过远程HTTP-GET请求载入信息。" class="headerlink" title="jQuery.get() 方法通过远程HTTP GET请求载入信息。"></a>jQuery.get() 方法通过远程HTTP GET请求载入信息。</h3><p>这是一个简单的 GET 请求功能以取代复杂 .ajax。</p>
+<blockquote>
+<p>语法<br>$(selector).get(url,data,success(response,status,xhr),dataType)</p>
+</blockquote>
+<p>url 必需。规定将请求发送的哪个 URL。<br>data 可选。规定连同请求发送到服务器的数据。<br>success(response,status,xhr) 可选。规定当请求成功时运行的函数。</p>
+<blockquote>
+<ul>
+<li>response - 包含来自请求的结果数据</li>
+<li>status - 包含请求的状态</li>
+<li>xhr - 包含 XMLHttpRequest 对象</li>
+</ul>
+</blockquote>
+<p>dataType 可选。规定预计的服务器响应的数据类型。默认地，jQuery 将智能判断。<br>可能的类型：”xml”“html”“text”“script”“json”“jsonp”</p>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: url,</span><br><span class="line">  data: data,</span><br><span class="line">  success: success,</span><br><span class="line">  dataType: dataType</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.get(&quot;test.php&quot;);</span><br><span class="line">$.get(&quot;test.php&quot;, &#123; name: &quot;John&quot;, time: &quot;2pm&quot; &#125; );</span><br><span class="line">$.get(&quot;test.php&quot;, function(data)&#123;</span><br><span class="line">  alert(&quot;Data Loaded: &quot; + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$.get(&quot;test.cgi&quot;, &#123; name: &quot;John&quot;, time: &quot;2pm&quot; &#125;,</span><br><span class="line">  function(data)&#123;</span><br><span class="line">    alert(&quot;Data Loaded: &quot; + data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-post-post-方法通过-HTTP-POST-请求从服务器载入数据。"><a href="#jQuery-post-post-方法通过-HTTP-POST-请求从服务器载入数据。" class="headerlink" title="jQuery.post( )post() 方法通过 HTTP POST 请求从服务器载入数据。"></a>jQuery.post( )post() 方法通过 HTTP POST 请求从服务器载入数据。</h3><blockquote>
+<p>语法<br>jQuery.post(url,data,success(data, textStatus, jqXHR),dataType)</p>
+</blockquote>
+<p>url必需。规定把请求发送到哪个 URL。<br>data 可选。映射或字符串值。规定连同请求发送到服务器的数据。<br>success(data, textStatus, jqXHR) 可选。请求成功时执行的回调函数。<br>dataType可选。规定预期的服务器响应的数据类型。<br>默认执行智能判断（xml、json、script 或 html）。</p>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  type: &apos;POST&apos;,</span><br><span class="line">  url: url,</span><br><span class="line">  data: data,</span><br><span class="line">  success: success,</span><br><span class="line">  dataType: dataType</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.post(&apos;05-2 $.ajax.php&apos;,&#123;age:25&#125;,function(res,sta,xhr)&#123;</span><br><span class="line"></span><br><span class="line">    console.log(res,sta,xhr)</span><br><span class="line"></span><br><span class="line">&#125;,&apos;json&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-getJSON-通过-HTTP-GET-请求载入-JSON-数据。"><a href="#jQuery-getJSON-通过-HTTP-GET-请求载入-JSON-数据。" class="headerlink" title="jQuery.getJSON( ) 通过 HTTP GET 请求载入 JSON 数据。"></a>jQuery.getJSON( ) 通过 HTTP GET 请求载入 JSON 数据。</h3><blockquote>
+<p>语法<br>jQuery.getJSON(url,data,success(data,status,xhr))</p>
+</blockquote>
+<p>url 必需。规定将请求发送的哪个 URL。<br>data 可选。规定连同请求发送到服务器的数据。<br>success(data,status,xhr)可选。规定当请求成功时运行的函数。<br>response - 包含来自请求的结果数据<br>status - 包含请求的状态<br>xhr - 包含 XMLHttpRequest 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(&apos;05-3 $.ajax.php&apos;,&#123;age:25&#125;,function(res,sta,xhr)&#123;</span><br><span class="line">                    console.log(res,sta,xhr)</span><br><span class="line">             &#125;,&apos;json&apos;)</span><br></pre></td></tr></table></figure>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h3 id="jQuery-extend-deep-target-object1-objectN"><a href="#jQuery-extend-deep-target-object1-objectN" class="headerlink" title="jQuery.extend([deep], target, object1, [objectN])"></a>jQuery.extend([deep], target, object1, [objectN])</h3><p>用一个或多个其他对象来扩展一个对象，返回被扩展的对象。</p>
+<blockquote>
+<p>如果不指定target，则给jQuery命名空间本身进行扩展。这有助于插件作者为jQuery增加新方法。<br><code>deep</code>:如果设为true，则递归合并。 如果第一个参数设置为true，则jQuery返回一个深层次的副本，递归地复制找到的任何对象。 否则的话，副本会与原对象共享结构。 未定义的属性将不会被复制，然而从对象的原型继承的属性将会被复制。<br><code>target</code>:待修改对象。一个对象，如果附加的对象被传递给这个方法将那么它将接收新的属性，如果它是唯一的参数将扩展jQuery的命名空间。<br><code>object1</code>:待合并到第一个对象的对象。<br><code>objectN</code>:待合并到第一个对象的对象。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var empty = &#123;&#125;;</span><br><span class="line">var defaults = &#123; validate: false, limit: 5, name: &quot;foo&quot; &#125;;</span><br><span class="line">var options = &#123; validate: true, name: &quot;bar&quot; &#125;;</span><br><span class="line">var settings = jQuery.extend(empty, defaults, options);</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">settings == &#123; validate: true, limit: 5, name: &quot;bar&quot; &#125;</span><br><span class="line">empty == &#123; validate: true, limit: 5, name: &quot;bar&quot; &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="插件拓展"><a href="#插件拓展" class="headerlink" title="插件拓展"></a>插件拓展</h1><blockquote>
+<p>jQuery为开发插件提拱了两个方法.</p>
+</blockquote>
+<h4 id="jQuery-extend-添加工具函数，给构造函数添加方法"><a href="#jQuery-extend-添加工具函数，给构造函数添加方法" class="headerlink" title="jQuery.extend 添加工具函数，给构造函数添加方法"></a>jQuery.extend 添加工具函数，给构造函数添加方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; age:function()&#123;alert(888);&#125;  &#125;;</span><br><span class="line"> $.extend(obj);</span><br><span class="line"> $.age();//888</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.age = function()&#123;alert(888);&#125;</span><br><span class="line">$.age();//888</span><br></pre></td></tr></table></figure>
+<h4 id="jQuery-fn-extend给对象添加方法"><a href="#jQuery-fn-extend给对象添加方法" class="headerlink" title="jQuery.fn.extend给对象添加方法"></a>jQuery.fn.extend给对象添加方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    run:function()&#123;</span><br><span class="line">          alert(&apos;run&apos;);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> $.fn.extend(obj);</span><br><span class="line"> $(&apos;#box&apos;).run();//run</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( $.fn === $.prototype ) //true</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/09/jQuery-节点操作-筛选二/" rel="next" title="jQuery 节点操作 筛选二">
+                <i class="fa fa-chevron-left"></i> jQuery 节点操作 筛选二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/26/初识html5/" rel="prev" title="初识html5">
+                初识html5 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用工具函数"><span class="nav-number">1.</span> <span class="nav-text">常用工具函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-type-判断类型"><span class="nav-number">1.0.1.</span> <span class="nav-text">jQuery.type() 判断类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-each-object-callback-通用遍历方法-可用于遍历任何对象-如对象和数组"><span class="nav-number">1.0.2.</span> <span class="nav-text">jQuery.each(object,[callback]) 通用遍历方法,可用于遍历任何对象,如对象和数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-proxy-function-content-改变this指向"><span class="nav-number">1.0.3.</span> <span class="nav-text">jQuery.proxy( function,content ) 改变this指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-onconflict-bealoon-防止冲突-可以传递布尔值"><span class="nav-number">1.0.4.</span> <span class="nav-text">jQuery.onconflict( bealoon ) 防止冲突 可以传递布尔值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-AJAX"><span class="nav-number">2.</span> <span class="nav-text">HTTP AJAX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#load"><span class="nav-number">2.0.1.</span> <span class="nav-text">load()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加载文本"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">加载文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载html"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">加载html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带回调函数"><span class="nav-number">2.0.1.3.</span> <span class="nav-text">带回调函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST形式加载"><span class="nav-number">2.0.1.4.</span> <span class="nav-text">POST形式加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax"><span class="nav-number">2.0.2.</span> <span class="nav-text">ajax()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#type请求类型"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">type请求类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#url-请求url"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">url 请求url</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#async-是否异步"><span class="nav-number">2.0.2.3.</span> <span class="nav-text">async 是否异步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data-Object-String"><span class="nav-number">2.0.2.4.</span> <span class="nav-text">data Object,String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dataType-预期服务器返回的数据类型"><span class="nav-number">2.0.2.5.</span> <span class="nav-text">dataType 预期服务器返回的数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cache-缓存"><span class="nav-number">2.0.2.6.</span> <span class="nav-text">cache 缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#success"><span class="nav-number">2.0.2.7.</span> <span class="nav-text">success</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error"><span class="nav-number">2.0.2.8.</span> <span class="nav-text">error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#contentType"><span class="nav-number">2.0.2.9.</span> <span class="nav-text">contentType</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsonp"><span class="nav-number">2.0.2.10.</span> <span class="nav-text">jsonp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsonpCallback"><span class="nav-number">2.0.2.11.</span> <span class="nav-text">jsonpCallback</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#context"><span class="nav-number">2.0.2.12.</span> <span class="nav-text">context</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-get-方法通过远程HTTP-GET请求载入信息。"><span class="nav-number">2.0.3.</span> <span class="nav-text">jQuery.get() 方法通过远程HTTP GET请求载入信息。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-post-post-方法通过-HTTP-POST-请求从服务器载入数据。"><span class="nav-number">2.0.4.</span> <span class="nav-text">jQuery.post( )post() 方法通过 HTTP POST 请求从服务器载入数据。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-getJSON-通过-HTTP-GET-请求载入-JSON-数据。"><span class="nav-number">2.0.5.</span> <span class="nav-text">jQuery.getJSON( ) 通过 HTTP GET 请求载入 JSON 数据。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">3.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-extend-deep-target-object1-objectN"><span class="nav-number">3.0.1.</span> <span class="nav-text">jQuery.extend([deep], target, object1, [objectN])</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件拓展"><span class="nav-number">4.</span> <span class="nav-text">插件拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-extend-添加工具函数，给构造函数添加方法"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">jQuery.extend 添加工具函数，给构造函数添加方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-fn-extend给对象添加方法"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">jQuery.fn.extend给对象添加方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
