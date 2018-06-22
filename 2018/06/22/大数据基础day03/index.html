@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day03视频笔记流程概述概念:流程是指步骤执行的先后顺序,先做什么,后做什么分类:  顺序结构:从上到下、从前到后,顺序执行 选择结构:执行路线分叉,做这个,或者做那个,也叫做分支结构 循环结构:重复做一下事情">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day03">
+<meta property="og:url" content="http://yoursite.com/2018/06/22/大数据基础day03/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day03视频笔记流程概述概念:流程是指步骤执行的先后顺序,先做什么,后做什么分类:  顺序结构:从上到下、从前到后,顺序执行 选择结构:执行路线分叉,做这个,或者做那个,也叫做分支结构 循环结构:重复做一下事情">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529627032080.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529629822038.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529630691908.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529652782963.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529654117900.png">
+<meta property="og:updated_time" content="2018-06-22T13:24:10.632Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day03">
+<meta name="twitter:description" content="大数据基础班day03视频笔记流程概述概念:流程是指步骤执行的先后顺序,先做什么,后做什么分类:  顺序结构:从上到下、从前到后,顺序执行 选择结构:执行路线分叉,做这个,或者做那个,也叫做分支结构 循环结构:重复做一下事情">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529627032080.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/22/大数据基础day03/"/>
+
+
+
+
+
+  <title>大数据基础day03 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/大数据基础day03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day03</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T21:21:33+08:00">
+                2018-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,930
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day03视频笔记"><a href="#大数据基础班day03视频笔记" class="headerlink" title="大数据基础班day03视频笔记"></a>大数据基础班day03视频笔记</h1><h3 id="流程概述"><a href="#流程概述" class="headerlink" title="流程概述"></a>流程概述</h3><p>概念:流程是指步骤执行的先后顺序,先做什么,后做什么<br>分类:</p>
+<ol>
+<li>顺序结构:从上到下、从前到后,顺序执行</li>
+<li>选择结构:执行路线分叉,做这个,或者做那个,也叫做分支结构</li>
+<li>循环结构:重复做一下事情<a id="more"></a>
+<h4 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h4>程序中最简单最基本的流程控制, </li>
+</ol>
+<h4 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h4><p>Java中主要通过if语句来实现选择分支流程,if语句的格式有常用的三种:</p>
+<ul>
+<li>单if语句:执行某些步骤,或者不执行它们</li>
+<li>标准的if-else语句:在2套步骤方案中选择一种执行</li>
+<li>扩展的if-else语句:在3套过着更多步骤方案中选择一种执行<h5 id="单if语句"><a href="#单if语句" class="headerlink" title="单if语句"></a>单if语句</h5>效果:根据条件判断,成立则执行一段代码,不成立则不执行这段代码<br>格式:<br>if(布尔表达式){<br>  语句体<br>}<br>执行流程:</li>
+</ul>
+<ol>
+<li>首先判断小括号之内的条件是true还是false</li>
+<li>如果是<strong>true</strong>,则<strong>执行</strong>大括号之内的语句体,即一些代码</li>
+<li>如果是<strong>false</strong>,则<strong>不执行</strong>大括号之内的语句体<br>流程图:<img src="/2018/06/22/大数据基础day03/1529627032080.png">
+</li>
+</ol>
+<h5 id="标准的if-else语句"><a href="#标准的if-else语句" class="headerlink" title="标准的if-else语句"></a>标准的if-else语句</h5><p>效果:根据条件判断,成立则执行if中的代码,不成立则不执行else中的代码<br>格式:<br>if(布尔表达式){<br>    语句体A<br>}else{<br>    语句体B<br>}<br>执行流程:</p>
+<ol>
+<li>首先判断小括号之内的条件是true还是false</li>
+<li>如果是<strong>true</strong>,则<strong>执行</strong>if大括号之内的语句体A,而else的内容将不再执行</li>
+<li>如果是<strong>false</strong>,则<strong>不执行</strong>else大括号之内的语句体B,而if的内容将不再执行<br>流程图:<img src="/2018/06/22/大数据基础day03/1529629822038.png">
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;请输入一个整数&quot;);</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		int s = sc.nextInt();</span><br><span class="line">		int num = 10;</span><br><span class="line">		//如何判断一个整数是奇数还是偶数</span><br><span class="line">		if (s % 2 == 0) &#123;//如果num除2得到的余数是0,说明是偶数</span><br><span class="line">			System.out.println(&quot;偶数&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;奇数&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="扩展的if-else语句"><a href="#扩展的if-else语句" class="headerlink" title="扩展的if-else语句"></a>扩展的if-else语句</h5><p>作用:在N个语句体当中选择其中的一个执行<br>格式:<br>if(布尔表达式){<br>    语句体1<br>}else if{<br>    语句体2<br>}<br>…<br>else if{<br>    语句体N<br>}<br>else{<br>    语句体N+1<br>}<br>执行流程:</p>
+<ol>
+<li>如果条件判断1成立,执行语句体1,后续代码不再执行</li>
+<li>如果条件判断1不成立,跳过语句体1,继续执行条件判断2</li>
+<li>如果条件判断2成立,执行语句体2,后续代码不再执行</li>
+<li>如果条件判断2不成立,跳过语句体2,继续执行条件判断N</li>
+<li>如果条件判断N成立,执行语句体N,后续代码不再执行</li>
+<li>如果条件判断N不成立,跳过语句体N,执行else中的代码</li>
+</ol>
+<p>流程图:<br><img src="/2018/06/22/大数据基础day03/1529630691908.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		/*</span><br><span class="line">		 键盘输入一个考试成绩(0-100),进行等级划分:</span><br><span class="line">		 优秀:90-100</span><br><span class="line">		 良好:80-90</span><br><span class="line">		 中等:70-80</span><br><span class="line">		 及格:60-70</span><br><span class="line">		 不及格:60以下</span><br><span class="line">		 */</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入考试成绩:&quot;);</span><br><span class="line">		int score = sc.nextInt();//获取键盘输入的int数字,放到变量score当中</span><br><span class="line">		if (score &gt;= 90 &amp;&amp; score &lt;= 100) &#123;</span><br><span class="line">			System.out.println(&quot;优秀&quot;);</span><br><span class="line">		&#125;else if (score &gt;=80 &amp;&amp; score &lt;90) &#123;</span><br><span class="line">			System.out.println(&quot;良好&quot;);</span><br><span class="line">		&#125;else if (score &gt;=70 &amp;&amp; score &lt;80) &#123;</span><br><span class="line">			System.out.println(&quot;中等&quot;);</span><br><span class="line">		&#125;else if (score &gt;=60 &amp;&amp; score &lt;70) &#123;</span><br><span class="line">			System.out.println(&quot;及格&quot;);</span><br><span class="line">		&#125;else if (score &gt; 100 || score &lt; 0) &#123;</span><br><span class="line">			System.out.println(&quot;成绩范围为0-100之间&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			System.out.println(&quot;不及格&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>比较两个数字的大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		/*</span><br><span class="line">		 题目:键盘输入两个int数字,并且求出其中的最大值</span><br><span class="line">		 思路:</span><br><span class="line">		 1.  既然是键盘输入,那么肯定使用Scanner</span><br><span class="line">		 2. 需要两个数字,所以使用两次nextInxt,但是导包和创建没有必要重复</span><br><span class="line">		 3. 情况有几种?</span><br><span class="line">		 如果a大于b,那么最终结果就是啊a;否则(包含了a小于b和等于b两种情况)取用b</span><br><span class="line">		 反正是a和b两个数字当中取用一个(二者选其一):标准的if-else语句</span><br><span class="line">		*/</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入第一个数字:&quot;);</span><br><span class="line">		int a = sc.nextInt();</span><br><span class="line">		System.out.println(&quot;请输入第二个数字:&quot;);</span><br><span class="line">		int b = sc.nextInt();</span><br><span class="line">		int max;</span><br><span class="line">		if (a &gt; b) &#123;</span><br><span class="line">			max = a;		</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			max = b;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;最大值:&quot;+max);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比较三个数字的大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		/*</span><br><span class="line">		 题目:键盘输入三个int数字,并且求出其中的最大值</span><br><span class="line">		 思路:</span><br><span class="line">		 1.大于符号是一个用于两个数据的符号,不能同时用于三个数据</span><br><span class="line">		 2.数学思维:遇到位置的问题,要强启转换成为已知的问题,问题的拆解</span><br><span class="line">		 步骤:</span><br><span class="line">		 1. 首先求出a和b当中的最大值</span><br><span class="line">		 2.拿着ab当中的最大值继续和第三个c进行比较,从而得到最终结果</span><br><span class="line">		 也就是:三个无法同时比较,那么两两比较即可</span><br><span class="line">		 */</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入第一个数字:&quot;);</span><br><span class="line">		int a = sc.nextInt();</span><br><span class="line">		System.out.println(&quot;请输入第二个数字:&quot;);</span><br><span class="line">		int b = sc.nextInt();</span><br><span class="line">		System.out.println(&quot;请输入第三个数字:&quot;);</span><br><span class="line">		</span><br><span class="line">		//首先不叫以下前两个数字当中谁大,获得一个中间量</span><br><span class="line">		int c = sc.nextInt();</span><br><span class="line">		int temp;</span><br><span class="line">		if (a &gt; b) &#123;</span><br><span class="line">			temp = a;		</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			temp = b;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//继续让中间量和第三个c进行比较,得到最终结果</span><br><span class="line">		int max;</span><br><span class="line">		if (temp &gt; c) &#123;</span><br><span class="line">			max = temp;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			max = c;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;最大值:&quot;+max);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h4><p>循环结构的基本组成部分:</p>
+<ol>
+<li>初始化语句(准备工作),笔墨伺候,只应该执行一次</li>
+<li>条件判断(布尔结果),如果不够,就要继续写,如果已经够了,那么停下来,每次动笔之前都要执行一下这个判断</li>
+<li>循环体(工作内容),需要重复做什么事情.写下一行字:我错了!</li>
+<li>收尾工作(扫尾工作),每次写完了一次之后,计数器+1的动作</li>
+</ol>
+<h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><p>通常用于控制次数的场景,格式为:<br>for(①初始化语句;②条件判断;④步进语句){<br>    ③循环体<br>}<br>执行顺序:①②③④=&gt;②③④=&gt;②③④….直到②不满足为止.<br>①负责完成循环变量初始化<br>②赋值判断是否瞒住循环条件,不满足则跳出循环<br>③具体执行的语句<br>④循环后,循环条件所涉及变量的变化情况<br>流程图:<br><img src="/2018/06/22/大数据基础day03/1529652782963.png"></p>
+<p>求出1-100的偶数和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 1; i &lt;= 100; i++) &#123;</span><br><span class="line">			if ( i % 2 ==0 ) &#123;</span><br><span class="line">				sum += i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;偶数和:&quot;+sum);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h5><p>通常同于控制条件的场景,格式有两种<br>标准格式:<br>while(①条件判断)<br>{<br>    ②循环体<br>}<br>执行顺序:①②=&gt;①②=&gt;①②…直到①不满足为止<br>①负责判断是否满足循环条件,不满足则跳出循环<br>②具体执行的语句<br>流程图:<br><img src="/2018/06/22/大数据基础day03/1529654117900.png"></p>
+<p>拓展格式:<br>①初始化语句<br>while(①条件判断)<br>{<br>    ②循环体<br>    ④步进语句<br>}<br>执行顺序同for循环<br>流程图:<br><strong>与for循环相同</strong><br>求出1-100的奇数和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int i = 1;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		while( i &lt;= 100 )&#123;</span><br><span class="line">			if ( i % 2 == 1 ) &#123;</span><br><span class="line">				sum += i;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;奇数和:&quot;+sum);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="for与while的区别"><a href="#for与while的区别" class="headerlink" title="for与while的区别"></a>for与while的区别</h5><p>大多数时候,for循环与while循环可以等效替换,但是两者存在几点区别:</p>
+<ol>
+<li>for循环格式固定,控制次数更方便;而while循环格式灵活,不太在意循环次数.所以次数确定使用for较多;次数不确定;使用while较多</li>
+<li>for循环小括号内定义的变量,循环内可用,循环外不可用;while循环的初始化表达式本来就在外面,任然可用</li>
+<li>跳转语句continue的效果不同.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int a = 1; a &lt;= 5; a++) &#123;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line">		//变量a是定义在for循环内部的,超出了for循环的范围,外面无法使用</span><br><span class="line">		//System.out.println(a);//错误写法!</span><br><span class="line">		System.out.println(&quot;================&quot;);</span><br><span class="line">		int b = 1;</span><br><span class="line">		while(b &lt;= 5)&#123;</span><br><span class="line">			System.out.println(b);</span><br><span class="line">			b++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(b);//正确写法!</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="跳转控制语句"><a href="#跳转控制语句" class="headerlink" title="跳转控制语句"></a>跳转控制语句</h4><p>循环当中可以使用两种跳转控制语句</p>
+<ul>
+<li>break语句</li>
+<li>continue语句</li>
+</ul>
+<h5 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h5><p>如果希望当前循环立刻结束,可以使用break语句<br>break;<br>一旦执行这个语句,整个循环立刻结束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int a = 1; a &lt;= 5; a++) &#123;</span><br><span class="line">			if (a == 3) &#123;</span><br><span class="line">				System.out.println(&quot;停止&quot;);</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h5><p>如果希望循环只是跳过当前次,后续还要继续,那么可以使用continue语句:<br>continue;<br>一旦执行这个语句,当前次循环剩余内容立刻跳过,马上开始下一次循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int i = 1; i &lt;= 10; i++) &#123;</span><br><span class="line">			if (i == 4) &#123;</span><br><span class="line">				continue;//这行代码一旦执行,那么循环体当中剩余内容将被跳过,马上开始下一次循环</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(i+&quot;楼到了&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意事项</strong><br>continue语句基本含义:一旦执行这个语句,当前次循环剩余内容立刻跳过,马上开始下一次循环<br>分析:什么叫做”当前次循环的剩余内容”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int i = 1; i &lt;= 10; i++) &#123;</span><br><span class="line">			if (i == 4) &#123;</span><br><span class="line">				continue;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;==========&quot;);</span><br><span class="line">		int i=1;</span><br><span class="line">		while (i &lt;= 10) &#123;</span><br><span class="line">			if (i == 4) &#123;</span><br><span class="line">				continue;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">			i++;//步进表达式,这是循环体剩余内容,会被continue跳过</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="break-与-continue-的区别"><a href="#break-与-continue-的区别" class="headerlink" title="break 与 continue 的区别"></a>break 与 continue 的区别</h5><ul>
+<li>break 会将整个循环彻底打断,摄于多少次全都没有了</li>
+<li>continue 只是跳过当前次,剩余的更多次任然还有</li>
+</ul>
+<h4 id="死循环"><a href="#死循环" class="headerlink" title="死循环"></a>死循环</h4><p>概念: 永远无法退出的循环,叫做死循环<br>如果希望手写一个死循环,那么可以使用格式:<br>标准格式:<br>while(true){<br>    循环体<br>}<br>还有另外一种等效的格式<br>for(;;){<br>    循环体<br>}<br>PS:死循环当中任然可以根据实际需要使用break或continue语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//标准格式</span><br><span class="line">		while(true)&#123;</span><br><span class="line">			System.out.println(1);</span><br><span class="line">		&#125;</span><br><span class="line">/*		//扩展格式</span><br><span class="line">		for (;;) &#123;</span><br><span class="line">			System.out.println(2);</span><br><span class="line">		&#125;*/</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="循环嵌套"><a href="#循环嵌套" class="headerlink" title="循环嵌套"></a>循环嵌套</h4><p>可以在一个循环的内部,套用又一个循环,航程内外层嵌套的结构<br>在循环嵌套中,外层循环的每一次执行,都对应这内层虚幻的完整多次执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int count = 0;</span><br><span class="line">		for (int i = 1; i &lt;= 300; i++) &#123;</span><br><span class="line">			for (int j = 1; j &lt;= 80; j++) &#123;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(count);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>打印一天中所有的分钟时刻</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int hour = 0; hour &lt; 24; hour++) &#123;</span><br><span class="line">			for (int minute = 0; minute &lt; 60; minute++) &#123;</span><br><span class="line">				for (int second = 0; second &lt; 60; second++) &#123;</span><br><span class="line">					System.out.println(hour + &quot;点&quot;+minute+ &quot;分&quot;+second+&quot;秒&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="循环嵌套中的跳转语句"><a href="#循环嵌套中的跳转语句" class="headerlink" title="循环嵌套中的跳转语句"></a>循环嵌套中的跳转语句</h5><p>break 或 continue 只能作用于当前所属层循环.如果希望作用于外层循环,可以使用标签的写法:<br>标签名称:for(…){//外层循环<br>    for(…){//内层循环<br>        break 标签名称;<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int count = 0;</span><br><span class="line">	label :for (int i = 1; i &lt;= 10; i++) &#123;//外层循环10次</span><br><span class="line">			for (int j = 1; j &lt;= 5; j++) &#123;//内层循环5次</span><br><span class="line">				if (j == 3) &#123;</span><br><span class="line">					break label;</span><br><span class="line">				&#125;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;总次数:&quot;+count);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/21/大数据基础day02/" rel="next" title="大数据基础day02">
+                <i class="fa fa-chevron-left"></i> 大数据基础day02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day03视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day03视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">流程概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序结构"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">顺序结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择结构"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单if语句"><span class="nav-number">1.0.1.2.1.</span> <span class="nav-text">单if语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准的if-else语句"><span class="nav-number">1.0.1.2.2.</span> <span class="nav-text">标准的if-else语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展的if-else语句"><span class="nav-number">1.0.1.2.3.</span> <span class="nav-text">扩展的if-else语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环结构"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">1.0.1.3.1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while-循环"><span class="nav-number">1.0.1.3.2.</span> <span class="nav-text">while 循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for与while的区别"><span class="nav-number">1.0.1.3.3.</span> <span class="nav-text">for与while的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳转控制语句"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">跳转控制语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#break语句"><span class="nav-number">1.0.1.4.1.</span> <span class="nav-text">break语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#continue语句"><span class="nav-number">1.0.1.4.2.</span> <span class="nav-text">continue语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#break-与-continue-的区别"><span class="nav-number">1.0.1.4.3.</span> <span class="nav-text">break 与 continue 的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死循环"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">死循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环嵌套"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">循环嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#循环嵌套中的跳转语句"><span class="nav-number">1.0.1.6.1.</span> <span class="nav-text">循环嵌套中的跳转语句</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共17.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
