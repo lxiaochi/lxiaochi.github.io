@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529630691908.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529652782963.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/22/大数据基础day03/1529654117900.png">
-<meta property="og:updated_time" content="2018-06-22T13:24:10.632Z">
+<meta property="og:updated_time" content="2018-06-24T13:20:40.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据基础day03">
 <meta name="twitter:description" content="大数据基础班day03视频笔记流程概述概念:流程是指步骤执行的先后顺序,先做什么,后做什么分类:  顺序结构:从上到下、从前到后,顺序执行 选择结构:执行路线分叉,做这个,或者做那个,也叫做分支结构 循环结构:重复做一下事情">
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,930
+                  3,421
                 </span>
               
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  14
                 </span>
               
             </div>
@@ -430,10 +430,10 @@
 <li>首先判断小括号之内的条件是true还是false</li>
 <li>如果是<strong>true</strong>,则<strong>执行</strong>if大括号之内的语句体A,而else的内容将不再执行</li>
 <li>如果是<strong>false</strong>,则<strong>不执行</strong>else大括号之内的语句体B,而if的内容将不再执行<br>流程图:<img src="/2018/06/22/大数据基础day03/1529629822038.png">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;请输入一个整数&quot;);</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		int s = sc.nextInt();</span><br><span class="line">		int num = 10;</span><br><span class="line">		//如何判断一个整数是奇数还是偶数</span><br><span class="line">		if (s % 2 == 0) &#123;//如果num除2得到的余数是0,说明是偶数</span><br><span class="line">			System.out.println(&quot;偶数&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;奇数&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;请输入一个整数&quot;);</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		int s = sc.nextInt();</span><br><span class="line">		int num = 10;</span><br><span class="line">		//如何判断一个整数是奇数还是偶数</span><br><span class="line">		if (s % 2 == 0) &#123;//如果num除2得到的余数是0,说明是偶数</span><br><span class="line">			System.out.println(&quot;偶数&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;奇数&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="扩展的if-else语句"><a href="#扩展的if-else语句" class="headerlink" title="扩展的if-else语句"></a>扩展的if-else语句</h5><p>作用:在N个语句体当中选择其中的一个执行<br>格式:<br>if(布尔表达式){<br>    语句体1<br>}else if{<br>    语句体2<br>}<br>…<br>else if{<br>    语句体N<br>}<br>else{<br>    语句体N+1<br>}<br>执行流程:</p>
+<h5 id="扩展的if-else-if语句"><a href="#扩展的if-else-if语句" class="headerlink" title="扩展的if-else-if语句"></a>扩展的if-else-if语句</h5><p>作用:在N个语句体当中选择其中的一个执行<br>格式:<br>if(布尔表达式){<br>    语句体1<br>}else if{<br>    语句体2<br>}<br>…<br>else if{<br>    语句体N<br>}<br>else{<br>    语句体N+1<br>}<br>执行流程:</p>
 <ol>
 <li>如果条件判断1成立,执行语句体1,后续代码不再执行</li>
 <li>如果条件判断1不成立,跳过语句体1,继续执行条件判断2</li>
@@ -454,11 +454,9 @@
 <li>循环体(工作内容),需要重复做什么事情.写下一行字:我错了!</li>
 <li>收尾工作(扫尾工作),每次写完了一次之后,计数器+1的动作</li>
 </ol>
-<h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><p>通常用于控制次数的场景,格式为:<br>for(①初始化语句;②条件判断;④步进语句){<br>    ③循环体<br>}<br>执行顺序:①②③④=&gt;②③④=&gt;②③④….直到②不满足为止.<br>①负责完成循环变量初始化<br>②赋值判断是否瞒住循环条件,不满足则跳出循环<br>③具体执行的语句<br>④循环后,循环条件所涉及变量的变化情况<br>流程图:<br><img src="/2018/06/22/大数据基础day03/1529652782963.png"></p>
-<p>求出1-100的偶数和</p>
+<h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><p>通常用于控制次数的场景,格式为:<br>for(①初始化语句;②条件判断;④步进语句){<br>    ③循环体<br>}<br>执行顺序:①②③④=&gt;②③④=&gt;②③④….直到②不满足为止.<br>①负责完成循环变量初始化<br>②赋值判断是否瞒住循环条件,不满足则跳出循环<br>③具体执行的语句<br>④循环后,循环条件所涉及变量的变化情况<br>流程图:<br><img src="/2018/06/22/大数据基础day03/1529652782963.png"><br>求出1-100的偶数和</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 1; i &lt;= 100; i++) &#123;</span><br><span class="line">			if ( i % 2 ==0 ) &#123;</span><br><span class="line">				sum += i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;偶数和:&quot;+sum);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h5><p>通常同于控制条件的场景,格式有两种<br>标准格式:<br>while(①条件判断)<br>{<br>    ②循环体<br>}<br>执行顺序:①②=&gt;①②=&gt;①②…直到①不满足为止<br>①负责判断是否满足循环条件,不满足则跳出循环<br>②具体执行的语句<br>流程图:<br><img src="/2018/06/22/大数据基础day03/1529654117900.png"></p>
-<p>拓展格式:<br>①初始化语句<br>while(①条件判断)<br>{<br>    ②循环体<br>    ④步进语句<br>}<br>执行顺序同for循环<br>流程图:<br><strong>与for循环相同</strong><br>求出1-100的奇数和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int i = 1;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		while( i &lt;= 100 )&#123;</span><br><span class="line">			if ( i % 2 == 1 ) &#123;</span><br><span class="line">				sum += i;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;奇数和:&quot;+sum);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h5><p>通常同于控制条件的场景,格式有两种<br>标准格式:<br>while(①条件判断)<br>{<br>    ②循环体<br>}<br>执行顺序:①②=&gt;①②=&gt;①②…直到①不满足为止<br>①负责判断是否满足循环条件,不满足则跳出循环<br>②具体执行的语句<br>流程图:<br><img src="/2018/06/22/大数据基础day03/1529654117900.png"><br>拓展格式:<br>①初始化语句<br>while(①条件判断)<br>{<br>    ②循环体<br>    ④步进语句<br>}<br>执行顺序同for循环<br>流程图:<br><strong>与for循环相同</strong><br>求出1-100的奇数和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int i = 1;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		while( i &lt;= 100 )&#123;</span><br><span class="line">			if ( i % 2 == 1 ) &#123;</span><br><span class="line">				sum += i;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;奇数和:&quot;+sum);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <h5 id="for与while的区别"><a href="#for与while的区别" class="headerlink" title="for与while的区别"></a>for与while的区别</h5><p>大多数时候,for循环与while循环可以等效替换,但是两者存在几点区别:</p>
 <ol>
 <li>for循环格式固定,控制次数更方便;而while循环格式灵活,不太在意循环次数.所以次数确定使用for较多;次数不确定;使用while较多</li>
@@ -466,6 +464,21 @@
 <li>跳转语句continue的效果不同.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int a = 1; a &lt;= 5; a++) &#123;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line">		//变量a是定义在for循环内部的,超出了for循环的范围,外面无法使用</span><br><span class="line">		//System.out.println(a);//错误写法!</span><br><span class="line">		System.out.println(&quot;================&quot;);</span><br><span class="line">		int b = 1;</span><br><span class="line">		while(b &lt;= 5)&#123;</span><br><span class="line">			System.out.println(b);</span><br><span class="line">			b++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(b);//正确写法!</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h5 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do-while循环"></a>do-while循环</h5><p>格式:<br>do{<br>    循环体语句;<br>}while(判断条件语句)<br>完整格式:<br>初始化语句<br>do{<br>    循环体语句;<br>    控制条件语句;<br>}while(判断条件语句)<br>执行流程</p>
+<ol>
+<li>执行初始化语句</li>
+<li>执行循环体语句</li>
+<li>执行控制条件语句</li>
+<li><p>执行判断条件语句,看是true还是false</p>
+<pre><code>如果是false,就结束循环
+如果是true,就回到2继续
+</code></pre><p> int x = 1;<br> do {</p>
+<pre><code>System.out.println(&quot;HelloWorld&quot;);
+x++;
+</code></pre><p> }while( x &lt;= 5 )</p>
+</li>
+</ol>
+<h5 id="三种循环语句的区别"><a href="#三种循环语句的区别" class="headerlink" title="三种循环语句的区别"></a>三种循环语句的区别</h5><p>三种循环语句可以完成相同的事情,但是也是小有区别的:<br>do-while循环语句至少执行一次循环体<br>而for和while循环语句要先进行条件的判断,然后看是否执行循环体语句<br>推荐使用的顺序:<br>for–while–do…while</p>
 <h4 id="跳转控制语句"><a href="#跳转控制语句" class="headerlink" title="跳转控制语句"></a>跳转控制语句</h4><p>循环当中可以使用两种跳转控制语句</p>
 <ul>
 <li>break语句</li>
@@ -489,6 +502,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		for (int hour = 0; hour &lt; 24; hour++) &#123;</span><br><span class="line">			for (int minute = 0; minute &lt; 60; minute++) &#123;</span><br><span class="line">				for (int second = 0; second &lt; 60; second++) &#123;</span><br><span class="line">					System.out.println(hour + &quot;点&quot;+minute+ &quot;分&quot;+second+&quot;秒&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="循环嵌套中的跳转语句"><a href="#循环嵌套中的跳转语句" class="headerlink" title="循环嵌套中的跳转语句"></a>循环嵌套中的跳转语句</h5><p>break 或 continue 只能作用于当前所属层循环.如果希望作用于外层循环,可以使用标签的写法:<br>标签名称:for(…){//外层循环<br>    for(…){//内层循环<br>        break 标签名称;<br>    }<br>}</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int count = 0;</span><br><span class="line">	label :for (int i = 1; i &lt;= 10; i++) &#123;//外层循环10次</span><br><span class="line">			for (int j = 1; j &lt;= 5; j++) &#123;//内层循环5次</span><br><span class="line">				if (j == 3) &#123;</span><br><span class="line">					break label;</span><br><span class="line">				&#125;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;总次数:&quot;+count);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="随机数Random"><a href="#随机数Random" class="headerlink" title="随机数Random"></a>随机数Random</h3><p>用于产生随机数的类.用法和Scanner类似<br>使用步骤:</p>
+<ol>
+<li>导包<br> import java.util.Random;</li>
+<li>创建对象<br> Random r = new Random();</li>
+<li>获取随机数<br> int number = r.nextInt(10);<br> 获取的范围:[0,10) 包括0,不包括10<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	//创建对象</span><br><span class="line">	Random r = new Random();</span><br><span class="line">	for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">		int num = r.nextInt(10);</span><br><span class="line">		System.out.println(num);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>获取1-100之间的随机数<br>int i = r.nextInt(100)+1;<br>猜数字小游戏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//系统产生一个1到100之间的随机数,请猜出这个数据是多少?</span><br><span class="line">		/*分析:</span><br><span class="line">			A:系统产生一个1-100之间的随机数</span><br><span class="line">			B:键盘录入我们要猜的数据</span><br><span class="line">			C:比较这两个数据,看我们猜的是否正确</span><br><span class="line">			*/</span><br><span class="line">		Random r = new Random();</span><br><span class="line">		int num = r.nextInt(100)+1;</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		int go;</span><br><span class="line">		do&#123;</span><br><span class="line">			System.out.println(&quot;请输入数字:&quot;);</span><br><span class="line">			go = sc.nextInt();</span><br><span class="line">			if ( num &gt; go ) &#123;</span><br><span class="line">				System.out.println(&quot;太小了&quot;);</span><br><span class="line">			&#125;else if( num &lt; go )&#123;</span><br><span class="line">				System.out.println(&quot;太大了&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;while( num!= go );</span><br><span class="line">		System.out.println(&quot;恭喜你猜对了&quot;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -537,6 +559,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/23/大数据基础day04/" rel="prev" title="大数据基础day04">
+                大数据基础day04 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -617,7 +643,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -672,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day03视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day03视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">流程概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序结构"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">顺序结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择结构"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单if语句"><span class="nav-number">1.0.1.2.1.</span> <span class="nav-text">单if语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准的if-else语句"><span class="nav-number">1.0.1.2.2.</span> <span class="nav-text">标准的if-else语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展的if-else语句"><span class="nav-number">1.0.1.2.3.</span> <span class="nav-text">扩展的if-else语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环结构"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">1.0.1.3.1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while-循环"><span class="nav-number">1.0.1.3.2.</span> <span class="nav-text">while 循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for与while的区别"><span class="nav-number">1.0.1.3.3.</span> <span class="nav-text">for与while的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳转控制语句"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">跳转控制语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#break语句"><span class="nav-number">1.0.1.4.1.</span> <span class="nav-text">break语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#continue语句"><span class="nav-number">1.0.1.4.2.</span> <span class="nav-text">continue语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#break-与-continue-的区别"><span class="nav-number">1.0.1.4.3.</span> <span class="nav-text">break 与 continue 的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死循环"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">死循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环嵌套"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">循环嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#循环嵌套中的跳转语句"><span class="nav-number">1.0.1.6.1.</span> <span class="nav-text">循环嵌套中的跳转语句</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day03视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day03视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">流程概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序结构"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">顺序结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择结构"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单if语句"><span class="nav-number">1.0.1.2.1.</span> <span class="nav-text">单if语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准的if-else语句"><span class="nav-number">1.0.1.2.2.</span> <span class="nav-text">标准的if-else语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展的if-else-if语句"><span class="nav-number">1.0.1.2.3.</span> <span class="nav-text">扩展的if-else-if语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环结构"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">1.0.1.3.1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while-循环"><span class="nav-number">1.0.1.3.2.</span> <span class="nav-text">while 循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for与while的区别"><span class="nav-number">1.0.1.3.3.</span> <span class="nav-text">for与while的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#do-while循环"><span class="nav-number">1.0.1.3.4.</span> <span class="nav-text">do-while循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三种循环语句的区别"><span class="nav-number">1.0.1.3.5.</span> <span class="nav-text">三种循环语句的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳转控制语句"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">跳转控制语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#break语句"><span class="nav-number">1.0.1.4.1.</span> <span class="nav-text">break语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#continue语句"><span class="nav-number">1.0.1.4.2.</span> <span class="nav-text">continue语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#break-与-continue-的区别"><span class="nav-number">1.0.1.4.3.</span> <span class="nav-text">break 与 continue 的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死循环"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">死循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环嵌套"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">循环嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#循环嵌套中的跳转语句"><span class="nav-number">1.0.1.6.1.</span> <span class="nav-text">循环嵌套中的跳转语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机数Random"><span class="nav-number">1.0.2.</span> <span class="nav-text">随机数Random</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -713,7 +739,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共17.9k字</span>
+  <span class="post-count">博客全站共24.2k字</span>
 </div>
         
 
