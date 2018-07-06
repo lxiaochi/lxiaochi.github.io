@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day10视频笔记冒泡排序原理图解">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day10">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day10/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day10视频笔记冒泡排序原理图解">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day10/1530236258815.png">
+<meta property="og:updated_time" content="2018-07-06T13:25:54.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day10">
+<meta name="twitter:description" content="大数据基础班day10视频笔记冒泡排序原理图解">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day10/1530236258815.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/大数据基础day10/"/>
+
+
+
+
+
+  <title>大数据基础day10 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/大数据基础day10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day10</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:22:15+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,452
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day10视频笔记"><a href="#大数据基础班day10视频笔记" class="headerlink" title="大数据基础班day10视频笔记"></a>大数据基础班day10视频笔记</h1><h3 id="冒泡排序原理图解"><a href="#冒泡排序原理图解" class="headerlink" title="冒泡排序原理图解"></a>冒泡排序原理图解</h3><a id="more"></a>
+<img src="/2018/07/06/大数据基础day10/1530236258815.png">
+<h3 id="冒泡排序代码实现"><a href="#冒泡排序代码实现" class="headerlink" title="冒泡排序代码实现"></a>冒泡排序代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr = &#123;98,35,46,32,10&#125;;</span><br><span class="line">		sortArr(arr);</span><br><span class="line">		printArr(arr);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void sortArr(int[] arr)&#123;</span><br><span class="line">		for (int i = 0; i &lt; arr.length - 1; i++) &#123;</span><br><span class="line">			for (int j = 0; j &lt; arr.length - i -1 ; j++) &#123;</span><br><span class="line">				if (arr[j] &gt; arr[j+1]) &#123;</span><br><span class="line">					int temp = arr[j];</span><br><span class="line">					arr[j] = arr[j+1];</span><br><span class="line">					arr[j+1] = temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static int[] printArr(int[] arr)&#123;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			System.out.println(arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		return arr;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Arrays类的概述和使用"><a href="#Arrays类的概述和使用" class="headerlink" title="Arrays类的概述和使用"></a>Arrays类的概述和使用</h3><p>public static String toString(intp[] a):把数组转成字符串<br>public static void sort(int[] a):对数组进行升序排序</p>
+<h3 id="Arrays类中构造方法的问题"><a href="#Arrays类中构造方法的问题" class="headerlink" title="Arrays类中构造方法的问题"></a>Arrays类中构造方法的问题</h3><p>Arrays中真的没有构造方法吗?<br>private Arrays(){}<br>Arrays类中<strong>有构造方法</strong>,只不过构造方法被private修饰,外界是无法使用的<br>因为外界无法使用没所以帮助文档中就看不到</p>
+<p>Arrays类的这种设计是常用的<strong>工具类</strong>的设计思想:<br><strong>构造方法私有</strong><br><strong>成员都用static修饰</strong><br>比如:Math</p>
+<h3 id="基本类型包装类的概述"><a href="#基本类型包装类的概述" class="headerlink" title="基本类型包装类的概述"></a>基本类型包装类的概述</h3><p>int数据类型的范围:-2147483648~~~2147483647<br>Integer.Max_VALUE    Integer.Min_VALUE</p>
+<h3 id="Integer类的概述和构造方法"><a href="#Integer类的概述和构造方法" class="headerlink" title="Integer类的概述和构造方法"></a>Integer类的概述和构造方法</h3><p>Integer对象中包装了一个基本类型int的值<br>构造方法:<br>Integer(int value)<br>Integer(String s)<br>注意:这个字符串必须由数字字符组成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int value = 100;</span><br><span class="line">		Integer i = new Integer(value);</span><br><span class="line">		System.out.println(i);//100</span><br><span class="line">		</span><br><span class="line">		String s = &quot;100&quot;;</span><br><span class="line">		Integer ii = new Integer(s);</span><br><span class="line">		System.out.println(ii);</span><br><span class="line">		</span><br><span class="line">		String str = &quot;abc&quot;;</span><br><span class="line">		Integer iii = new Integer(str);</span><br><span class="line">		System.out.println(iii);//NumberFormatException</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="int和String的相互转换"><a href="#int和String的相互转换" class="headerlink" title="int和String的相互转换"></a>int和String的相互转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//int -- String</span><br><span class="line">		int num = 100;</span><br><span class="line">		//方式一</span><br><span class="line">		String s1 = &quot;&quot; + num;</span><br><span class="line">		System.out.println(s1);</span><br><span class="line">		//方式二</span><br><span class="line">		//public static String valueOf(int i)</span><br><span class="line">		String s2 = String.valueOf(num);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">		</span><br><span class="line">		//String -- int</span><br><span class="line">		//方式一</span><br><span class="line">		//String -- Integer -- int</span><br><span class="line">		String s = &quot;100&quot;;</span><br><span class="line">		Integer i = new Integer(s);</span><br><span class="line">		//public int intValue()</span><br><span class="line">		int x = i.intValue();</span><br><span class="line">		System.out.println(x);</span><br><span class="line">		//方式二</span><br><span class="line">		//public static int parseInt(String s)</span><br><span class="line">		int y = Integer.parseInt(s);</span><br><span class="line">		System.out.println(y);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Integer的练习之把字符串中的数据排序"><a href="#Integer的练习之把字符串中的数据排序" class="headerlink" title="Integer的练习之把字符串中的数据排序"></a>Integer的练习之把字符串中的数据排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		String str = &quot;91 27 46 38 50&quot;;</span><br><span class="line">		String[] arr = str.split(&quot; &quot;);</span><br><span class="line">		int[] intArr = new int[arr.length];</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			intArr[i] = Integer.parseInt(arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		Arrays.sort(intArr);</span><br><span class="line">		for (int i = 0; i &lt; intArr.length; i++) &#123;</span><br><span class="line">			System.out.println(intArr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		for (int i = 0; i &lt; intArr.length; i++) &#123;</span><br><span class="line">			if(i==intArr.length-1)&#123;</span><br><span class="line">				sb.append(intArr[i]);</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				sb.append(intArr[i]+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(sb.toString());</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JDK5的新特性自动装箱和拆箱"><a href="#JDK5的新特性自动装箱和拆箱" class="headerlink" title="JDK5的新特性自动装箱和拆箱"></a>JDK5的新特性自动装箱和拆箱</h3><p>自动装箱:把基本数据类型转化为对应的包装类类型<br>public static Integer valueOf(int i)<br>自动拆箱:把包装类类型转化为对应的基本数据类型<br>public int intValue()</p>
+<p>Java程序的运行:<br>编写java文件  – 编译生成class文件 –执行</p>
+<p>注意:在使用包装类类型的新特征的时候,如果做操作,最好先判断是否为null</p>
+<p>开发中的原则:<br>只要是对象,在使用前就必须进行不为null的判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//Integer i = new Integer(100);</span><br><span class="line">		Integer ii = 100;//自动装箱</span><br><span class="line">		ii += 200;</span><br><span class="line">		System.out.println(ii);</span><br><span class="line">		</span><br><span class="line">		/*</span><br><span class="line">		自动化过程</span><br><span class="line">		Integer ii =Integer.valueOf(100);</span><br><span class="line">		ii = Integer.valueOf(ii.intvalue()+200);</span><br><span class="line">		System.out.println(ii);</span><br><span class="line">		 */</span><br><span class="line">		</span><br><span class="line">		Integer iii = null;</span><br><span class="line">		if (iii != null) &#123;</span><br><span class="line">			iii += 300;</span><br><span class="line">			System.out.println(iii);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Date类的概述和构造方法"><a href="#Date类的概述和构造方法" class="headerlink" title="Date类的概述和构造方法"></a>Date类的概述和构造方法</h3><p>类Date表示特定的瞬间,精确到毫秒<br>构造方法:<br>Date(): 根据当前的时间创建的日期对象<br>Date(long date) : 根据给定的毫秒值创建对象,从1970年1月1日00:00:00</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Date d = new Date();</span><br><span class="line">		System.out.println(d);</span><br><span class="line">		long date = 1000 *60 *60;</span><br><span class="line">		Date dd = new Date(date);</span><br><span class="line">		System.out.println(dd);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Date类的成员方法getTime-和setTime"><a href="#Date类的成员方法getTime-和setTime" class="headerlink" title="Date类的成员方法getTime()和setTime()"></a>Date类的成员方法getTime()和setTime()</h3><p>public long getTime():获取的是毫秒值.从1970年1月1日00:00:00<br>public void setTime(long time): 设置时间,给的是毫秒值</p>
+<p>从Date得到一个毫秒值:<br>getTime()<br>从一个毫秒值得到一个Date对象<br>构造方法<br>setTime(long time)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Date d = new Date();</span><br><span class="line">		System.out.println(d.getTime());</span><br><span class="line">		d.setTime(1000*60*60);</span><br><span class="line">		System.out.println(d.getTime());</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="SimpleDateFormat类的概述和使用"><a href="#SimpleDateFormat类的概述和使用" class="headerlink" title="SimpleDateFormat类的概述和使用"></a>SimpleDateFormat类的概述和使用</h3><p>一个以语言环境有关的方式来格式化和解析日期的具体类,它允许进行格式化(日期 -&gt; 文本)、解析(文本 -&gt; 日期)</p>
+<p>格式化(日期 -&gt; 文本):Date – String<br>public final String format(Date date)<br>指定格式:<br>SimpleDateFormat(String pattern) pattern:”yyyy-MM-dd HH:mm:ss”<br>解析(文本 -&gt; 日期): String – Date<br>public Date parse(String source)<br>把一个字符串解析为日期的时候,请注意模式字符串和给定的日期字符串的格式要匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws ParseException &#123;</span><br><span class="line">		//Date -- String</span><br><span class="line">		Date d = new Date();</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">		String s = sdf.format(d);</span><br><span class="line">		System.out.println(s);</span><br><span class="line">		//String -- Date</span><br><span class="line">		String str = &quot;2018-06-29 11:38:50&quot;;</span><br><span class="line">		SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">		Date d2 = sdf2.parse(str);</span><br><span class="line">		System.out.println(d2);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Date的练习之日期工具类的定义和使用"><a href="#Date的练习之日期工具类的定义和使用" class="headerlink" title="Date的练习之日期工具类的定义和使用"></a>Date的练习之日期工具类的定义和使用</h3><p>工具类<br>构造方法私有<br>成员方法静态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class DateUtil &#123;</span><br><span class="line">	private DateUtil()&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	public static String dateToString(Date date,String format)&#123;</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(format);</span><br><span class="line">		String s = sdf.format(date);</span><br><span class="line">		return s;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static Date stringToDate(String s,String format) throws ParseException&#123;</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(format);</span><br><span class="line">		Date d = sdf.parse(s);</span><br><span class="line">		return d;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class MyDateTest &#123;</span><br><span class="line">	public static void main(String[] args) throws ParseException &#123;</span><br><span class="line">		Date d = new Date();</span><br><span class="line">		String s = DateUtil.dateToString(d, &quot;yyyy年MM月dd日 HH:mm:ss&quot;);</span><br><span class="line">		System.out.println(s);</span><br><span class="line">		</span><br><span class="line">		String s2 = DateUtil.dateToString(d, &quot;yyyy年MM月dd日&quot;);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">		</span><br><span class="line">		String s3 = DateUtil.dateToString(d, &quot;HH:mm:ss&quot;);</span><br><span class="line">		System.out.println(s3);</span><br><span class="line">		</span><br><span class="line">		String str = &quot;2018-06-29 12:35:59&quot;;</span><br><span class="line">		Date dd = DateUtil.stringToDate(str, &quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">		System.out.println(dd);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day09/" rel="next" title="大数据基础day09">
+                <i class="fa fa-chevron-left"></i> 大数据基础day09
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day11/" rel="prev" title="大数据基础day11">
+                大数据基础day11 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day10视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day10视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序原理图解"><span class="nav-number">1.0.1.</span> <span class="nav-text">冒泡排序原理图解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序代码实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">冒泡排序代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays类的概述和使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">Arrays类的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays类中构造方法的问题"><span class="nav-number">1.0.4.</span> <span class="nav-text">Arrays类中构造方法的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型包装类的概述"><span class="nav-number">1.0.5.</span> <span class="nav-text">基本类型包装类的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer类的概述和构造方法"><span class="nav-number">1.0.6.</span> <span class="nav-text">Integer类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int和String的相互转换"><span class="nav-number">1.0.7.</span> <span class="nav-text">int和String的相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer的练习之把字符串中的数据排序"><span class="nav-number">1.0.8.</span> <span class="nav-text">Integer的练习之把字符串中的数据排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK5的新特性自动装箱和拆箱"><span class="nav-number">1.0.9.</span> <span class="nav-text">JDK5的新特性自动装箱和拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date类的概述和构造方法"><span class="nav-number">1.0.10.</span> <span class="nav-text">Date类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date类的成员方法getTime-和setTime"><span class="nav-number">1.0.11.</span> <span class="nav-text">Date类的成员方法getTime()和setTime()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleDateFormat类的概述和使用"><span class="nav-number">1.0.12.</span> <span class="nav-text">SimpleDateFormat类的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date的练习之日期工具类的定义和使用"><span class="nav-number">1.0.13.</span> <span class="nav-text">Date的练习之日期工具类的定义和使用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

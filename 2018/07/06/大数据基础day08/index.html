@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day08视频笔记final关键字的概述及特点关键字,表示最终的意思,可以用来修饰类,修饰变量,修饰方法修饰类:表明该类是最终类,不能被继承">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day08">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day08/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day08视频笔记final关键字的概述及特点关键字,表示最终的意思,可以用来修饰类,修饰变量,修饰方法修饰类:表明该类是最终类,不能被继承">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day08/1530183967553.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day08/1530186350474.png">
+<meta property="og:updated_time" content="2018-07-06T13:20:57.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day08">
+<meta name="twitter:description" content="大数据基础班day08视频笔记final关键字的概述及特点关键字,表示最终的意思,可以用来修饰类,修饰变量,修饰方法修饰类:表明该类是最终类,不能被继承">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day08/1530183967553.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/大数据基础day08/"/>
+
+
+
+
+
+  <title>大数据基础day08 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/大数据基础day08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day08</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:15:19+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,540
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day08视频笔记"><a href="#大数据基础班day08视频笔记" class="headerlink" title="大数据基础班day08视频笔记"></a>大数据基础班day08视频笔记</h1><h3 id="final关键字的概述及特点"><a href="#final关键字的概述及特点" class="headerlink" title="final关键字的概述及特点"></a>final关键字的概述及特点</h3><p>关键字,表示<strong>最终</strong>的意思,可以用来修饰类,修饰变量,修饰方法<br>修饰类:表明该类是最终类,<strong>不能被继承</strong><br><a id="more"></a><br>修饰变量:表明该变量是常量,<strong>不能被再次赋值</strong><br>修饰方法:表明该方法是最终方法,<strong>不能被重写</strong></p>
+<h3 id="static关键字的概述及特点"><a href="#static关键字的概述及特点" class="headerlink" title="static关键字的概述及特点"></a>static关键字的概述及特点</h3><p>关键字,表示<strong>静态</strong>的意思,可以用来修饰成员变量和成员方法<br>修饰成员的特点:</p>
+<ol>
+<li><strong>被类的所有对象共享</strong><br>判断一个成员是否应该用static修饰的条件</li>
+<li><strong>可以通过类名直接访问</strong></li>
+<li><strong>优先于对象存在</strong></li>
+<li><strong>随着类的加载而加载</strong></li>
+</ol>
+<h3 id="static方法的访问特点及注意事项"><a href="#static方法的访问特点及注意事项" class="headerlink" title="static方法的访问特点及注意事项"></a>static方法的访问特点及注意事项</h3><p>非静态的成员方法:<br>能访问静态的成员变量<br>能访问非静态的成员变量<br>能访问静态的成员方法<br>能访问非静态的成员变量</p>
+<p>静态的成员方法:<br>能访问静态的成员变量<br>能访问静态的成员方法</p>
+<p><strong>注意事项:</strong><br>静态成员方法中不能出现<strong>this,super</strong>这样的关键字<br>原因是:静态是随着类的加载而加载,this.super这样的关键字是<strong>随着对象的创建而存在</strong><br><strong>先进内存的,不能访问后进内存的</strong></p>
+<h3 id="抽象类的概念"><a href="#抽象类的概念" class="headerlink" title="抽象类的概念"></a>抽象类的概念</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Animal &#123;</span><br><span class="line">	/*public void eat()&#123;</span><br><span class="line">		System.out.println(&quot;吃东西&quot;);</span><br><span class="line">	&#125;*/</span><br><span class="line">	</span><br><span class="line">	//抽象方法</span><br><span class="line">	public abstract void eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="抽象类的特点"><a href="#抽象类的特点" class="headerlink" title="抽象类的特点"></a>抽象类的特点</h3><ol>
+<li><strong>抽象类和抽象方法必须使用abstract关键字修饰</strong></li>
+<li><strong>有抽象方法的类必须一定是抽象类,抽象类中不一定有抽象方法</strong></li>
+<li><strong>抽象类不能实例化</strong><br>参照多态的方式,通过子类对象实例化</li>
+<li><strong>抽象类的子类</strong><br>要么重写抽象类中的所有抽象方法<br>要么是抽象类</li>
+</ol>
+<h3 id="抽象类的成员特点"><a href="#抽象类的成员特点" class="headerlink" title="抽象类的成员特点"></a>抽象类的成员特点</h3><p>成员变量:<br>有成员变量,成员变量可以是变量,也可以是常量<br>构造方法:<br>有构造方法<br>抽象类中构造方法的作用?<br>用于子类访问父类数据的初始化<br>成员方法:<br>有成员方法,成员方法可以是抽象的,也可以是非抽象的<br>抽象方法:限定子类必须完成某些动作<br>非抽象方法:提高代码的复用性</p>
+<h3 id="抽象类的练习"><a href="#抽象类的练习" class="headerlink" title="抽象类的练习"></a>抽象类的练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Teacher &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	public Teacher()&#123;&#125;</span><br><span class="line">	public Teacher(String name,int age)&#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public abstract void teach();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class BasicTeacher extends Teacher&#123;</span><br><span class="line">	</span><br><span class="line">	public BasicTeacher()&#123;&#125;</span><br><span class="line">	public BasicTeacher(String name,int age)&#123;</span><br><span class="line">		super(name,age);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public void teach()&#123;</span><br><span class="line">		System.out.println(&quot;基础班老师&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class WorkTeacher extends Teacher&#123;</span><br><span class="line">	public WorkTeacher()&#123;&#125;</span><br><span class="line">	public WorkTeacher(String name,int age)&#123;</span><br><span class="line">		super(name,age);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public void teach()&#123;</span><br><span class="line">		System.out.println(&quot;就业班老师&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="接口的特点"><a href="#接口的特点" class="headerlink" title="接口的特点"></a>接口的特点</h3><ol>
+<li><strong>定义接口使用的是interface关键字</strong></li>
+<li><strong>类和接口之间是实现关系,用implements关键字</strong></li>
+<li><strong>接口不能实例化</strong><br>参照多态的形式使用实现类来实例化</li>
+<li>接口的实现类<br><strong>要么重写接口中的所有的抽象方法</strong><br><strong>要么是一个抽象类</strong></li>
+</ol>
+<p>多态的几种形式:<br>具体类多态(几乎不用)<br>抽象类多态(常用)<br>接口多态(最常用)</p>
+<h3 id="接口的成员特点"><a href="#接口的成员特点" class="headerlink" title="接口的成员特点"></a>接口的成员特点</h3><p>成员变量:<br>有成员变量,而且变量只能是常量<br><strong>默认修饰符:public static final</strong><br>构造方法:<br>没有构造方法<br>成员方法:<br>有成员方法,而且都是<strong>抽象</strong>的<br><strong>默认修饰符:public abstract</strong></p>
+<p><strong>Object:是类层次结构的根类,所有的类都直接或者间接的继承自该类</strong></p>
+<h3 id="类与类-类与接口以及接口与接口的关系"><a href="#类与类-类与接口以及接口与接口的关系" class="headerlink" title="类与类,类与接口以及接口与接口的关系"></a>类与类,类与接口以及接口与接口的关系</h3><p>类与类:<br><strong>继承关系,只能单继承,可以多层继承</strong><br>类与接口:<br><strong>实现关系,可以单实现,也可以多实现</strong><br>还可以在继承一个类的同时实现多个接口<br>接口与接口:<br><strong>继承关系,可以单继承,也可以多继承</strong></p>
+<h3 id="抽象类与接口的区别"><a href="#抽象类与接口的区别" class="headerlink" title="抽象类与接口的区别"></a>抽象类与接口的区别</h3><ol>
+<li>成员区别<br>抽象类:<br>成员变量:可以使变量,也可以使常量<br>构造方法: 有<br>成员方法: 可以使抽象方法,也可以是非抽象方法<br>接口:<br>成员变量:只能是常量<br>成员方法:只能是抽象方法<br><strong>没有构造方法</strong></li>
+<li>关系区别<br>类与类:继承关系,只能单继承,可以多层继承<br>类与接口:实现关系,可以单实现,也可以多实现<br>接口与接口:继承关系,可以单继承:也可以多继承</li>
+<li>设计理念的区别<br>抽象类: 被继承体现的是: “is a” 抽象类中定义的是继承体系的共性功能<br>接口被实现体现的是: “like a” 接口中定义的是该体系的扩展功能</li>
+</ol>
+<h3 id="接口的练习之猫狗案例"><a href="#接口的练习之猫狗案例" class="headerlink" title="接口的练习之猫狗案例"></a>接口的练习之猫狗案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Jumpping &#123;</span><br><span class="line">	public abstract void jump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Animal &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Animal()&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	public Animal(String name,int age)&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public abstract void eat();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Cat extends Animal implements Jumpping&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void jump() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;猫可以调高了&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;猫吃鱼&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Cat()&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	public Cat(String name,int age)&#123;</span><br><span class="line">		super(name, age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="接口的练习之运动员和教练案例"><a href="#接口的练习之运动员和教练案例" class="headerlink" title="接口的练习之运动员和教练案例"></a>接口的练习之运动员和教练案例</h3><img src="/2018/07/06/大数据基础day08/1530183967553.png">
+<h3 id="包的概述和注意事项"><a href="#包的概述和注意事项" class="headerlink" title="包的概述和注意事项"></a>包的概述和注意事项</h3><p>包其实就是文件夹<br>作用:就是对类进行分类管理<br>定义格式:<br>package 包名;<br>多级包用.隔开<br>注意事项:</p>
+<ol>
+<li><strong>package必须是程序的第一条执行语句</strong></li>
+<li><strong>package语句在一个java文件中只能有一个</strong></li>
+</ol>
+<h3 id="导包的格式及使用"><a href="#导包的格式及使用" class="headerlink" title="导包的格式及使用"></a>导包的格式及使用</h3><p>import 包名;</p>
+<h3 id="修饰符的权限"><a href="#修饰符的权限" class="headerlink" title="修饰符的权限"></a>修饰符的权限</h3><img src="/2018/07/06/大数据基础day08/1530186350474.png">
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day07/" rel="next" title="大数据基础day07">
+                <i class="fa fa-chevron-left"></i> 大数据基础day07
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day09/" rel="prev" title="大数据基础day09">
+                大数据基础day09 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day08视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day08视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字的概述及特点"><span class="nav-number">1.0.1.</span> <span class="nav-text">final关键字的概述及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static关键字的概述及特点"><span class="nav-number">1.0.2.</span> <span class="nav-text">static关键字的概述及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static方法的访问特点及注意事项"><span class="nav-number">1.0.3.</span> <span class="nav-text">static方法的访问特点及注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类的概念"><span class="nav-number">1.0.4.</span> <span class="nav-text">抽象类的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类的特点"><span class="nav-number">1.0.5.</span> <span class="nav-text">抽象类的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类的成员特点"><span class="nav-number">1.0.6.</span> <span class="nav-text">抽象类的成员特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类的练习"><span class="nav-number">1.0.7.</span> <span class="nav-text">抽象类的练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口的特点"><span class="nav-number">1.0.8.</span> <span class="nav-text">接口的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口的成员特点"><span class="nav-number">1.0.9.</span> <span class="nav-text">接口的成员特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类与类-类与接口以及接口与接口的关系"><span class="nav-number">1.0.10.</span> <span class="nav-text">类与类,类与接口以及接口与接口的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口的区别"><span class="nav-number">1.0.11.</span> <span class="nav-text">抽象类与接口的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口的练习之猫狗案例"><span class="nav-number">1.0.12.</span> <span class="nav-text">接口的练习之猫狗案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口的练习之运动员和教练案例"><span class="nav-number">1.0.13.</span> <span class="nav-text">接口的练习之运动员和教练案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包的概述和注意事项"><span class="nav-number">1.0.14.</span> <span class="nav-text">包的概述和注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导包的格式及使用"><span class="nav-number">1.0.15.</span> <span class="nav-text">导包的格式及使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符的权限"><span class="nav-number">1.0.16.</span> <span class="nav-text">修饰符的权限</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

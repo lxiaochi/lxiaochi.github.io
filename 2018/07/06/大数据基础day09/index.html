@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day09视频笔记API概述API(Application Programming Interface)应用程序编程接口">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day09">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day09/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day09视频笔记API概述API(Application Programming Interface)应用程序编程接口">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day09/1529896142932.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day09/1529906961838.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day09/1530192553876.png">
+<meta property="og:updated_time" content="2018-07-06T13:24:36.502Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day09">
+<meta name="twitter:description" content="大数据基础班day09视频笔记API概述API(Application Programming Interface)应用程序编程接口">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day09/1529896142932.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/大数据基础day09/"/>
+
+
+
+
+
+  <title>大数据基础day09 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/大数据基础day09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day09</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:21:53+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,084
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day09视频笔记"><a href="#大数据基础班day09视频笔记" class="headerlink" title="大数据基础班day09视频笔记"></a>大数据基础班day09视频笔记</h1><h3 id="API概述"><a href="#API概述" class="headerlink" title="API概述"></a>API概述</h3><p>API(Application Programming Interface)<br><strong>应用程序编程接口</strong><br><a id="more"></a><br>帮助文档</p>
+<h3 id="通过Scanner获取字符串数据"><a href="#通过Scanner获取字符串数据" class="headerlink" title="通过Scanner获取字符串数据"></a>通过Scanner获取字符串数据</h3><p>Scanner:用于获取键盘录入数据<br>public String nextLine():获取键盘录入字符串数据</p>
+<h3 id="Object类的toString-方法"><a href="#Object类的toString-方法" class="headerlink" title="Object类的toString()方法"></a>Object类的toString()方法</h3><p>Object:是类层次结构的<strong>根类</strong>,所有的类都直接的或者间接的<strong>继承</strong>自该类<br>构造方法: Object()</p>
+<p>直接输出对象名,输出底层调用的是该对象的toString()方法<br>建议所有子类都<strong>重写toString()方法</strong></p>
+<p>在对应类中Source –&gt; toString –&gt; OK 重写toString()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Student s = new Student(&quot;阿三&quot;,18);</span><br><span class="line">		System.out.println(s);</span><br><span class="line">		/*</span><br><span class="line">		public void println(Object x) &#123;</span><br><span class="line">	        String s = String.valueOf(x);</span><br><span class="line">	        synchronized (this) &#123;</span><br><span class="line">	            print(s);</span><br><span class="line">	            newLine();</span><br><span class="line">		        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">		 */</span><br><span class="line">		/*</span><br><span class="line">		public static String valueOf(Object obj) &#123;</span><br><span class="line">	        return (obj == null) ? &quot;null&quot; : obj.toString();</span><br><span class="line">	    &#125;</span><br><span class="line">	    */</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Object类的equals-方法"><a href="#Object类的equals-方法" class="headerlink" title="Object类的equals()方法"></a>Object类的equals()方法</h3><p><strong>==</strong> 可以比较基本数据类型,比较基本数据类型的时候比较的是基本数据类型的<strong>值</strong>是否相同<br>也可以比较引用数据类型,比较引用数据类型的时候比较的是引用数据类型的<strong>地址值</strong>是否相同<br>public boolean equals(Object obj)<br>Object类中的equals()方法默认比较的是<strong>对象的地址</strong>是否相同<br>在对应类中Source –&gt; equals() –&gt; OK 重写equals()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		//s1.equals(s2)</span><br><span class="line">		//this -- s1</span><br><span class="line">		//obj -- s2</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		//比较的是对象是否是同一个类的对象</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Student other = (Student) obj;//other -- s2</span><br><span class="line">		if (age != other.age)//this.age -- s1.age</span><br><span class="line">			return false;</span><br><span class="line">		if (name == null) &#123;</span><br><span class="line">			if (other.name != null)</span><br><span class="line">				return false;</span><br><span class="line">		&#125; else if (!name.equals(other.name))</span><br><span class="line">			//字符串的equals()比较的是字符串的内容是否相同</span><br><span class="line">			return false;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="认识字符串"><a href="#认识字符串" class="headerlink" title="认识字符串"></a>认识字符串</h3><p><strong>只要是字符串,就是一个对象!</strong><br>字符串直接写上双引号,就是一个String类型的对象!String就是类名称<br>直接使用的字符串常量,也照样是一个字符串对象</p>
+<h3 id="字符串的两个问题"><a href="#字符串的两个问题" class="headerlink" title="字符串的两个问题"></a>字符串的两个问题</h3><p>为什么String这个类,不需要导包直接就能用?<br>所有的类都需要导包才能使用,除了两种情况:<br>A. 要使用的目标类,和当前类位于同一个包下<br>B. 要使用的目标类,位于java.lang包下,但是不包含子包内容</p>
+<p>既然字符串是对象,那么为什么直接打印出来就是内容呢?<br>打印println方法逻辑:</p>
+<ol>
+<li>如果是字符串类型,那么直接显示内容</li>
+<li>如果不是字符串类型,那么就想办法内部转换成为字符串,然后再显示<br>一般的对象都是使用<strong>“类型信息+@+地址值”</strong>作为字符串内容的</li>
+</ol>
+<h3 id="重新认识String类"><a href="#重新认识String类" class="headerlink" title="重新认识String类"></a>重新认识String类</h3><p>字符串就是一个java.lang.String的对象,里面也可以包含三个部分:</p>
+<ol>
+<li>构造方法</li>
+<li>成员变量</li>
+<li>成员方法</li>
+</ol>
+<h3 id="简单认识API文档"><a href="#简单认识API文档" class="headerlink" title="简单认识API文档"></a>简单认识API文档</h3><p><a href="http://www.oracle.com下载" target="_blank" rel="noopener">www.oracle.com下载</a></p>
+<h3 id="API文档的基本使用"><a href="#API文档的基本使用" class="headerlink" title="API文档的基本使用"></a>API文档的基本使用</h3><p>查找-&gt;回车两次</p>
+<h3 id="字符串的构造方法"><a href="#字符串的构造方法" class="headerlink" title="字符串的构造方法"></a>字符串的构造方法</h3><p>字符串创建的常见2+1种方式(两种构造方法,一种直接赋值)</p>
+<p>常用的两个构造方法:<br>public String (char[] array):参数是一个字符数组,根据字符数组的内容来创建一个字符串<br>public String (char[] array,int offset,int count):根据字符数组的一部分内容来创建字符串<br>参数offset代表一个数组当中的起始数组,从0开始<br>参数count代表取用多少个字符</p>
+<p>直接赋值双引号也是一个字符串对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//根据字符素组来创建字符串</span><br><span class="line">		char[] array = &#123;&apos;H&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;&#125;;</span><br><span class="line">		String str1 = new String(array);</span><br><span class="line">		System.out.println(str1);//Hello</span><br><span class="line">		//根据字符数组的一部分来创建字符串</span><br><span class="line">		String str2 = new String(array,1,4);</span><br><span class="line">		System.out.println(str2);//ello</span><br><span class="line">		//如果指定的索引或者个数超出了合理范围,那么将会发生索引越界异常</span><br><span class="line">		//String str3 = new String(array,100,200);</span><br><span class="line">		//直接赋值</span><br><span class="line">		String str4 = &quot;Hello World&quot;;</span><br><span class="line">		System.out.println(str4);//Hello World</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串池"><a href="#字符串池" class="headerlink" title="字符串池"></a>字符串池</h3><p>字符串是最为常用的对象,所以在程序当中往往会出现很多个重复的字符串<br>为了节省内存,所以引入了”字符串池”的设计,可以<strong>重复利用字符串</strong></p>
+<p>关于字符串池的几点描述:</p>
+<ol>
+<li><strong>字符串池是位于堆内存当中的一小块儿空间,用来保存若干个字符串的地址值</strong></li>
+<li><strong>字符串池当中绝对不会出现重复的字符串对应的地址,保证字符串不重复</strong></li>
+<li><strong>凡是直接双引号的字符串默认都在池中;而new出来的字符串默认不再池中</strong></li>
+</ol>
+<p>对于基本类型来说,<code>==</code>是进行数据内容的相同比较;但是对于引用类型来说,<code>==</code>是进行地址值的相同比较<br><strong>如果是两个对象,那么地址值必然不同;如果地址值相同,那么必然是同一个对象</strong></p>
+<p>图解:<br><img src="/2018/07/06/大数据基础day09/1529896142932.png"></p>
+<h3 id="字符串的内容不可变"><a href="#字符串的内容不可变" class="headerlink" title="字符串的内容不可变"></a>字符串的内容不可变</h3><p>字符串对象在内存当中一旦被创建,那么内容<strong>不可以被改变</strong><br>字符串的内容不会发生改变,每当你觉得好像是变了的时候,一定是<strong>创建了新的字符串</strong><br><strong>变量将会指向新字符串所对应的地址</strong></p>
+<p>图解:<br><img src="/2018/07/06/大数据基础day09/1529906961838.png"></p>
+<h3 id="字符串的比较方法"><a href="#字符串的比较方法" class="headerlink" title="字符串的比较方法"></a>字符串的比较方法</h3><p>如果使用==进行比较,那么是进行<strong>地址值</strong>的相同判断<br>如果就是希望进行字符串的内容比较,则需要使用String当中的成员方法</p>
+<p>public boolean equals(Object obj):进行字符串的内容比较,严格区分大小写.参数obj就是另一个对象(跟谁比)<br>Object也是一种类型,可以接受任何类型的数据</p>
+<p>public boolean equalsIgnoreCase(String str):进行字符串的内容比较,忽略大小写区分</p>
+<p>注意事项:</p>
+<ol>
+<li><strong>要想进行字符串的内容比较,一定要使用equals方法,不要使用==运算</strong></li>
+<li><strong>equals方法具有对称性,a.equals(b)和b.equals(a)效果一样</strong></li>
+<li><strong>如果equals方法需要比较的两个字符串当中,有一个是常量,那么尽量将常量写在前面</strong><br>调用方法的时候,对象名当中如果存储的是null值,那么将会发生<strong>空指针异常</strong>:NullPointerException</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		char[] array = &#123; &apos;a&apos;,&apos;b&apos;,&apos;c&apos; &#125;;</span><br><span class="line">		String str1 = new String(array);</span><br><span class="line">		</span><br><span class="line">		String str2  = &quot;abc&quot;;</span><br><span class="line">		System.out.println(str1 == str2);//false</span><br><span class="line">		</span><br><span class="line">		//进行内容比较,应该使用equals方法</span><br><span class="line">		//拿着str1和str2进行内容比较</span><br><span class="line">		boolean same = str1.equals(str2);</span><br><span class="line">		System.out.println(same);//true</span><br><span class="line">		System.out.println(str2.equals(str2));//true</span><br><span class="line">		System.out.println(&quot;------------------&quot;);</span><br><span class="line">		</span><br><span class="line">		String str3 = null;</span><br><span class="line">		System.out.println(&quot;abc&quot;.equals(str3));//false,正确,没有异常</span><br><span class="line">		//System.out.println(str3.equals(&quot;abc&quot;));//错误写法!发生异常!</span><br><span class="line"></span><br><span class="line">		String str4 = &quot;Hello&quot;;</span><br><span class="line">		String str5 = &quot;hello&quot;;</span><br><span class="line">		System.out.println(str4.equals(str5));//false</span><br><span class="line">		System.out.println(&quot;Hello&quot;.equals(&quot;hello&quot;));//false</span><br><span class="line">		System.out.println(str4.equalsIgnoreCase(str5));//true</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="简单的模拟登录"><a href="#简单的模拟登录" class="headerlink" title="简单的模拟登录"></a>简单的模拟登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		String userName = &quot;admin&quot;;</span><br><span class="line">		String userPwd = &quot;12345&quot;;</span><br><span class="line">		Scanner scanner = new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入用户名:&quot;);</span><br><span class="line">		String inputName = scanner.next();</span><br><span class="line">		System.out.println(&quot;请输入密码&quot;);</span><br><span class="line">		String inputPwd = scanner.next();</span><br><span class="line">		if (inputName.equalsIgnoreCase(userName) &amp;&amp; inputPwd.equals(userPwd)) &#123;</span><br><span class="line">			System.out.println(&quot;登录成功!&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;登录失败!&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拓展的模拟登录"><a href="#拓展的模拟登录" class="headerlink" title="拓展的模拟登录"></a>拓展的模拟登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		String userName = &quot;admin&quot;;</span><br><span class="line">		String userPwd = &quot;12345&quot;;</span><br><span class="line">		Scanner scanner = new Scanner(System.in);</span><br><span class="line">		for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">			System.out.println(&quot;请输入用户名:&quot;);</span><br><span class="line">			String inputName = scanner.next();</span><br><span class="line">			System.out.println(&quot;请输入密码&quot;);</span><br><span class="line">			String inputPwd = scanner.next();</span><br><span class="line">			if (inputName.equalsIgnoreCase(userName) &amp;&amp; inputPwd.equals(userPwd)) &#123;</span><br><span class="line">				System.out.println(&quot;登录成功!&quot;);</span><br><span class="line">				break;</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				if (i==2) &#123;</span><br><span class="line">					System.out.println(&quot;你是盗号的吗&quot;);</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					System.out.println(&quot;登录错误,你还剩&quot;+(2-i)+&quot;次机会!&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串遍历"><a href="#字符串遍历" class="headerlink" title="字符串遍历"></a>字符串遍历</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		String s = &quot;avcde&quot;;</span><br><span class="line">		for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">			System.out.println(s.charAt(i));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Scanner scanner = new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入一个字符串&quot;);</span><br><span class="line">		String s = scanner.nextLine();</span><br><span class="line">		System.out.println(reverse(s));</span><br><span class="line">	&#125;</span><br><span class="line">	public static String reverse(String s)&#123;</span><br><span class="line">		String ss = &quot;&quot;;</span><br><span class="line">		for (int i = s.length() - 1; i &gt;= 0 ; i--) &#123;</span><br><span class="line">			ss += s.charAt(i);</span><br><span class="line">		&#125;</span><br><span class="line">		return ss;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的替换方法"><a href="#字符串的替换方法" class="headerlink" title="字符串的替换方法"></a>字符串的替换方法</h3><p>public String replace(CharSequence oldStr,charSequence newStr):将字符串当中出现得所有oldStr部分,替换成为newStr部分<br>参数oldStr表示需要被替换的老字符串部分<br>参数newStr表示需要替换成为的新字符串部分<br>参数类型CharSequence现阶段可以简单地认为就是字符串String</p>
+<p>注意:<br>字符串的内容不会发生改变的,所有replace方法的返回值结果是一个全新的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String str1 = &quot;How do you do?&quot;;</span><br><span class="line">	String str2 = str1.replace(&quot;o&quot;, &quot;*&quot;);</span><br><span class="line">	System.out.println(str1);//&quot;How do you do?&quot;;</span><br><span class="line">	System.out.println(str2);//H*w d* y*u d*?</span><br><span class="line">	</span><br><span class="line">	String str3 = &quot;会不会玩儿啊!你大爷!真是服了!&quot;;</span><br><span class="line">	String str4 = str3.replace(&quot;你大爷&quot;, &quot;***&quot;);</span><br><span class="line">	System.out.println(str4);//会不会玩儿啊!***!真是服了!</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的切割方法"><a href="#字符串的切割方法" class="headerlink" title="字符串的切割方法"></a>字符串的切割方法</h3><p>public String[] split(String regex):将regex作为标记进行切刀,返回切分之后的若干段字符串(字符串数组)</p>
+<p><strong>注意事项:</strong><br>现阶段强烈推荐不要使用英文句点作为分割的标记<br>因为英文据点在正则表达式当中有特殊含义<br>而参数regex其实就是一个正则表达式<br>如果一定要使用英文据点,切割的标记应该使用”\.”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		String str1 = &quot;AAA.BBB.CCC&quot;;</span><br><span class="line">		String[] array1 = str1.split(&quot;\\.&quot;);</span><br><span class="line">		System.out.println(array1.length);</span><br><span class="line">		for (int i = 0; i &lt; array1.length; i++) &#123;</span><br><span class="line">			System.out.println(array1[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="StringBulider的概述以及String的区别"><a href="#StringBulider的概述以及String的区别" class="headerlink" title="StringBulider的概述以及String的区别"></a>StringBulider的概述以及String的区别</h3><p>如果对字符串进行拼接操作,每次拼接,都会构建一个新的String对象,既耗时,又浪费空间.而StringBuilder就可以解决这个问题<br>区别:<br>String的内容是固定的<br>StringBuilder是可变的</p>
+<img src="/2018/07/06/大数据基础day09/1530192553876.png">
+<h3 id="StringBulider的构造方法"><a href="#StringBulider的构造方法" class="headerlink" title="StringBulider的构造方法"></a>StringBulider的构造方法</h3><p>构造方法<br>public StringBuilder()<br>public StringBuilder(String str)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		System.out.println(&quot;sb:&quot;+sb);//sb:</span><br><span class="line">		System.out.println(sb.length());//0</span><br><span class="line">		System.out.println(&quot;-------&quot;);</span><br><span class="line">		StringBuilder sb2 = new StringBuilder(&quot;helloworld&quot;);</span><br><span class="line">		System.out.println(&quot;sb2:&quot;+sb2);//sb2:helloworld</span><br><span class="line">		System.out.println(sb2.length());//10</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="StringBulider的常用方法"><a href="#StringBulider的常用方法" class="headerlink" title="StringBulider的常用方法"></a>StringBulider的常用方法</h3><p>添加功能<br><strong>——</strong> public StringBuilder append(任意类型):添加数据,并返回<strong>对象本身</strong><br>反转功能<br><strong>——</strong> public StringBuilder reverse()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		/*StringBuilder sb2 = sb.append(&quot;hello&quot;);</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;sb:&quot;+sb);//hello</span><br><span class="line">		System.out.println(&quot;sb2:&quot;+sb2);//hello</span><br><span class="line">		System.out.println(sb == sb2);//true</span><br><span class="line">		</span><br><span class="line">		sb.append(&quot;hello&quot;);</span><br><span class="line">		sb.append(&quot;world&quot;);</span><br><span class="line">		System.out.println(&quot;sb:&quot;+sb);</span><br><span class="line">		*/</span><br><span class="line">		//链式编程</span><br><span class="line">		sb.append(&quot;hello&quot;).append(&quot;world&quot;).append(true).append(100);</span><br><span class="line">		System.out.println(&quot;sb:&quot;+sb);</span><br><span class="line">		</span><br><span class="line">		sb.reverse();</span><br><span class="line">		System.out.println(&quot;sb:&quot;+sb);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="String和StringBuilder的相互转换"><a href="#String和StringBuilder的相互转换" class="headerlink" title="String和StringBuilder的相互转换"></a>String和StringBuilder的相互转换</h3><p>通过toString()把StringBuilder转换为String StringBuilder –&gt; String<br>通过StringBuilder(String str)把String转换为StringBuilder   String –&gt; StringBuilder</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		/*StringBuilder sb = new StringBuilder();</span><br><span class="line">		sb.append(&quot;hello&quot;);</span><br><span class="line">		</span><br><span class="line">		String s = sb.toString();</span><br><span class="line">		System.out.println(s);</span><br><span class="line">		*/</span><br><span class="line">		String s = &quot;hello&quot;;</span><br><span class="line">		StringBuilder sb = new StringBuilder(s);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数组元素拼接成指定格式的字符串"><a href="#数组元素拼接成指定格式的字符串" class="headerlink" title="数组元素拼接成指定格式的字符串"></a>数组元素拼接成指定格式的字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr = &#123;1,2,3&#125;;</span><br><span class="line">		System.out.println(arrayToString(arr));</span><br><span class="line">	&#125;</span><br><span class="line">	public static String arrayToString(int[] arr)&#123;</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		sb.append(&quot;[&quot;);</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			if (i==arr.length-1) &#123;</span><br><span class="line">				sb.append(arr[i]);</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				sb.append(arr[i]).append(&quot;, &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		sb.append(&quot;]&quot;);</span><br><span class="line">		String s = sb.toString();</span><br><span class="line">		return s;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串反转-1"><a href="#字符串反转-1" class="headerlink" title="字符串反转"></a>字符串反转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Scanner scanner = new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入一个字符串&quot;);</span><br><span class="line">		String s = scanner.nextLine();</span><br><span class="line">		System.out.println(myReverse(s));</span><br><span class="line">	&#125;</span><br><span class="line">	public static String myReverse(String s )&#123;</span><br><span class="line">		StringBuilder sb = new StringBuilder(s);</span><br><span class="line">		sb.reverse();</span><br><span class="line">		String ss = sb.toString();</span><br><span class="line">		return ss;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p>集合和已经学过的数组比较类似,本身也是一种引用类型,而且可以保存很多个数据<br>区别在于<strong>数组</strong>的长度<strong>不可以</strong>改变,<strong>集合</strong>的长度<strong>可以</strong>任意改变<br>集合包含有很多种:ArrayList、HashSet、LinkedList、HashGet</p>
+<h3 id="集合的构造方法"><a href="#集合的构造方法" class="headerlink" title="集合的构造方法"></a>集合的构造方法</h3><p>public ArrayList():默认的无参数的构造方法<br>ArrayList&lt;泛型&gt; list = new ArrayList&lt;&gt;();<br>泛型:也就是集合当中存放的全都是同一的什么类型的数据<br>注意:泛型只能是引用类型,不能是基本类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;String&gt; list1 = new ArrayList&lt;&gt;();</span><br><span class="line">		//泛型只能写引用类型,错误写法</span><br><span class="line">		ArrayList&lt;int&gt; list2 = new ArrayList&lt;&gt;();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="集合的常用方法"><a href="#集合的常用方法" class="headerlink" title="集合的常用方法"></a>集合的常用方法</h3><ol>
+<li>添加元素<br>public boolean add(E element):向集合当中添加一个元素,参数是被天界的元素,而返回值一定是true值代表成功</li>
+<li>获取元素<br>public E get(int index):从集合当中获取一个元素,参数是元素索引(从0开始)</li>
+<li>获取长度<br>public int size():获取集合的元素个数,集合的长度,得到int数字</li>
+</ol>
+<p><strong>注意事项:</strong><br>ArrayList集合直接打印对象名称,得到的不是地址值,而是内容,格式和数组类似<br>简单了解原因:是因为ArrayList这是类其中的toString方法有特殊处理</p>
+<p>对于ArrayList集合来说,添加的add动作一定是成功的,返回值必然是true<br>但是对于其他的集合来说,add方法就不一定成功了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		</span><br><span class="line">		//向集合当中添加元素:add</span><br><span class="line">		list.add(&quot;鹿晗&quot;);</span><br><span class="line">		list.add(&quot;吴亦凡&quot;);</span><br><span class="line">		list.add(&quot;张艺兴&quot;);</span><br><span class="line">		System.out.println(list);//[鹿晗,吴亦凡,张艺兴]</span><br><span class="line">		</span><br><span class="line">		boolean success = list.add(&quot;关晓彤&quot;);</span><br><span class="line">		System.out.println(&quot;添加元素是否成功:&quot; + success);//true</span><br><span class="line">		System.out.println(list);//[鹿晗,吴亦凡,张艺兴,关晓彤]</span><br><span class="line">		System.out.println(&quot;==============&quot;);</span><br><span class="line">		</span><br><span class="line">		String name = list.get(1);//获取第一号元素</span><br><span class="line">		System.out.println(name);//吴亦凡</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;集合的长度:&quot;+ list.size());//4</span><br><span class="line">		list.add(&quot;赵丽颖&quot;);</span><br><span class="line">		list.add(&quot;迪丽热巴&quot;);</span><br><span class="line">		list.add(&quot;古力娜扎&quot;);</span><br><span class="line">		list.add(&quot;马尔扎哈&quot;);</span><br><span class="line">		System.out.println(&quot;集合的长度:&quot;+ list.size());//8</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="遍历集合中的字符串"><a href="#遍历集合中的字符串" class="headerlink" title="遍历集合中的字符串"></a>遍历集合中的字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">		list.add(&quot;迪丽热巴&quot;);</span><br><span class="line">		list.add(&quot;古力娜扎&quot;);</span><br><span class="line">		list.add(&quot;马尔扎哈&quot;);</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">			System.out.println(list.get(i));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="集合存储基本类型数据"><a href="#集合存储基本类型数据" class="headerlink" title="集合存储基本类型数据"></a>集合存储基本类型数据</h3><p>集合泛型必须是引用类型,不能是基本类型<br>如果一定存储基本数据,那么就要使用基本类型对应的”包装类”(全部位于java.lang包下,有8种)</p>
+<p>基本类型 对象的包装类<br>byte                Byte<br>short             Short<br>int                <strong>Integer</strong><br>long             Long<br>float                Float<br>double         Double<br>char             <strong>Character</strong><br>boolean         Boolean</p>
+<p>从jdk1.5开始,基本类型可以和对应的包装类进行自动装箱拆箱<br>装箱:  基本类型 –&gt; 包装类<br>拆箱:  包装类 –&gt; 基本类型</p>
+<h3 id="集合存储自定义类型数据"><a href="#集合存储自定义类型数据" class="headerlink" title="集合存储自定义类型数据"></a>集合存储自定义类型数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	Person one = new Person(&quot;迪丽热巴&quot;,18);</span><br><span class="line">	Person two = new Person(&quot;古力娜扎&quot;,19);</span><br><span class="line">	Person three = new Person(&quot;马尔扎哈&quot;,200);</span><br><span class="line">	</span><br><span class="line">	//准备一个集合,用来存放多个Person对象</span><br><span class="line">	ArrayList&lt;Person&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">	</span><br><span class="line">	//将对象添加到集合当中</span><br><span class="line">	list.add(one);</span><br><span class="line">	list.add(two);</span><br><span class="line">	list.add(three);</span><br><span class="line">	System.out.println(one);//地址值</span><br><span class="line">	for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">		Person per = list.get(i);</span><br><span class="line">		System.out.println(&quot;姓名:&quot; + per.getName() + &quot;年龄:&quot; + per.getAge());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="王者荣耀阵容展示"><a href="#王者荣耀阵容展示" class="headerlink" title="王者荣耀阵容展示"></a>王者荣耀阵容展示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Hero one = new Hero(&quot;蔡文姬&quot;,1008);</span><br><span class="line">		Hero two = new Hero(&quot;貂蝉&quot;,1009);</span><br><span class="line">		Hero three = new Hero(&quot;狄仁杰&quot;,400);</span><br><span class="line">		Hero four = new Hero(&quot;东皇太一&quot;,500);</span><br><span class="line">		Hero five = new Hero(&quot;韩信&quot;,200);</span><br><span class="line">		</span><br><span class="line">		//准备一个集合,用来存放多个Person对象</span><br><span class="line">		ArrayList&lt;Hero&gt; team = new ArrayList&lt;&gt;();</span><br><span class="line">		</span><br><span class="line">		//将对象添加到集合当中</span><br><span class="line">		team.add(one);</span><br><span class="line">		team.add(two);</span><br><span class="line">		team.add(three);</span><br><span class="line">		team.add(four);</span><br><span class="line">		team.add(five);</span><br><span class="line">		System.out.println(one);//地址值</span><br><span class="line">		for (int i = 0; i &lt; team.size(); i++) &#123;</span><br><span class="line">			Hero hero = team.get(i);</span><br><span class="line">			System.out.println(&quot;姓名:&quot; + hero.getName() + &quot;攻击力:&quot; + hero.getAttack());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="王者荣耀平均战斗力"><a href="#王者荣耀平均战斗力" class="headerlink" title="王者荣耀平均战斗力"></a>王者荣耀平均战斗力</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int sum = 0;</span><br><span class="line">		for (int i = 0; i &lt; team.size(); i++) &#123;</span><br><span class="line">			Hero hero = team.get(i);</span><br><span class="line">			sum += hero.getAttack();</span><br><span class="line">			System.out.println(&quot;姓名:&quot; + hero.getName() + &quot;攻击力:&quot; + hero.getAttack());</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;战斗力:&quot;+ sum/team.size() );</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day08/" rel="next" title="大数据基础day08">
+                <i class="fa fa-chevron-left"></i> 大数据基础day08
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day10/" rel="prev" title="大数据基础day10">
+                大数据基础day10 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day09视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day09视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">API概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过Scanner获取字符串数据"><span class="nav-number">1.0.2.</span> <span class="nav-text">通过Scanner获取字符串数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object类的toString-方法"><span class="nav-number">1.0.3.</span> <span class="nav-text">Object类的toString()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object类的equals-方法"><span class="nav-number">1.0.4.</span> <span class="nav-text">Object类的equals()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认识字符串"><span class="nav-number">1.0.5.</span> <span class="nav-text">认识字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的两个问题"><span class="nav-number">1.0.6.</span> <span class="nav-text">字符串的两个问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新认识String类"><span class="nav-number">1.0.7.</span> <span class="nav-text">重新认识String类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单认识API文档"><span class="nav-number">1.0.8.</span> <span class="nav-text">简单认识API文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API文档的基本使用"><span class="nav-number">1.0.9.</span> <span class="nav-text">API文档的基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的构造方法"><span class="nav-number">1.0.10.</span> <span class="nav-text">字符串的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串池"><span class="nav-number">1.0.11.</span> <span class="nav-text">字符串池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的内容不可变"><span class="nav-number">1.0.12.</span> <span class="nav-text">字符串的内容不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的比较方法"><span class="nav-number">1.0.13.</span> <span class="nav-text">字符串的比较方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的模拟登录"><span class="nav-number">1.0.14.</span> <span class="nav-text">简单的模拟登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展的模拟登录"><span class="nav-number">1.0.15.</span> <span class="nav-text">拓展的模拟登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串遍历"><span class="nav-number">1.0.16.</span> <span class="nav-text">字符串遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串反转"><span class="nav-number">1.0.17.</span> <span class="nav-text">字符串反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的替换方法"><span class="nav-number">1.0.18.</span> <span class="nav-text">字符串的替换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的切割方法"><span class="nav-number">1.0.19.</span> <span class="nav-text">字符串的切割方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBulider的概述以及String的区别"><span class="nav-number">1.0.20.</span> <span class="nav-text">StringBulider的概述以及String的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBulider的构造方法"><span class="nav-number">1.0.21.</span> <span class="nav-text">StringBulider的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBulider的常用方法"><span class="nav-number">1.0.22.</span> <span class="nav-text">StringBulider的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String和StringBuilder的相互转换"><span class="nav-number">1.0.23.</span> <span class="nav-text">String和StringBuilder的相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素拼接成指定格式的字符串"><span class="nav-number">1.0.24.</span> <span class="nav-text">数组元素拼接成指定格式的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串反转-1"><span class="nav-number">1.0.25.</span> <span class="nav-text">字符串反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合概述"><span class="nav-number">1.0.26.</span> <span class="nav-text">集合概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合的构造方法"><span class="nav-number">1.0.27.</span> <span class="nav-text">集合的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合的常用方法"><span class="nav-number">1.0.28.</span> <span class="nav-text">集合的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历集合中的字符串"><span class="nav-number">1.0.29.</span> <span class="nav-text">遍历集合中的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合存储基本类型数据"><span class="nav-number">1.0.30.</span> <span class="nav-text">集合存储基本类型数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合存储自定义类型数据"><span class="nav-number">1.0.31.</span> <span class="nav-text">集合存储自定义类型数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#王者荣耀阵容展示"><span class="nav-number">1.0.32.</span> <span class="nav-text">王者荣耀阵容展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#王者荣耀平均战斗力"><span class="nav-number">1.0.33.</span> <span class="nav-text">王者荣耀平均战斗力</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

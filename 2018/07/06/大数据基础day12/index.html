@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day12视频笔记Set集合的特点一个不包含重复元素的collectionHashSet:不保证set的迭代顺序;特别是他不保证该顺序恒久不变的">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day12">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day12/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day12视频笔记Set集合的特点一个不包含重复元素的collectionHashSet:不保证set的迭代顺序;特别是他不保证该顺序恒久不变的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day12/1530364034522.png">
+<meta property="og:updated_time" content="2018-07-06T13:31:04.474Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day12">
+<meta name="twitter:description" content="大数据基础班day12视频笔记Set集合的特点一个不包含重复元素的collectionHashSet:不保证set的迭代顺序;特别是他不保证该顺序恒久不变的">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day12/1530364034522.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/大数据基础day12/"/>
+
+
+
+
+
+  <title>大数据基础day12 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/大数据基础day12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day12</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:22:39+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,320
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day12视频笔记"><a href="#大数据基础班day12视频笔记" class="headerlink" title="大数据基础班day12视频笔记"></a>大数据基础班day12视频笔记</h1><h3 id="Set集合的特点"><a href="#Set集合的特点" class="headerlink" title="Set集合的特点"></a>Set集合的特点</h3><p>一个不包含重复元素的collection<br>HashSet:不保证set的迭代顺序;特别是他不保证该顺序恒久不变的<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Set&lt;String&gt; set = new HashSet&lt;String&gt;();</span><br><span class="line">		</span><br><span class="line">		set.add(&quot;hello&quot;);</span><br><span class="line">		set.add(&quot;world&quot;);</span><br><span class="line">		set.add(&quot;java&quot;);</span><br><span class="line">		set.add(&quot;world&quot;);</span><br><span class="line">		</span><br><span class="line">		for (String s : set) &#123;</span><br><span class="line">			System.out.println(s);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="HashSet保证元素唯一性的原理"><a href="#HashSet保证元素唯一性的原理" class="headerlink" title="HashSet保证元素唯一性的原理"></a>HashSet保证元素唯一性的原理</h3><p>数据判断:</p>
+<ol>
+<li>比较对象的哈希值是否相同,这个哈希值是根据对象的hashCode()计算出来的<br>如果哈希值不同,就直接添加到集合中<br>如果哈希值相同,继续执行equals()进行比较<br>返回的是true,说明元素重复,不添加<br>返回的是false,说明元素不重复,就添加</li>
+</ol>
+<p>如果我们使用HashSet集合存储对象,你要想保证元素元素的唯一性,就必须重写hashCode()和equals()方法</p>
+<p>add方法的源码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public V put(K key, V value) &#123;</span><br><span class="line">		//hashCode()</span><br><span class="line">		//根据key的hashCode()方法计算出了一个哈希值</span><br><span class="line">        if (table == EMPTY_TABLE) &#123;</span><br><span class="line">            inflateTable(threshold);</span><br><span class="line">        &#125;</span><br><span class="line">        if (key == null)</span><br><span class="line">            return putForNullKey(value);</span><br><span class="line">        int hash = hash(key);</span><br><span class="line">        int i = indexFor(hash, table.length);</span><br><span class="line">        //遍历和,得到每一个元素,和新添加的元素进行比较,如果相同就不添加,不同就添加</span><br><span class="line">        for (Entry&lt;K,V&gt; e = table[i]; e != null; e = e.next) &#123;</span><br><span class="line">            Object k;</span><br><span class="line">            if (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</span><br><span class="line">                V oldValue = e.value;</span><br><span class="line">                e.value = value;</span><br><span class="line">                e.recordAccess(this);</span><br><span class="line">                return oldValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        modCount++;</span><br><span class="line">        addEntry(hash, key, value, i);//添加元素的操作 </span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HashSet集合的练习存储自定义对象并遍历"><a href="#HashSet集合的练习存储自定义对象并遍历" class="headerlink" title="HashSet集合的练习存储自定义对象并遍历"></a>HashSet集合的练习存储自定义对象并遍历</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		HashSet&lt;Student&gt; hs = new HashSet&lt;Student&gt;();</span><br><span class="line">		Student s1 = new Student(&quot;阿萨&quot;,30);</span><br><span class="line">		Student s2 = new Student(&quot;阿阿萨&quot;,32);</span><br><span class="line">		Student s3 = new Student(&quot;阿啊啊撒&quot;,33);</span><br><span class="line">		hs.add(s1);</span><br><span class="line">		hs.add(s2);</span><br><span class="line">		hs.add(s3);</span><br><span class="line">		</span><br><span class="line">		Iterator&lt;Student&gt; it = hs.iterator();</span><br><span class="line">		while(it.hasNext())&#123;</span><br><span class="line">			Student s = it.next();</span><br><span class="line">			System.out.println(s.getName()+&quot;----&quot;+s.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for (Student s : hs) &#123;</span><br><span class="line">			System.out.println(s.getName()+&quot;----&quot;+s.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HashSet集合的练习存储自定义对象保证元素唯一性"><a href="#HashSet集合的练习存储自定义对象保证元素唯一性" class="headerlink" title="HashSet集合的练习存储自定义对象保证元素唯一性"></a>HashSet集合的练习存储自定义对象保证元素唯一性</h3><p>我们存储的元素所属的类没有重写hashCode()和equals()方法,所以保证不了元素的唯一性<br>重写hashCode()和equals()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line">		final int prime = 31;</span><br><span class="line">		int result = 1;</span><br><span class="line">		result = prime * result + age;</span><br><span class="line">		result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Student other = (Student) obj;</span><br><span class="line">		if (age != other.age)</span><br><span class="line">			return false;</span><br><span class="line">		if (name == null) &#123;</span><br><span class="line">			if (other.name != null)</span><br><span class="line">				return false;</span><br><span class="line">		&#125; else if (!name.equals(other.name))</span><br><span class="line">			return false;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		HashSet&lt;Student&gt; hs = new HashSet&lt;Student&gt;();</span><br><span class="line">		Student s1 = new Student(&quot;阿萨&quot;,30);</span><br><span class="line">		Student s2 = new Student(&quot;阿阿萨&quot;,32);</span><br><span class="line">		Student s3 = new Student(&quot;阿啊啊撒&quot;,33);</span><br><span class="line">		Student s4 = new Student(&quot;阿萨&quot;,30);</span><br><span class="line">		Student s5 = new Student(&quot;阿阿萨&quot;,32);</span><br><span class="line">		hs.add(s1);</span><br><span class="line">		hs.add(s2);</span><br><span class="line">		hs.add(s3);</span><br><span class="line">		hs.add(s4);</span><br><span class="line">		hs.add(s5);</span><br><span class="line">		</span><br><span class="line">		Iterator&lt;Student&gt; it = hs.iterator();</span><br><span class="line">		while (it.hasNext()) &#123;</span><br><span class="line">			Student s = it.next();</span><br><span class="line">			System.out.println(s.getName()+&quot;---&quot;+s.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for (Student s : hs) &#123;</span><br><span class="line">			System.out.println(s.getName()+&quot;---&quot;+s.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建Map集合对象并添加元素"><a href="#创建Map集合对象并添加元素" class="headerlink" title="创建Map集合对象并添加元素"></a>创建Map集合对象并添加元素</h3><p>Map: 将键映射到值得对象,一个映射不能包含重复的键,每个键最多只能映射到一个值<br>public interface Map&lt;K,V&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Map&lt;String, String&gt; map = new HashMap&lt;String,String&gt;();</span><br><span class="line">		map.put(&quot;it001&quot;, &quot;林青霞&quot;);</span><br><span class="line">		map.put(&quot;it002&quot;, &quot;张曼玉&quot;);</span><br><span class="line">		map.put(&quot;it003&quot;, &quot;王祖贤&quot;);</span><br><span class="line">		System.out.println(map);//&#123;it003=王祖贤, it002=张曼玉, it001=林青霞&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Map集合的成员方法"><a href="#Map集合的成员方法" class="headerlink" title="Map集合的成员方法"></a>Map集合的成员方法</h3><p>V put(K key,V value) : 添加元素<br>V remove(Object key) : 根据键删除键值对元素<br>void claer() : 清空所有的键值对元素<br>boolean containsKey(Object key) : 判断集合是否包含指定的键<br>boolean containsValue(Object value) : 判断集合是否包含指定的值<br>boolean isEmpty() : 判断集合是否为空<br>int size() : 返回集合中的键值对的对数</p>
+<p>Map集合中的实现类的数据结构值针对键有效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		Map&lt;String, String&gt; map = new HashMap&lt;String,String&gt;();</span><br><span class="line">		//如果键是第一次存储,就直接存储元素,返回null</span><br><span class="line">				//如果键不是第一次存储,就用值把以前的值替换,返回以前的值</span><br><span class="line">		System.out.println(map.put(&quot;it001&quot;, &quot;林青霞&quot;));//null</span><br><span class="line">		System.out.println(map.put(&quot;it001&quot;, &quot;张曼玉&quot;));//林青霞</span><br><span class="line">		map.put(&quot;it001&quot;, &quot;林青霞&quot;);</span><br><span class="line">		map.put(&quot;it002&quot;, &quot;张曼玉&quot;);</span><br><span class="line">		map.put(&quot;it003&quot;, &quot;王祖贤&quot;);</span><br><span class="line">		//System.out.println(map.remove(&quot;it002&quot;));//张曼玉</span><br><span class="line">		//System.out.println(map.remove(&quot;it004&quot;));//null</span><br><span class="line">		//map.clear();</span><br><span class="line">		//System.out.println(map);//&#123;&#125;</span><br><span class="line">		System.out.println(map.containsKey(&quot;it002&quot;));//true</span><br><span class="line">		System.out.println(map.containsKey(&quot;it004&quot;));//false</span><br><span class="line">		System.out.println(map.isEmpty());//false</span><br><span class="line">		System.out.println(map.size());//3对</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Map集合的获取功能测试"><a href="#Map集合的获取功能测试" class="headerlink" title="Map集合的获取功能测试"></a>Map集合的获取功能测试</h3><p>V get(Object key) : 根据键获取值<br>Set<code>&lt;K&gt;</code> keySet() : 获取所有键的集合<br>Collection<code>&lt;V&gt;</code>values() : 获取所有值的集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	//创建集合对象</span><br><span class="line">	Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">	//添加元素</span><br><span class="line">	map.put(&quot;it001&quot;, &quot;林青霞&quot;);</span><br><span class="line">	map.put(&quot;it002&quot;, &quot;张曼玉&quot;);</span><br><span class="line">	map.put(&quot;it003&quot;, &quot;王祖贤&quot;);</span><br><span class="line">	</span><br><span class="line">	//V get(Object key) : 根据键获取值</span><br><span class="line">	System.out.println(map.get(&quot;it001&quot;));//林青霞</span><br><span class="line">	System.out.println(map.get(&quot;it002&quot;));//张曼玉</span><br><span class="line">		</span><br><span class="line">	//Set&lt;K&gt; keySet() : 获取所有键的集合</span><br><span class="line">	Set&lt;String&gt; set = map.keySet();</span><br><span class="line">	for (String key : set) &#123;</span><br><span class="line">		System.out.println(key);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//Collection`&lt;V&gt;`values() : 获取所有值的集合</span><br><span class="line">	Collection&lt;String&gt; values = map.values();</span><br><span class="line">	for (String value : values) &#123;</span><br><span class="line">		System.out.println(value);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Map集合的遍历之键找值"><a href="#Map集合的遍历之键找值" class="headerlink" title="Map集合的遍历之键找值"></a>Map集合的遍历之键找值</h3><p>Map看成是一个夫妻对的集合<br>A : 把所有的丈夫给集中起来<br>B : 遍历丈夫的集合,获取到每一个丈夫<br>C : 根据丈夫去找对应的妻子</p>
+<p>A : 获取所有键的集合<br>B : 遍历键的集合,获取到每一个键<br>C : 根据键去找值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//创建集合对象</span><br><span class="line">		Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">		//添加元素</span><br><span class="line">		map.put(&quot;it001&quot;, &quot;林青霞&quot;);</span><br><span class="line">		map.put(&quot;it002&quot;, &quot;张曼玉&quot;);</span><br><span class="line">		map.put(&quot;it003&quot;, &quot;王祖贤&quot;);</span><br><span class="line">		</span><br><span class="line">		//获取所有键的集合</span><br><span class="line">		Set&lt;String&gt; set = map.keySet();</span><br><span class="line">		for (String key : set) &#123;</span><br><span class="line">			//根据键去找值</span><br><span class="line">			String value = map.get(key);</span><br><span class="line">			System.out.println(key+&quot;---&quot;+value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Map集合的遍历之键值对对象找键和值"><a href="#Map集合的遍历之键值对对象找键和值" class="headerlink" title="Map集合的遍历之键值对对象找键和值"></a>Map集合的遍历之键值对对象找键和值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//创建集合对象</span><br><span class="line">		Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">		//添加元素</span><br><span class="line">		map.put(&quot;it001&quot;, &quot;林青霞&quot;);</span><br><span class="line">		map.put(&quot;it002&quot;, &quot;张曼玉&quot;);</span><br><span class="line">		map.put(&quot;it003&quot;, &quot;王祖贤&quot;);</span><br><span class="line">		</span><br><span class="line">		//获取所有键值对对象的集合</span><br><span class="line">		Set&lt;Map.Entry&lt;String, String&gt;&gt; set = map.entrySet();</span><br><span class="line">		</span><br><span class="line">		//遍历键值对对象的集合,得到每一个键值对对象</span><br><span class="line">		for (Map.Entry&lt;String, String&gt; me : set) &#123;</span><br><span class="line">			//根据键值对对象获取键和值</span><br><span class="line">			String key = me.getKey();</span><br><span class="line">			String value = me.getValue();</span><br><span class="line">			System.out.println(key+&quot;-------&quot;+value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Map集合的两种遍历方式图解"><a href="#Map集合的两种遍历方式图解" class="headerlink" title="Map集合的两种遍历方式图解"></a>Map集合的两种遍历方式图解</h3><img src="/2018/07/06/大数据基础day12/1530364034522.png">
+<h3 id="HashMap集合的练习键是String值是Student"><a href="#HashMap集合的练习键是String值是Student" class="headerlink" title="HashMap集合的练习键是String值是Student"></a>HashMap集合的练习键是String值是Student</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//创建集合对象</span><br><span class="line">		HashMap&lt;String, Student&gt; hm = new HashMap&lt;String,Student&gt;();</span><br><span class="line">		//创建元素对象</span><br><span class="line">		Student s1 = new Student(&quot;林青霞&quot;,30);</span><br><span class="line">		Student s2 = new Student(&quot;张曼玉&quot;,35);</span><br><span class="line">		Student s3 = new Student(&quot;王祖贤&quot;,33);</span><br><span class="line">		</span><br><span class="line">		//添加元素到集合中</span><br><span class="line">		hm.put(&quot;it001&quot;, s1);</span><br><span class="line">		hm.put(&quot;it002&quot;, s2);</span><br><span class="line">		hm.put(&quot;it003&quot;, s3);</span><br><span class="line">		</span><br><span class="line">		Set&lt;String&gt; set = hm.keySet();</span><br><span class="line">		for (String key : set) &#123;</span><br><span class="line">			Student value = hm.get(key);</span><br><span class="line">			System.out.println(key+&quot;----&quot;+value.getName()+&quot;----&quot;+value.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Set&lt;Map.Entry&lt;String, Student&gt;&gt; set2 = hm.entrySet();</span><br><span class="line">		for (Map.Entry&lt;String, Student&gt; me : set2) &#123;</span><br><span class="line">			String key = me.getKey();</span><br><span class="line">			Student value = me.getValue();</span><br><span class="line">			System.out.println(key+&quot;----&quot;+value.getName()+&quot;----&quot;+value.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HashMap集合的练习键是Student值是String"><a href="#HashMap集合的练习键是Student值是String" class="headerlink" title="HashMap集合的练习键是Student值是String"></a>HashMap集合的练习键是Student值是String</h3><p>向Student重写HashCode()和equals()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//创建集合对象</span><br><span class="line">		HashMap&lt;Student, String&gt; hm = new HashMap&lt;Student,String&gt;();</span><br><span class="line">		//创建元素对象</span><br><span class="line">		Student s1 = new Student(&quot;林青霞&quot;,30);</span><br><span class="line">		Student s2 = new Student(&quot;张曼玉&quot;,35);</span><br><span class="line">		Student s3 = new Student(&quot;王祖贤&quot;,33);</span><br><span class="line">		Student s4 = new Student(&quot;张曼玉&quot;,35);</span><br><span class="line">		hm.put(s1, &quot;湖北&quot;);</span><br><span class="line">		hm.put(s2, &quot;上海&quot;);</span><br><span class="line">		hm.put(s3, &quot;深圳&quot;);</span><br><span class="line">		hm.put(s4, &quot;香港&quot;);</span><br><span class="line">		Set&lt;Student&gt; set = hm.keySet();</span><br><span class="line">		for (Student key : set) &#123;</span><br><span class="line">			String value = hm.get(key);</span><br><span class="line">			System.out.println(key.getName()+&quot;----&quot;+value+&quot;----&quot;+key.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="集合的嵌套练习之ArrayList嵌套HashMap"><a href="#集合的嵌套练习之ArrayList嵌套HashMap" class="headerlink" title="集合的嵌套练习之ArrayList嵌套HashMap"></a>集合的嵌套练习之ArrayList嵌套HashMap</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;HashMap&lt;String, String&gt;&gt; array = new ArrayList&lt;HashMap&lt;String, String&gt;&gt;();</span><br><span class="line">		</span><br><span class="line">		HashMap&lt;String, String&gt; hm1 = new HashMap&lt;String, String&gt;();</span><br><span class="line">		hm1.put(&quot;孙策&quot;, &quot;大乔&quot;);</span><br><span class="line">		hm1.put(&quot;周瑜&quot;, &quot;小乔&quot;);</span><br><span class="line">		</span><br><span class="line">		array.add(hm1);</span><br><span class="line">		</span><br><span class="line">		HashMap&lt;String, String&gt; hm2 = new HashMap&lt;String, String&gt;();</span><br><span class="line">		hm2.put(&quot;郭靖&quot;, &quot;黄蓉&quot;);</span><br><span class="line">		hm2.put(&quot;杨过&quot;, &quot;小龙女&quot;);</span><br><span class="line">		</span><br><span class="line">		array.add(hm2);</span><br><span class="line">		</span><br><span class="line">		HashMap&lt;String, String&gt; hm3 = new HashMap&lt;String, String&gt;();</span><br><span class="line">		hm3.put(&quot;令狐冲&quot;, &quot;任盈盈&quot;);</span><br><span class="line">		hm3.put(&quot;林平之&quot;, &quot;岳灵珊&quot;);</span><br><span class="line">		</span><br><span class="line">		array.add(hm3);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		for (HashMap&lt;String, String&gt; hm : array) &#123;</span><br><span class="line">			Set&lt;String&gt; set = hm.keySet();</span><br><span class="line">			for (String key : set) &#123;</span><br><span class="line">				String value = hm.get(key);</span><br><span class="line">				System.out.println(key+&quot;***&quot;+value);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="集合的嵌套练习之HashMap嵌套ArrayList"><a href="#集合的嵌套练习之HashMap嵌套ArrayList" class="headerlink" title="集合的嵌套练习之HashMap嵌套ArrayList"></a>集合的嵌套练习之HashMap嵌套ArrayList</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//创建集合对象</span><br><span class="line">		HashMap&lt;String, ArrayList&lt;String&gt;&gt; hm = new HashMap&lt;String, ArrayList&lt;String&gt;&gt;();</span><br><span class="line">		</span><br><span class="line">		ArrayList&lt;String&gt; sgyy = new ArrayList&lt;String&gt;();</span><br><span class="line">		sgyy.add(&quot;诸葛亮&quot;);</span><br><span class="line">		sgyy.add(&quot;赵云&quot;);</span><br><span class="line">		</span><br><span class="line">		hm.put(&quot;三国演义&quot;, sgyy);</span><br><span class="line">		</span><br><span class="line">		ArrayList&lt;String&gt; xyj = new ArrayList&lt;String&gt;();</span><br><span class="line">		xyj.add(&quot;唐僧&quot;);</span><br><span class="line">		xyj.add(&quot;孙悟空&quot;);</span><br><span class="line">		</span><br><span class="line">		hm.put(&quot;西游记&quot;, xyj);</span><br><span class="line">		</span><br><span class="line">		ArrayList&lt;String&gt; shz = new ArrayList&lt;String&gt;();</span><br><span class="line">		shz.add(&quot;武松&quot;);</span><br><span class="line">		shz.add(&quot;鲁智深&quot;);</span><br><span class="line">		</span><br><span class="line">		hm.put(&quot;水浒传&quot;, shz);</span><br><span class="line">		</span><br><span class="line">		Set&lt;String&gt; set = hm.keySet();</span><br><span class="line">		for (String key : set) &#123;</span><br><span class="line">			System.out.println(key);</span><br><span class="line">			ArrayList&lt;String&gt; value = hm.get(key);</span><br><span class="line">			for (String s : value) &#123;</span><br><span class="line">				System.out.println(&quot;\t&quot;+s);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day11/" rel="next" title="大数据基础day11">
+                <i class="fa fa-chevron-left"></i> 大数据基础day11
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day13/" rel="prev" title="大数据基础day13">
+                大数据基础day13 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day12视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day12视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set集合的特点"><span class="nav-number">1.0.1.</span> <span class="nav-text">Set集合的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet保证元素唯一性的原理"><span class="nav-number">1.0.2.</span> <span class="nav-text">HashSet保证元素唯一性的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet集合的练习存储自定义对象并遍历"><span class="nav-number">1.0.3.</span> <span class="nav-text">HashSet集合的练习存储自定义对象并遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet集合的练习存储自定义对象保证元素唯一性"><span class="nav-number">1.0.4.</span> <span class="nav-text">HashSet集合的练习存储自定义对象保证元素唯一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Map集合对象并添加元素"><span class="nav-number">1.0.5.</span> <span class="nav-text">创建Map集合对象并添加元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map集合的成员方法"><span class="nav-number">1.0.6.</span> <span class="nav-text">Map集合的成员方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map集合的获取功能测试"><span class="nav-number">1.0.7.</span> <span class="nav-text">Map集合的获取功能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map集合的遍历之键找值"><span class="nav-number">1.0.8.</span> <span class="nav-text">Map集合的遍历之键找值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map集合的遍历之键值对对象找键和值"><span class="nav-number">1.0.9.</span> <span class="nav-text">Map集合的遍历之键值对对象找键和值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map集合的两种遍历方式图解"><span class="nav-number">1.0.10.</span> <span class="nav-text">Map集合的两种遍历方式图解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap集合的练习键是String值是Student"><span class="nav-number">1.0.11.</span> <span class="nav-text">HashMap集合的练习键是String值是Student</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap集合的练习键是Student值是String"><span class="nav-number">1.0.12.</span> <span class="nav-text">HashMap集合的练习键是Student值是String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合的嵌套练习之ArrayList嵌套HashMap"><span class="nav-number">1.0.13.</span> <span class="nav-text">集合的嵌套练习之ArrayList嵌套HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合的嵌套练习之HashMap嵌套ArrayList"><span class="nav-number">1.0.14.</span> <span class="nav-text">集合的嵌套练习之HashMap嵌套ArrayList</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

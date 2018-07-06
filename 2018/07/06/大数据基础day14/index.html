@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day14视频笔记字节缓冲区流字节流一次读写一个数组的速度比一次写一个字节的速度快很多,这是加入了数组这样的缓冲区效果,java本身在设计的时候,也考虑到了这样的设计思想,所以提供了字节缓冲区流">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day14">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day14/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day14视频笔记字节缓冲区流字节流一次读写一个数组的速度比一次写一个字节的速度快很多,这是加入了数组这样的缓冲区效果,java本身在设计的时候,也考虑到了这样的设计思想,所以提供了字节缓冲区流">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day14/1530586546022.png">
+<meta property="og:updated_time" content="2018-07-06T13:33:23.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day14">
+<meta name="twitter:description" content="大数据基础班day14视频笔记字节缓冲区流字节流一次读写一个数组的速度比一次写一个字节的速度快很多,这是加入了数组这样的缓冲区效果,java本身在设计的时候,也考虑到了这样的设计思想,所以提供了字节缓冲区流">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day14/1530586546022.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/大数据基础day14/"/>
+
+
+
+
+
+  <title>大数据基础day14 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/大数据基础day14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day14</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:23:01+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,103
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day14视频笔记"><a href="#大数据基础班day14视频笔记" class="headerlink" title="大数据基础班day14视频笔记"></a>大数据基础班day14视频笔记</h1><h3 id="字节缓冲区流"><a href="#字节缓冲区流" class="headerlink" title="字节缓冲区流"></a>字节缓冲区流</h3><p>字节流一次读写一个数组的速度比一次写一个字节的速度快很多,这是加入了数组这样的缓冲区效果,java本身在设计的时候,也考虑到了这样的设计思想,所以提供了字节缓冲区流<br><a id="more"></a><br>字节缓冲输出流: BufferedOutputStream<br>字节缓冲输出流: BufferedInputSteam</p>
+<p>BUfferedOutputStream(OutputStream out)<br>使用这种构造方法,他提供了一个默认的缓冲区大小</p>
+<p>字节缓冲区流仅仅提供缓冲区,而真正的底层的读写数据还得需要基本的流对象进行操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		/*BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(&quot;a.txt&quot;));</span><br><span class="line">		bos.write(&quot;hello&quot;.getBytes());</span><br><span class="line">		bos.close();*/</span><br><span class="line">		</span><br><span class="line">		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(&quot;a.txt&quot;));</span><br><span class="line">		/*int by;</span><br><span class="line">		while ((by=bis.read())!=-1) &#123;</span><br><span class="line">			System.out.print((char)by);</span><br><span class="line">		&#125;*/</span><br><span class="line">		</span><br><span class="line">		byte[] bys = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=bis.read(bys))!=-1) &#123;</span><br><span class="line">			System.out.print(new String(bys,0,len));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字节流四种方式复制MP4并测试效率"><a href="#字节流四种方式复制MP4并测试效率" class="headerlink" title="字节流四种方式复制MP4并测试效率"></a>字节流四种方式复制MP4并测试效率</h3><p>从结果分析:<br>拷贝文件所需时间:(大&gt;小)<br>字节流读写一个数据&gt;缓冲字节流读写一个数据&gt;字节流读写一组数据&gt;缓冲字符节读写一组数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//记录开始时间</span><br><span class="line">		long start = System.currentTimeMillis();</span><br><span class="line">		</span><br><span class="line">		//method1();//拷贝文件所需:77338毫秒</span><br><span class="line">		//method2();//拷贝文件所需:116毫秒</span><br><span class="line">		//method3();//拷贝文件所需:886毫秒</span><br><span class="line">		//method4();//拷贝文件所需:64毫秒</span><br><span class="line">		//记结束时间</span><br><span class="line">		long end = System.currentTimeMillis();</span><br><span class="line">		System.out.println(&quot;拷贝文件所需:&quot;+(end-start)+&quot;毫秒&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	//字节流一次读写一个数据</span><br><span class="line">	private static void method1() throws IOException &#123;</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;E:\\复制文件.mp4&quot;);</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;F:\\copy.mp4&quot;);</span><br><span class="line">		int by;</span><br><span class="line">		while ((by = fis.read()) != -1) &#123;</span><br><span class="line">			fos.write(by);</span><br><span class="line">		&#125;</span><br><span class="line">		fis.close();</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br><span class="line">	//字节流一次读写一个字节数组</span><br><span class="line">	private static void method2() throws IOException &#123;</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;E:\\复制文件.mp4&quot;);</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;F:\\copy.mp4&quot;);</span><br><span class="line">		byte[] bys = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len = fis.read(bys))!= -1) &#123;</span><br><span class="line">			fos.write(bys, 0, len);</span><br><span class="line">		&#125;</span><br><span class="line">		fis.close();</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br><span class="line">	//缓冲字节流一次读写一个数据</span><br><span class="line">	private static void method3() throws IOException&#123;</span><br><span class="line">		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(&quot;E:\\复制文件.mp4&quot;));</span><br><span class="line">		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(&quot;F:\\copy.mp4&quot;));</span><br><span class="line">		int by;</span><br><span class="line">		while ((by=bis.read())!=-1) &#123;</span><br><span class="line">			bos.write(by);</span><br><span class="line">		&#125;</span><br><span class="line">		bos.close();</span><br><span class="line">		bis.close();</span><br><span class="line">	&#125; </span><br><span class="line">	//缓冲字节流一次读写一个数组</span><br><span class="line">	private static void method4() throws IOException&#123;</span><br><span class="line">		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(&quot;E:\\复制文件.mp4&quot;));</span><br><span class="line">		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(&quot;F:\\copy.mp4&quot;));</span><br><span class="line">		byte[] bys = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len = bis.read(bys))!=-1) &#123;</span><br><span class="line">			bos.write(bys, 0, len);</span><br><span class="line">		&#125;</span><br><span class="line">		bos.close();</span><br><span class="line">		bis.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="转换流出现的原因"><a href="#转换流出现的原因" class="headerlink" title="转换流出现的原因"></a>转换流出现的原因</h3><p>字节流一次读取一个字节的方式读取带有汉子的文件是有问题,因为你读取到一个字节后就转为字符在控制台输出了<br>而汉子是由2个字节组成的<br>文件复制的时候,字节流读取一个字节,写入一个字节,这个没有出现问题,是因为最终底层会根据字节做拼接,得到汉子<br>汉子存储的规则:<br>左边的字节数据肯定是负数,右边的字节数据可能是负数,也可能是整数,大部分情况下是负数<br>转换流= 字节流 + 编码表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		/*FileInputStream fis = new FileInputStream(new File(&quot;a.txt&quot;));</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(new File(&quot;a.txt&quot;));</span><br><span class="line">		fos.write(&quot;hello&quot;.getBytes());</span><br><span class="line">		int by;</span><br><span class="line">		while ((by=fis.read())!=-1) &#123;</span><br><span class="line">			System.out.print((char)by);</span><br><span class="line">		&#125;*/</span><br><span class="line">		//String s = &quot;hello&quot;;</span><br><span class="line">		//[104, 101, 108, 108, 111]</span><br><span class="line">		String s = &quot;你好&quot;;</span><br><span class="line">		//[-60, -29, -70, -61]</span><br><span class="line">		byte[] bys = s.getBytes();</span><br><span class="line">		System.out.println(Arrays.toString(bys));</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编码表概述和常见编码表"><a href="#编码表概述和常见编码表" class="headerlink" title="编码表概述和常见编码表"></a>编码表概述和常见编码表</h3><img src="/2018/07/06/大数据基础day14/1530586546022.png">
+<h3 id="String类中的编码和解码问题"><a href="#String类中的编码和解码问题" class="headerlink" title="String类中的编码和解码问题"></a>String类中的编码和解码问题</h3><p>编码<br>把看的懂的变成看不懂的<br>public byte[] getBytes(String charsetName) throw UnsipportedEncodingException<br>使用指定的字符集将此String编码为byte序列,并将结果存储到一个新的数组中</p>
+<p>编码<br>把看不懂的变成看得懂的<br>public String(byte[] bytes,String charsetName)<br>通过使用指定的charset解码指定的byte数组,构造一个新的String</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws UnsupportedEncodingException &#123;</span><br><span class="line">		String s = &quot;你好&quot;;</span><br><span class="line">		//byte[] bys = s.getBytes();</span><br><span class="line">		//[-60, -29, -70, -61]</span><br><span class="line">		//byte[] bys = s.getBytes(&quot;GBK&quot;);</span><br><span class="line">		//[-60, -29, -70, -61]</span><br><span class="line">		byte[] bys = s.getBytes(&quot;UTF-8&quot;);</span><br><span class="line">		//[-28, -67, -96, -27, -91, -67]</span><br><span class="line">		System.out.println(Arrays.toString(bys));</span><br><span class="line">		</span><br><span class="line">		//String ss = new String(bys);</span><br><span class="line">		//System.out.println(ss);//浣犲ソ 乱码</span><br><span class="line">		</span><br><span class="line">		String ss = new String(bys,&quot;UTF-8&quot;);</span><br><span class="line">		System.out.println(ss);//你好</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="转换流中的编码和解码问题"><a href="#转换流中的编码和解码问题" class="headerlink" title="转换流中的编码和解码问题"></a>转换流中的编码和解码问题</h3><p>转换流其实就是一个字符流<br>转换流 = 字节流 + 编码表</p>
+<ul>
+<li>OutputStreamWriter 字符输出流<br>public OutputStreamWriter(OutputStream out)<br>根据默认编码把字节流的数据转换为字符流</li>
+<li>InputStreamReader() 字符输入流<br>public InputStreamReader(InputStream in)<br>用默认的编码读数据<br>public InputStreamReader(InputStream in,String charsetName)<br>用指定的编码读取数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;d.txt&quot;),&quot;UTF-8&quot;);</span><br><span class="line">		osw.write(&quot;你好&quot;);</span><br><span class="line">		osw.close();</span><br><span class="line">		InputStreamReader isr = new InputStreamReader(new FileInputStream(&quot;d.txt&quot;), &quot;UTF-8&quot;);</span><br><span class="line">		int by;</span><br><span class="line">		while ((by=isr.read())!=-1) &#123;</span><br><span class="line">			System.out.print((char)by);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="OutputStreamWriter写数据的5种方式"><a href="#OutputStreamWriter写数据的5种方式" class="headerlink" title="OutputStreamWriter写数据的5种方式"></a>OutputStreamWriter写数据的5种方式</h3><ul>
+<li>public void write(int c)  : 写一个字符</li>
+<li>public void write(char[] cbuf) : 写一个字符数组</li>
+<li>public void write(char[] cbuf,int off,int len) : 写一个字符数组的一部分</li>
+<li>public void write(String str) : 写一个字符串</li>
+<li>public void write(String str,int off,int len) : 写一个字符串的一部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;q.txt&quot;));</span><br><span class="line">		//osw.write(97);</span><br><span class="line">		//osw.write(&apos;a&apos;);//aa</span><br><span class="line">		//char[] chs = &#123;&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;&#125;;</span><br><span class="line">		//osw.write(chs);//hello</span><br><span class="line">		//osw.write(chs,0,3);//hel</span><br><span class="line">		String s = &quot;java&quot;;</span><br><span class="line">		osw.write(s);//java</span><br><span class="line">		osw.write(s, 1, 3);//ava</span><br><span class="line">		osw.flush();//刷新该流的缓冲</span><br><span class="line">		osw.close();//关闭此流,但要先刷新它</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="InputStreamReader读数据的2种方式"><a href="#InputStreamReader读数据的2种方式" class="headerlink" title="InputStreamReader读数据的2种方式"></a>InputStreamReader读数据的2种方式</h3><ul>
+<li>public int read() : 一次读取一个字符</li>
+<li>public int read(charp[ ] chuf)  : 一次读取一个字符数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		InputStreamReader isr = new InputStreamReader(new FileInputStream(&quot;q.txt&quot;));</span><br><span class="line">		/*int ch;</span><br><span class="line">		while ((ch=isr.read())!=-1) &#123;</span><br><span class="line">			System.out.print((char)ch);</span><br><span class="line">		&#125;*/</span><br><span class="line">		</span><br><span class="line">		char[] chs = new char[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=isr.read(chs))!=-1) &#123;</span><br><span class="line">			System.out.print(new String(chs, 0, len));</span><br><span class="line">		&#125;</span><br><span class="line">		isr.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符流的练习之复制Java文件"><a href="#字符流的练习之复制Java文件" class="headerlink" title="字符流的练习之复制Java文件"></a>字符流的练习之复制Java文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		FileReader fr = new FileReader(&quot;Demo1.java&quot;);</span><br><span class="line">		FileWriter fw = new FileWriter(&quot;Copy.java&quot;);</span><br><span class="line">		/*int by;</span><br><span class="line">		while ((by=fr.read())!=-1) &#123;</span><br><span class="line">			fw.write(by);</span><br><span class="line">		&#125;*/</span><br><span class="line">		char[] chs = new char[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=fr.read(chs))!=-1) &#123;</span><br><span class="line">			fw.write(chs,0,len);</span><br><span class="line">		&#125;</span><br><span class="line">		fr.close();</span><br><span class="line">		fw.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符缓冲区流的概述和使用"><a href="#字符缓冲区流的概述和使用" class="headerlink" title="字符缓冲区流的概述和使用"></a>字符缓冲区流的概述和使用</h3><p>字符流缓冲区:<br>BufferedWriter:<br>将文本写入字符输出流,缓冲各个字符,从而提供单个字符,数组和字符串的高效写入<br>可以指定缓冲区的大小,或者接受默认的大小,在大多情况下,默认值就足够大了<br>构造方法:<br>BufferedWriter(Writer out)</p>
+<p>BufferedReader;<br>从字符输入流中读取文本,缓冲各个字符,从而实现字符,数组和行的高效读取<br>可以指定缓冲区的大小,或者可使用默认的大小,大多情况下,默认值足够大<br>构造方法:<br>BufferedReader(Reader in)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//创建字符缓冲输出流对象</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;a.txt&quot;));</span><br><span class="line">		//调用写数据的方法</span><br><span class="line">		bw.write(&quot;hello&quot;);</span><br><span class="line">		//释放资源</span><br><span class="line">		bw.close();</span><br><span class="line">		</span><br><span class="line">		//创建字符缓冲输入流对象</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;Demo9.java&quot;));</span><br><span class="line">		//方式一:一次读取一个字符</span><br><span class="line">		/*int ch;</span><br><span class="line">		while ((ch=br.read())!=-1) &#123;</span><br><span class="line">			System.out.print((char)ch);</span><br><span class="line">		&#125;*/</span><br><span class="line">		</span><br><span class="line">		//方式二:一次读取一个字符数组</span><br><span class="line">		char[] chars = new char[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=br.read(chars))!=-1) &#123;</span><br><span class="line">			System.out.print(new String(chars, 0,len));</span><br><span class="line">		&#125;</span><br><span class="line">		br.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符缓冲区流的练习之复制文本文件"><a href="#字符缓冲区流的练习之复制文本文件" class="headerlink" title="字符缓冲区流的练习之复制文本文件"></a>字符缓冲区流的练习之复制文本文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;a.txt&quot;));</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;b.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		char[] chs = new char[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=br.read(chs))!=-1) &#123;</span><br><span class="line">			bw.write(chs, 0, len);</span><br><span class="line">		&#125;</span><br><span class="line">		bw.close();</span><br><span class="line">		br.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符缓冲区流的特殊功能"><a href="#字符缓冲区流的特殊功能" class="headerlink" title="字符缓冲区流的特殊功能"></a>字符缓冲区流的特殊功能</h3><p>BufferedWriter<br>void newLine() : 写入一个行分隔符,这个行分隔符是由系统决定的</p>
+<p>BufferedReader<br>String readLine() : 包含改行内容的字符串,不包含任何行终止符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//创建字符缓冲输出流对象</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;a.txt&quot;));</span><br><span class="line">		for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">			bw.write(&quot;hello&quot;);</span><br><span class="line">			bw.newLine();</span><br><span class="line">			bw.flush();</span><br><span class="line">		&#125;</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;a.txt&quot;));</span><br><span class="line">		String line;</span><br><span class="line">		while ((line=br.readLine())!=null) &#123;</span><br><span class="line">			System.out.println(line);</span><br><span class="line">		&#125;</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符缓冲区流的特殊功能复制Java文件"><a href="#字符缓冲区流的特殊功能复制Java文件" class="headerlink" title="字符缓冲区流的特殊功能复制Java文件"></a>字符缓冲区流的特殊功能复制Java文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;c.java&quot;));</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;Demo1.java&quot;));</span><br><span class="line">		</span><br><span class="line">		String line;</span><br><span class="line">		while ((line=br.readLine())!=null) &#123;</span><br><span class="line">			bw.write(line);</span><br><span class="line">			bw.newLine();</span><br><span class="line">			bw.flush();</span><br><span class="line">		&#125;</span><br><span class="line">		bw.close();</span><br><span class="line">		br.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符流的练习之5中方式复制文本文件"><a href="#字符流的练习之5中方式复制文本文件" class="headerlink" title="字符流的练习之5中方式复制文本文件"></a>字符流的练习之5中方式复制文本文件</h3><p>从结果分析:<br>拷贝文件所需时间:(大&gt;小)<br>字符流读写一个数据&gt;缓冲字符流读写一个数据&gt;字符流读写一组数据=缓冲字符流读写一个字符串&gt;缓冲字符流读写一组数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		long start = System.currentTimeMillis();</span><br><span class="line">		//method1();//29ms</span><br><span class="line">		//method2();//6ms</span><br><span class="line">		//method3();//8ms</span><br><span class="line">		//method4();//3ms</span><br><span class="line">		method5();//6ms</span><br><span class="line">		long end = System.currentTimeMillis();</span><br><span class="line">		System.out.println((end-start)+&quot;ms&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	//缓冲字符流一次读写一个字符串</span><br><span class="line">	private static void method5() throws IOException &#123;</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;b.txt&quot;));</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;aopy.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		String line;</span><br><span class="line">		while ((line=br.readLine())!=null) &#123;</span><br><span class="line">			bw.write(line);</span><br><span class="line">			bw.newLine();</span><br><span class="line">			bw.flush();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		br.close();</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//缓冲字符流一次读写一个字符数组</span><br><span class="line">	private static void method4() throws IOException &#123;</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;b.txt&quot;));</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;aopy.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		char[] chs = new char[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=br.read(chs))!=-1) &#123;</span><br><span class="line">			bw.write(chs);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		br.close();</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;		</span><br><span class="line">	</span><br><span class="line">	//缓冲字符流一次读写一个字符</span><br><span class="line">	private static void method3() throws IOException &#123;</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;b.txt&quot;));</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;aopy.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		int ch;</span><br><span class="line">		while ((ch=br.read())!=-1) &#123;</span><br><span class="line">			bw.write((char)ch);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		br.close();</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line">	//基本字符流一次读写一个字符</span><br><span class="line">	private static void method2() throws IOException &#123;</span><br><span class="line">		FileReader fr = new FileReader(&quot;b.txt&quot;);</span><br><span class="line">		FileWriter fw = new FileWriter(&quot;bopy.txt&quot;);</span><br><span class="line">		</span><br><span class="line">		char[] chs = new char[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len=fr.read(chs))!=-1) &#123;</span><br><span class="line">			fw.write(chs);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		fr.close();</span><br><span class="line">		fw.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//基本字符流一次读写一个字符</span><br><span class="line">	private static void method1() throws IOException &#123;</span><br><span class="line">		FileReader fr = new FileReader(&quot;b.txt&quot;);</span><br><span class="line">		FileWriter fw = new FileWriter(&quot;bopy.txt&quot;);</span><br><span class="line">		</span><br><span class="line">		int ch;</span><br><span class="line">		while ((ch=fr.read())!=-1) &#123;</span><br><span class="line">			fw.write((char)ch);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		fr.close();</span><br><span class="line">		fw.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符流的练习之把集合中的字符串数据存储到文本文件"><a href="#字符流的练习之把集合中的字符串数据存储到文本文件" class="headerlink" title="字符流的练习之把集合中的字符串数据存储到文本文件"></a>字符流的练习之把集合中的字符串数据存储到文本文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;hello&quot;);</span><br><span class="line">		list.add(&quot;Java&quot;);</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;array.txt&quot;));</span><br><span class="line">		for (String s : list) &#123;</span><br><span class="line">			bw.write(s);</span><br><span class="line">			bw.newLine();</span><br><span class="line">			bw.flush();</span><br><span class="line">		&#125;</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符流的练习之把文本文件中的字符串读取到集合"><a href="#字符流的练习之把文本文件中的字符串读取到集合" class="headerlink" title="字符流的练习之把文本文件中的字符串读取到集合"></a>字符流的练习之把文本文件中的字符串读取到集合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//创建字符缓冲输入流对象</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;array.txt&quot;));</span><br><span class="line">		ArrayList&lt;String&gt; array = new ArrayList&lt;String&gt;();</span><br><span class="line">		</span><br><span class="line">		//读取数据</span><br><span class="line">		String line;</span><br><span class="line">		while ((line = br.readLine())!=null) &#123;</span><br><span class="line">			array.add(line);</span><br><span class="line">		&#125;</span><br><span class="line">		br.close();</span><br><span class="line">		for (String s : array) &#123;</span><br><span class="line">			System.out.println(s);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符流的练习之把集合中的学生对象数据存储到文本文件"><a href="#字符流的练习之把集合中的学生对象数据存储到文本文件" class="headerlink" title="字符流的练习之把集合中的学生对象数据存储到文本文件"></a>字符流的练习之把集合中的学生对象数据存储到文本文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		ArrayList&lt;Student&gt; list = new ArrayList&lt;Student&gt;();</span><br><span class="line">		Student s1 = new Student(&quot;t001&quot;, &quot;林青霞&quot;, 35, &quot;北京&quot;);</span><br><span class="line">		Student s2 = new Student(&quot;t001&quot;, &quot;张国荣&quot;, 50, &quot;上海&quot;);</span><br><span class="line">		Student s3 = new Student(&quot;t001&quot;, &quot;任然&quot;, 70, &quot;广州&quot;);</span><br><span class="line">		list.add(s1);</span><br><span class="line">		list.add(s2);</span><br><span class="line">		list.add(s3);</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;students.txt&quot;));</span><br><span class="line">		for (Student s : list) &#123;</span><br><span class="line">			StringBuilder sb = new StringBuilder();</span><br><span class="line">			sb.append(s.getId()).append(&quot;,&quot;).append(s.getName()).append(&quot;,&quot;).append(s.getAge()).append(&quot;,&quot;).append(s.getContry());</span><br><span class="line">			bw.write(sb.toString());</span><br><span class="line">			bw.newLine();</span><br><span class="line">			bw.flush();</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符流的练习之把文本文件中的学生对象数据读取到集合"><a href="#字符流的练习之把文本文件中的学生对象数据读取到集合" class="headerlink" title="字符流的练习之把文本文件中的学生对象数据读取到集合"></a>字符流的练习之把文本文件中的学生对象数据读取到集合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader br = new BufferedReader(new FileReader(&quot;students.txt&quot;));</span><br><span class="line">		ArrayList&lt;Student&gt; list = new ArrayList&lt;Student&gt;();</span><br><span class="line">		String line;</span><br><span class="line">		while ((line=br.readLine())!=null) &#123;</span><br><span class="line">			String[] strArray = line.split(&quot;,&quot;);</span><br><span class="line">			Student s = new Student();</span><br><span class="line">			s.setId(strArray[0]);</span><br><span class="line">			s.setName(strArray[1]);</span><br><span class="line">			s.setAge(Integer.parseInt( strArray[2]));</span><br><span class="line">			s.setContry(strArray[3]);</span><br><span class="line">			list.add(s);</span><br><span class="line">		&#125;</span><br><span class="line">		br.close();</span><br><span class="line">		for (Student s : list) &#123;</span><br><span class="line">			System.out.println(s.getId()+&quot;---&quot;+s.getName()+&quot;---&quot;+s.getAge()+&quot;---&quot;+s.getContry());</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day13/" rel="next" title="大数据基础day13">
+                <i class="fa fa-chevron-left"></i> 大数据基础day13
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day14视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day14视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字节缓冲区流"><span class="nav-number">1.0.1.</span> <span class="nav-text">字节缓冲区流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节流四种方式复制MP4并测试效率"><span class="nav-number">1.0.2.</span> <span class="nav-text">字节流四种方式复制MP4并测试效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换流出现的原因"><span class="nav-number">1.0.3.</span> <span class="nav-text">转换流出现的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码表概述和常见编码表"><span class="nav-number">1.0.4.</span> <span class="nav-text">编码表概述和常见编码表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String类中的编码和解码问题"><span class="nav-number">1.0.5.</span> <span class="nav-text">String类中的编码和解码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换流中的编码和解码问题"><span class="nav-number">1.0.6.</span> <span class="nav-text">转换流中的编码和解码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OutputStreamWriter写数据的5种方式"><span class="nav-number">1.0.7.</span> <span class="nav-text">OutputStreamWriter写数据的5种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputStreamReader读数据的2种方式"><span class="nav-number">1.0.8.</span> <span class="nav-text">InputStreamReader读数据的2种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流的练习之复制Java文件"><span class="nav-number">1.0.9.</span> <span class="nav-text">字符流的练习之复制Java文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符缓冲区流的概述和使用"><span class="nav-number">1.0.10.</span> <span class="nav-text">字符缓冲区流的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符缓冲区流的练习之复制文本文件"><span class="nav-number">1.0.11.</span> <span class="nav-text">字符缓冲区流的练习之复制文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符缓冲区流的特殊功能"><span class="nav-number">1.0.12.</span> <span class="nav-text">字符缓冲区流的特殊功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符缓冲区流的特殊功能复制Java文件"><span class="nav-number">1.0.13.</span> <span class="nav-text">字符缓冲区流的特殊功能复制Java文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流的练习之5中方式复制文本文件"><span class="nav-number">1.0.14.</span> <span class="nav-text">字符流的练习之5中方式复制文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流的练习之把集合中的字符串数据存储到文本文件"><span class="nav-number">1.0.15.</span> <span class="nav-text">字符流的练习之把集合中的字符串数据存储到文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流的练习之把文本文件中的字符串读取到集合"><span class="nav-number">1.0.16.</span> <span class="nav-text">字符流的练习之把文本文件中的字符串读取到集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流的练习之把集合中的学生对象数据存储到文本文件"><span class="nav-number">1.0.17.</span> <span class="nav-text">字符流的练习之把集合中的学生对象数据存储到文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流的练习之把文本文件中的学生对象数据读取到集合"><span class="nav-number">1.0.18.</span> <span class="nav-text">字符流的练习之把文本文件中的学生对象数据读取到集合</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据基础班day13视频笔记异常的概述和继承体系ArithmeticException: 当出现异常的运算条件是,抛出异常.例如,一个整数”除以零”时,就抛出此类的异常">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据基础day13">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day13/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据基础班day13视频笔记异常的概述和继承体系ArithmeticException: 当出现异常的运算条件是,抛出异常.例如,一个整数”除以零”时,就抛出此类的异常">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day13/1530426697426.png">
+<meta property="og:updated_time" content="2018-07-06T13:32:21.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据基础day13">
+<meta name="twitter:description" content="大数据基础班day13视频笔记异常的概述和继承体系ArithmeticException: 当出现异常的运算条件是,抛出异常.例如,一个整数”除以零”时,就抛出此类的异常">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day13/1530426697426.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/大数据基础day13/"/>
+
+
+
+
+
+  <title>大数据基础day13 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/大数据基础day13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据基础day13</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:22:50+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,356
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据基础班day13视频笔记"><a href="#大数据基础班day13视频笔记" class="headerlink" title="大数据基础班day13视频笔记"></a>大数据基础班day13视频笔记</h1><h3 id="异常的概述和继承体系"><a href="#异常的概述和继承体系" class="headerlink" title="异常的概述和继承体系"></a>异常的概述和继承体系</h3><p>ArithmeticException: 当出现异常的运算条件是,抛出异常.例如,一个整数”除以零”时,就抛出此类的异常<br><a id="more"></a><br>Throwable类是Java语言中所有错误或异常的超类</p>
+<p>Error 是 Throwable 的子类,用于指示合理的应用程序不应该试图捕获的严重问题<br>也就是说针对程序发生了Error的情况,Java程序本身是无能为力的,比如说: 硬件层面的问题,内存不足等<br>所以,针对Error的问题我们不处理</p>
+<p>Exception类以及其子类是Throwable 的一种形式,他指出了合理的应用程序想要的捕获的条件<br>也就是说针对程序发生了Exception的情况,是我们需要处理的问题<br>RuntimeException 是那些可能在Java虚拟机正常运行期间抛出的异常的超类</p>
+<p>Exception分为运行期和编译期:<br>    运行期的异常:在编译期是不处理的,在程序运行时候出现了问题,需要我们回来修改代码<br>    编译期的异常:在编译期就必须处理,否则程序不能通过编译,就不能正常的执行了</p>
+<p>异常的体系:<br>Throwable<br>Error:严重问题,不需要处理<br>Exception<br>RuntimeException:在编译期是不处理的,在程序运行时候出现了问题,需要我们回来修改代码<br>非RuntimeException:在编译期就必须处理,否则程序不能通过编译,就不能正常的执行了</p>
+<h3 id="JVM针对异常的默认处理方式"><a href="#JVM针对异常的默认处理方式" class="headerlink" title="JVM针对异常的默认处理方式"></a>JVM针对异常的默认处理方式</h3><p>如果程序出现了问题,我们没有做任何处理,最终jvm会做出默认的处理<br>处理方案</p>
+<ol>
+<li>把异常的名称,异常的原因,异常出现的位置等信息在控制台输出</li>
+<li>让程序停止执行</li>
+</ol>
+<h3 id="异常处理方案try-catch方案"><a href="#异常处理方案try-catch方案" class="headerlink" title="异常处理方案try_catch方案"></a>异常处理方案try_catch方案</h3><p>try{<br>    可能出现异常的代码;<br>}catch(异常类名 变量名){<br>    异常的处理代码;<br>}</p>
+<p>执行流程:<br>程序从try开始执行,执行到哪里出现了问题,就会跳转到catch里面执行<br>执行完毕后,程序还能继续往下执行</p>
+<p>public void printStackTrace() : 把异常的错误信息输出在了控制台<br>在实际开发中,我们遇见了异常,会给出一个页面进行提示,我们目前做不了,所有,就用异常对象调用printStackTrace()就可以了<br>程序还能往下继续进行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;程序开始执行&quot;);</span><br><span class="line">		method();</span><br><span class="line">		System.out.println(&quot;程序结束执行&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void method()&#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			int a = 10;</span><br><span class="line">			int b = 0;</span><br><span class="line">			System.out.println(a/b);</span><br><span class="line">		&#125; catch (ArithmeticException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编译时异常和运行时异常的区别"><a href="#编译时异常和运行时异常的区别" class="headerlink" title="编译时异常和运行时异常的区别"></a>编译时异常和运行时异常的区别</h3><p>Java中的异常被分为两大类:<br>编译时异常和运行时异常<br>所有的RuntimeException类及其子类的实例被称为运行时异常,其他的异常都是编译时异常<br>运行期的异常:在编译期是不处理的,在程序运行时候出现了问题,需要我们回来修改代码<br>编译期的异常:在编译期就必须处理,否则程序不能通过编译,就不能正常的执行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">private void mian() &#123;</span><br><span class="line">		System.out.println(&quot;程序开始执行&quot;);</span><br><span class="line">		//method();</span><br><span class="line">		method2();</span><br><span class="line">		System.out.println(&quot;程序结束执行&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void method() &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			String s = &quot;2088-08-08&quot;;</span><br><span class="line">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line">			Date d =sdf.parse(s);</span><br><span class="line">			System.out.println(d);</span><br><span class="line">		&#125; catch (ParseException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void method2()&#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			int a = 10;</span><br><span class="line">			int b = 0;</span><br><span class="line">			System.out.println(a/b);</span><br><span class="line">		&#125; catch (ArithmeticException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="异常处理方案throws"><a href="#异常处理方案throws" class="headerlink" title="异常处理方案throws"></a>异常处理方案throws</h3><p>throws 异常类名<br>注意:这个格式必须跟在方法的括号的后面</p>
+<p>注意:<br>编译时异常必须要进行处理的,两种处理方案:try…catch  或者throws<br>如果你采用了throws这种方案,将来谁调用,还得进行处理</p>
+<p>运行时异常可以不用处理,出现问候我们需要回来修改代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	System.out.println(&quot;程序开始执行&quot;);</span><br><span class="line">	try &#123;</span><br><span class="line">		method();</span><br><span class="line">	&#125; catch (ParseException e) &#123;</span><br><span class="line">		// TODO Auto-generated catch block</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	method2();</span><br><span class="line">	System.out.println(&quot;程序结束执行&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void method() throws ParseException&#123;</span><br><span class="line">	String s = &quot;2088-08-08&quot;;</span><br><span class="line">	SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line">	Date d = sdf.parse(s);</span><br><span class="line">	System.out.println(d);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void method2() throws ArithmeticException&#123;</span><br><span class="line">	int a = 0;</span><br><span class="line">	int b = 0;</span><br><span class="line">	System.out.println(a/b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="File类的概述和构造方法"><a href="#File类的概述和构造方法" class="headerlink" title="File类的概述和构造方法"></a>File类的概述和构造方法</h3><p>文件和目录路径名的抽象表现形式<br>文件和目录是可以通过File封装成对象的<br>目录:文件夹</p>
+<ul>
+<li>File(String pathname): 通过将给定路径名字符串转换为抽象路径名来创建一个新File实例</li>
+<li>File(String parent,String child) : 根据parent路径名字符串和child路径名字符串创建一个新File实例</li>
+<li>File(File parent,String child) : 根据parent抽象录像和child路径名字符串创建一个新FIle对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		File f1 = new File(&quot;S:\\b.txt&quot;);</span><br><span class="line">		File f2 = new File(&quot;S:\\&quot;, &quot;b.txt&quot;);</span><br><span class="line">		File f3 = new File(&quot;s:\\&quot;);</span><br><span class="line">		File f4 = new File(f3, &quot;b.txt&quot;);</span><br><span class="line">		//上面的操作其实做的是同样的事情,就是把S:\\b.txt转换为了一个File对象</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="File类的创建功能"><a href="#File类的创建功能" class="headerlink" title="File类的创建功能"></a>File类的创建功能</h3><ul>
+<li>public boolean createNewFile() : 创建文件<br>如果文件不存在,创建文件并返回true<br>如果文件存在,创建文件失败并返回false</li>
+<li>public boolean mkdir() : 创建目录<br>如果目录不存在,创建目录并返回true<br>如果目录存在,创建目录失败并返回false</li>
+<li>public boolean mkdirs() : 创建多级目录<br>如果多级目录不存在,创建多级目录并返回true<br>如果多级目录存在,创建多级目录失败并返回false</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	File f1 = new File(&quot;S:\\b.txt&quot;);</span><br><span class="line">	System.out.println(f1.createNewFile());</span><br><span class="line">	File f2 = new File(&quot;S:\\bb&quot;);</span><br><span class="line">	System.out.println(f2.mkdir());</span><br><span class="line">	File f3 = new File(&quot;S:\\cc&quot;);</span><br><span class="line">	File f4 = new File(&quot;S:\\cc\\dd&quot;);</span><br><span class="line">	System.out.println(f3.mkdir());</span><br><span class="line">	System.out.println(f4.mkdir());</span><br><span class="line">	File f5 = new File(&quot;S:\\aa\\bb\\cc&quot;);</span><br><span class="line">	System.out.println(f5.mkdirs());</span><br><span class="line">	</span><br><span class="line">	File f6 = new File(&quot;S:\\ee&quot;);</span><br><span class="line">	File f7 = new File(&quot;S:\\ee\\bb.txt&quot;);</span><br><span class="line">	System.out.println(f6.mkdir());</span><br><span class="line">	System.out.println(f7.createNewFile());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="File类的删除功能"><a href="#File类的删除功能" class="headerlink" title="File类的删除功能"></a>File类的删除功能</h3><p>public boolean delete() : 删除文件和目录</p>
+<p>路径:<br>绝对路径:是以盘符开始的路径<br>相对路径:不以盘符开始,相对于当前的项目而言,在项目的目录下,如何显示出来呢?刷新就行了</p>
+<p>注意:<br>如果一个目录中有内容(目录,文件),就不能直接删除<br>应该先删除目录中的内容,最后才能删除目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//需求1:创建一个文件a.txt</span><br><span class="line">//		File f1 = new File(&quot;a.txt&quot;);</span><br><span class="line">//		System.out.println(f1.createNewFile());</span><br><span class="line">//		//需求2:创建一个目录bb</span><br><span class="line">//		File f2 = new File(&quot;bb&quot;);</span><br><span class="line">//		System.out.println(f2.mkdir());</span><br><span class="line">//		//需求创建一个文件cc\\d.txt</span><br><span class="line">//		File f3 = new File(&quot;cc&quot;);</span><br><span class="line">//		File f4 = new File(&quot;cc\\d.txt&quot;);</span><br><span class="line">//		System.out.println(f3.mkdir());</span><br><span class="line">//		System.out.println(f4.createNewFile());</span><br><span class="line">		//删除a.txt问价</span><br><span class="line">		File f1 = new File(&quot;a.txt&quot;);</span><br><span class="line">		System.out.println(f1.delete());</span><br><span class="line">		//删除bb这个目录</span><br><span class="line">		File f2 = new File(&quot;bb&quot;);</span><br><span class="line">		System.out.println(f2.delete());</span><br><span class="line">		//删除cc这个目录</span><br><span class="line">		File f3 = new File(&quot;cc&quot;);</span><br><span class="line">		File f4 = new File(&quot;cc//d.txt&quot;);</span><br><span class="line">		System.out.println(f4.delete());</span><br><span class="line">		System.out.println(f3.delete());</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="File类的判断和获取功能"><a href="#File类的判断和获取功能" class="headerlink" title="File类的判断和获取功能"></a>File类的判断和获取功能</h3><p>判断功能</p>
+<ul>
+<li>public boolean isDirectory() : 判断是否是目录</li>
+<li>public boolean isFIle() : 判断是否是文件</li>
+<li>public boolean exists() : 判断是否存在<br>获取功能</li>
+<li>public String getAbsolutPath()  : 获取绝对路径</li>
+<li>public String getPath() : 获取相对路径</li>
+<li>public String getName() : 获取名称</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		//创建File对象</span><br><span class="line">		File f = new File(&quot;aaa\\bbb.txt&quot;);</span><br><span class="line">		System.out.println(f.isDirectory());//false</span><br><span class="line">		System.out.println(f.isFile());//true</span><br><span class="line">		System.out.println(f.exists());//true</span><br><span class="line">		</span><br><span class="line">		System.out.println(f.getAbsolutePath());//S:\javaworkspace\day15\aaa\bbb.txt</span><br><span class="line">		System.out.println(f.getPath());//aaa\bbb.txt</span><br><span class="line">		System.out.println(f.getName());//bbb.txt</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="IO流的概述和分类"><a href="#IO流的概述和分类" class="headerlink" title="IO流的概述和分类"></a>IO流的概述和分类</h3><img src="/2018/07/06/大数据基础day13/1530426697426.png">
+<h3 id="FileOutputStream写数据"><a href="#FileOutputStream写数据" class="headerlink" title="FileOutputStream写数据"></a>FileOutputStream写数据</h3><p>字节流:<br>InputStream    字节输入流<br>OutputStream        字节输入流<br>字符流:<br>Reader 字符输入流<br>Writer 字符输出流</p>
+<p>字节流写数据<br>OutputStream : 此抽象类是表示输出字节流的所有类的超类<br>FileOutputStream  : 文件输出流是用于将数据写入File</p>
+<p>构造方法:<br>FileOutPutStream(String name) : 创建一个向具有指定名称的文件中写入数据的输出文件流</p>
+<p>字节流写数据的步骤:</p>
+<ol>
+<li>创建字节输出流对象</li>
+<li>调用写数据的方法</li>
+<li>释放资源</li>
+</ol>
+<p>创建字节输出流做了三件事情:</p>
+<ol>
+<li>调用系统功能创建了文件</li>
+<li>创建字节输出流对象</li>
+<li>让fos这个对象指向a.txt这个文件</li>
+</ol>
+<p>close() 关闭此文件输出流并释放与之有关的所有系统资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;a.txt&quot;);</span><br><span class="line">		fos.write(65);</span><br><span class="line">		fos.write(66);</span><br><span class="line">		//close() 关闭此文件输出流并释放与之有关的所有系统资源</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileOutputStream写数据的三种方式"><a href="#FileOutputStream写数据的三种方式" class="headerlink" title="FileOutputStream写数据的三种方式"></a>FileOutputStream写数据的三种方式</h3><ul>
+<li>FileOutputStream(String name)</li>
+<li>FileOutputStream(File file)</li>
+<li>public void write(int b) : 一次写一个字节</li>
+<li>public void write(byte[] b) : 一次写一个字节数据</li>
+<li>public void write(byte[] b,int off,int len) : 一次写一个字节数组的一部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;a.txt&quot;);</span><br><span class="line">		//File f1 = new File(&quot;a.txt&quot;);</span><br><span class="line">		//FileOutputStream fos = new FileOutputStream(f1);</span><br><span class="line">		//FileOutputStream fos = new FileOutputStream(new File(&quot;b.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		//byte[] bys = &#123;65,66,67,68,69&#125;;</span><br><span class="line">		//fos.write(bys);</span><br><span class="line">		//byte[] bys = &quot;ABCDE&quot;.getBytes();</span><br><span class="line">		//fos.write(&quot;ABCDE&quot;.getBytes());</span><br><span class="line">		</span><br><span class="line">		fos.write(&quot;ABCDE&quot;.getBytes(), 0, 3);</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileOutputStream如何实现换行和追加写数据"><a href="#FileOutputStream如何实现换行和追加写数据" class="headerlink" title="FileOutputStream如何实现换行和追加写数据"></a>FileOutputStream如何实现换行和追加写数据</h3><p>不同的操作系统,针对换行的符号识别是不一样的<br>windows: \r \n<br>linux: \n<br>mac : \r</p>
+<p>FileOutPutStream(String name,boolean append) : 第二个参数是true即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;a.txt&quot;,true);</span><br><span class="line">		</span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">			fos.write(&quot;hello&quot;.getBytes());</span><br><span class="line">			fos.write(&quot;\n&quot;.getBytes());</span><br><span class="line">		&#125;</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字节流写数据加入异常处理"><a href="#字节流写数据加入异常处理" class="headerlink" title="字节流写数据加入异常处理"></a>字节流写数据加入异常处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">//		FileOutputStream fos = null;</span><br><span class="line">//		try &#123;</span><br><span class="line">//			fos = new FileOutputStream(&quot;a.txt&quot;);</span><br><span class="line">//		&#125; catch (FileNotFoundException e1) &#123;</span><br><span class="line">//			e1.printStackTrace();</span><br><span class="line">//		&#125;</span><br><span class="line">//		try &#123;</span><br><span class="line">//			fos.write(&quot;hello&quot;.getBytes());</span><br><span class="line">//		&#125; catch (IOException e) &#123;</span><br><span class="line">//			e.printStackTrace();</span><br><span class="line">//		&#125;</span><br><span class="line">//		try &#123;</span><br><span class="line">//			fos.close();</span><br><span class="line">//		&#125; catch (IOException e) &#123;</span><br><span class="line">//			e.printStackTrace();</span><br><span class="line">//		&#125;</span><br><span class="line">		</span><br><span class="line">//		try &#123;</span><br><span class="line">//			FileOutputStream fos = new FileOutputStream(&quot;a.txt&quot;);</span><br><span class="line">//			fos.write(&quot;hello&quot;.getBytes());</span><br><span class="line">//			fos.close();</span><br><span class="line">//		&#125; catch (IOException e) &#123;</span><br><span class="line">//			e.printStackTrace();</span><br><span class="line">//		&#125;</span><br><span class="line">		//这种方式代码水染简洁了,但是释放资源的动作可能未执行到</span><br><span class="line">		FileOutputStream fos = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			fos = new FileOutputStream(&quot;c.txt&quot;);</span><br><span class="line">			fos.write(&quot;hello&quot;.getBytes());</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;finally&#123;</span><br><span class="line">			if (fos != null) &#123;</span><br><span class="line">				try &#123;</span><br><span class="line">					fos.close();</span><br><span class="line">				&#125; catch (IOException e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileInputStream读数据方式1一次读取一个字节"><a href="#FileInputStream读数据方式1一次读取一个字节" class="headerlink" title="FileInputStream读数据方式1一次读取一个字节"></a>FileInputStream读数据方式1一次读取一个字节</h3><p>FileInputStream : 从文件系统中的某个文件中获得输入字节</p>
+<p>构造方法:<br>FileInputStream(String name)</p>
+<p>字节流读数据的步骤:</p>
+<ol>
+<li>创建字节输入流对象</li>
+<li>调用读数据的方法</li>
+<li>释放资源</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	//创建字节输入流对象</span><br><span class="line">	FileInputStream fis = new FileInputStream(&quot;c.txt&quot;);</span><br><span class="line">	/*</span><br><span class="line">	int by = fis.read();</span><br><span class="line">	System.out.println((char)by);//h</span><br><span class="line">	by = fis.read();</span><br><span class="line">	System.out.println(by);</span><br><span class="line">	System.out.println((char)by);//e</span><br><span class="line">	by = fis.read();</span><br><span class="line">	System.out.println(by);//-1</span><br><span class="line">	*/</span><br><span class="line">	/*int by = fis.read();</span><br><span class="line">	while (by != -1) &#123;</span><br><span class="line">		System.out.print((char)by);</span><br><span class="line">		by = fis.read();</span><br><span class="line">	&#125;*/</span><br><span class="line">	int by;</span><br><span class="line">	while((by = fis.read()) != -1)&#123;</span><br><span class="line">		System.out.print((char)by);</span><br><span class="line">	&#125;</span><br><span class="line">	fis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FileInputStream读数据方式2一次读取一个字节数组"><a href="#FileInputStream读数据方式2一次读取一个字节数组" class="headerlink" title="FileInputStream读数据方式2一次读取一个字节数组"></a>FileInputStream读数据方式2一次读取一个字节数组</h3><p>public int read(byte[] b) :<br>从此输入流中将最多b.length个字节的数据独一个byte数组中<br>返回值是读入缓冲区的字节总数,也就是实际的读取个数<br>如果因为已经到达文件末尾而没有更多的数据,则返回 - 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;c.txt&quot;);</span><br><span class="line">		/*</span><br><span class="line">		//第一次读取</span><br><span class="line">		byte[] bys = new byte[5];</span><br><span class="line">		int len = fis.read(bys);</span><br><span class="line">		System.out.println(len);//5</span><br><span class="line">		System.out.println(new String(bys));//hello</span><br><span class="line">		</span><br><span class="line">		//第二次读取</span><br><span class="line">		len = fis.read(bys);</span><br><span class="line">		System.out.println(len);//5</span><br><span class="line">		System.out.println(new String(bys));//wor</span><br><span class="line">		</span><br><span class="line">		//第三次读取</span><br><span class="line">		len = fis.read(bys);</span><br><span class="line">		System.out.println(len);//4</span><br><span class="line">//		System.out.println(new String(bys));//ld\r\nr</span><br><span class="line">		System.out.println(new String(bys,0,len));//ld\r\n</span><br><span class="line">		</span><br><span class="line">		//第四次读取</span><br><span class="line">		len = fis.read(bys);</span><br><span class="line">		System.out.println(len);//-1</span><br><span class="line">		</span><br><span class="line">		//第五次读取</span><br><span class="line">		len = fis.read(bys);</span><br><span class="line">		System.out.println(len);//-1</span><br><span class="line">		*/</span><br><span class="line">		byte[] bys = new byte[1024];</span><br><span class="line">		//1G = 1024MB</span><br><span class="line">		//1MB = 1024KB</span><br><span class="line">		int len ;</span><br><span class="line">		while ((len = fis.read(bys)) != -1) &#123;</span><br><span class="line">			System.out.print(new String(bys,0,len));</span><br><span class="line">		&#125;</span><br><span class="line">		fis.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字节流练习之复制文本文件"><a href="#字节流练习之复制文本文件" class="headerlink" title="字节流练习之复制文本文件"></a>字节流练习之复制文本文件</h3><p>复制:其实就是从文件中读数据,然后把数据写到另一个文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//封装数据源</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;s:\\窗里窗外.txt&quot;);</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;林青霞.txt&quot;);</span><br><span class="line">		//方式一</span><br><span class="line">		/*int by;</span><br><span class="line">		while ((by = fis.read()) != -1) &#123;</span><br><span class="line">			fos.write(by);</span><br><span class="line">		&#125;*/</span><br><span class="line">		//方式二</span><br><span class="line">		byte[] bys = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while((len = fis.read(bys)) != -1)&#123;</span><br><span class="line">			fos.write(bys, 0, len);</span><br><span class="line">		&#125;</span><br><span class="line">		fis.close();</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字节流练习之复制图片"><a href="#字节流练习之复制图片" class="headerlink" title="字节流练习之复制图片"></a>字节流练习之复制图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;G:\\my web\\img\\简历.png&quot;);</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;mn.png&quot;);</span><br><span class="line">		//方式一</span><br><span class="line">		/*int by;</span><br><span class="line">		while ((by = fis.read()) != -1) &#123;</span><br><span class="line">			fos.write(by);</span><br><span class="line">		&#125;*/</span><br><span class="line">		//方式二</span><br><span class="line">		byte[] bys = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		while ((len = fis.read(bys)) != -1) &#123;</span><br><span class="line">			fos.write(bys,0,len);</span><br><span class="line">		&#125;</span><br><span class="line">		fis.close();</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day12/" rel="next" title="大数据基础day12">
+                <i class="fa fa-chevron-left"></i> 大数据基础day12
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/大数据基础day14/" rel="prev" title="大数据基础day14">
+                大数据基础day14 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day13视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day13视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常的概述和继承体系"><span class="nav-number">1.0.1.</span> <span class="nav-text">异常的概述和继承体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM针对异常的默认处理方式"><span class="nav-number">1.0.2.</span> <span class="nav-text">JVM针对异常的默认处理方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理方案try-catch方案"><span class="nav-number">1.0.3.</span> <span class="nav-text">异常处理方案try_catch方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译时异常和运行时异常的区别"><span class="nav-number">1.0.4.</span> <span class="nav-text">编译时异常和运行时异常的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理方案throws"><span class="nav-number">1.0.5.</span> <span class="nav-text">异常处理方案throws</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File类的概述和构造方法"><span class="nav-number">1.0.6.</span> <span class="nav-text">File类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File类的创建功能"><span class="nav-number">1.0.7.</span> <span class="nav-text">File类的创建功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File类的删除功能"><span class="nav-number">1.0.8.</span> <span class="nav-text">File类的删除功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File类的判断和获取功能"><span class="nav-number">1.0.9.</span> <span class="nav-text">File类的判断和获取功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO流的概述和分类"><span class="nav-number">1.0.10.</span> <span class="nav-text">IO流的概述和分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileOutputStream写数据"><span class="nav-number">1.0.11.</span> <span class="nav-text">FileOutputStream写数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileOutputStream写数据的三种方式"><span class="nav-number">1.0.12.</span> <span class="nav-text">FileOutputStream写数据的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileOutputStream如何实现换行和追加写数据"><span class="nav-number">1.0.13.</span> <span class="nav-text">FileOutputStream如何实现换行和追加写数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节流写数据加入异常处理"><span class="nav-number">1.0.14.</span> <span class="nav-text">字节流写数据加入异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileInputStream读数据方式1一次读取一个字节"><span class="nav-number">1.0.15.</span> <span class="nav-text">FileInputStream读数据方式1一次读取一个字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileInputStream读数据方式2一次读取一个字节数组"><span class="nav-number">1.0.16.</span> <span class="nav-text">FileInputStream读数据方式2一次读取一个字节数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节流练习之复制文本文件"><span class="nav-number">1.0.17.</span> <span class="nav-text">字节流练习之复制文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节流练习之复制图片"><span class="nav-number">1.0.18.</span> <span class="nav-text">字节流练习之复制图片</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
