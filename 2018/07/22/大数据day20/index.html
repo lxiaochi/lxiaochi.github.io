@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据day20视频笔记重置MySQL的密码 停止MySQL服务 在cmd下启动MySQL服务mysqld –skip-grant-tables">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据day20">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/大数据day20/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据day20视频笔记重置MySQL的密码 停止MySQL服务 在cmd下启动MySQL服务mysqld –skip-grant-tables">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532049317344.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532052339148.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532053289556.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532056068127.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532057296919.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532057349324.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532057516768.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532057664834.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532068961164.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532070341613.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532070621622.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532073619157.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532074382178.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532075197453.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532075421570.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532075453365.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532086106230.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532087838694.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532087851246.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532087940434.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/大数据day20/1532087999477.png">
+<meta property="og:updated_time" content="2018-07-22T00:43:19.830Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据day20">
+<meta name="twitter:description" content="大数据day20视频笔记重置MySQL的密码 停止MySQL服务 在cmd下启动MySQL服务mysqld –skip-grant-tables">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/22/大数据day20/1532049317344.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/22/大数据day20/"/>
+
+
+
+
+
+  <title>大数据day20 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/22/大数据day20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据day20</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-22T08:35:57+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,775
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据day20视频笔记"><a href="#大数据day20视频笔记" class="headerlink" title="大数据day20视频笔记"></a>大数据day20视频笔记</h1><h3 id="重置MySQL的密码"><a href="#重置MySQL的密码" class="headerlink" title="重置MySQL的密码"></a>重置MySQL的密码</h3><ol>
+<li>停止MySQL服务</li>
+<li>在cmd下启动MySQL服务<br>mysqld –skip-grant-tables<a id="more"></a></li>
+<li>再另起一个命令行，重新开启cmd的命令行<br>登录MySQL,不需要输入密码</li>
+<li>修改root的密码<br>use mysql;<br>update user set password = password(‘abc’) where user = ‘root’;</li>
+<li>使用任务管理器结束mysqld的进程</li>
+<li>重启MySQL的服务器</li>
+</ol>
+<h3 id="数据库的备份和还原"><a href="#数据库的备份和还原" class="headerlink" title="数据库的备份和还原"></a>数据库的备份和还原</h3><p>备份：<br>mysqldump -u root -p web_test1 &gt; D:/web_test1.sql<br>第一种还原：</p>
+<ol>
+<li>在数据库服务器内部创建数据库</li>
+<li>mysql -u root -p web_test1 &lt; D:/web_test1.sql</li>
+</ol>
+<p>第二种还原：</p>
+<ol>
+<li>在数据库服务器内部创建数据库</li>
+<li>use web_test1;</li>
+<li>source D:/web_test1.sql</li>
+</ol>
+<h3 id="可视化工具的使用"><a href="#可视化工具的使用" class="headerlink" title="可视化工具的使用"></a>可视化工具的使用</h3><p>SQLyog可视化工具</p>
+<h3 id="多表设计之外键约束"><a href="#多表设计之外键约束" class="headerlink" title="多表设计之外键约束"></a>多表设计之外键约束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">create table dept(</span><br><span class="line">	did int primary key auto_increment,</span><br><span class="line">	dname varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into dept values(null,&apos;市场部&apos;);</span><br><span class="line">insert into dept values(null,&apos;人事部&apos;);</span><br><span class="line">insert into dept values(null,&apos;教研部&apos;);</span><br><span class="line"></span><br><span class="line">create table employee(</span><br><span class="line">	eid int primary key auto_increment,</span><br><span class="line">	ename varchar(20),</span><br><span class="line">	salary double,</span><br><span class="line">	birthday date,</span><br><span class="line">	sex varchar(10),</span><br><span class="line">	dno int</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into employee values(null,&apos;张三&apos;,8000,&apos;1988-09-01&apos;,&apos;男&apos;,3);</span><br><span class="line">insert into employee values(null,&apos;李四&apos;,9000,&apos;1988-09-01&apos;,&apos;男&apos;,1);</span><br><span class="line">insert into employee values(null,&apos;王五&apos;,6000,&apos;1988-09-01&apos;,&apos;男&apos;,2);</span><br><span class="line">insert into employee values(null,&apos;赵六&apos;,10000,&apos;1988-09-01&apos;,&apos;男&apos;,3);</span><br><span class="line">insert into employee values(null,&apos;孙七&apos;,10000,&apos;1988-09-01&apos;,&apos;男&apos;,1);</span><br></pre></td></tr></table></figure>
+<p>删除其中的某个部门(是否可以)<br>查看数据<br>向员工表中插入一条记录(没有部门)<br>insert into employee value(null,’田八’,10000,’1988-09-01’,’男’,null);<br>删除一个人事部<br>delete from dept where did = 2;<br><strong>向刚才做的这两个操作(插入一个没有部门的员工，删除一个带有员工的部门)。这种情况都是不应该发生。这个时候需要在多表之间添加外键约束。</strong></p>
+<p>添加外键约束<br>在员工表上添加外键<br>alter table employee add foreign key (dno) references dept(did);</p>
+<p>设置员工部分为非空<br>alter table employee modify dno int not null;</p>
+<h3 id="多表设计之表关系的介绍"><a href="#多表设计之表关系的介绍" class="headerlink" title="多表设计之表关系的介绍"></a>多表设计之表关系的介绍</h3><p>一对多的关系<br>一对多的例子<br>一个部门下可以有多个员工，一个员工只能属于某一个部门。</p>
+<p>多对过的关系<br>多对多的例子：<br>一个学生可以选择多门课程，一门课程可以被多个学生选择。</p>
+<p>一对一的关系<br>一对一的例子：<br>一个公司可以有一个注册地址，一个注册地址只能对一个公司。</p>
+<h3 id="多表设计之一对多关系"><a href="#多表设计之一对多关系" class="headerlink" title="多表设计之一对多关系"></a>多表设计之一对多关系</h3><img src="/2018/07/22/大数据day20/1532049317344.png">
+<h3 id="多表设计之多对多关系"><a href="#多表设计之多对多关系" class="headerlink" title="多表设计之多对多关系"></a>多表设计之多对多关系</h3>
+<p><strong>需要创建中间表，中间表中至少两个字段，分别作为外键指向多对多双方的主键。</strong></p>
+<h3 id="多表设计之一对一关系"><a href="#多表设计之一对一关系" class="headerlink" title="多表设计之一对一关系"></a>多表设计之一对一关系</h3><img src="/2018/07/22/大数据day20/1532052339148.png">
+<p>唯一外键对应<br>假设是一对多，在多地一方创建外键外键指向一的一方的主键，将外键设置为unique<br>主键对应<br>将两个表的主键建立对应关系即可。</p>
+<h3 id="多表设计之多表分析及创建"><a href="#多表设计之多表分析及创建" class="headerlink" title="多表设计之多表分析及创建"></a>多表设计之多表分析及创建</h3><p>完成一个学校的选课系统，在选课系统中包含班级，学生和课程这些实体。<br>班级和学生之间是有关系存在：<br>一个班级下包含多个学生，一个学生只能属于某一个班级(一对多的关系)<br>学生和课程之间是有关系存在：<br>一个学生可以选择多门课程，一门课程也可以被多个学生所选择（多对多的关系）。</p>
+<p>多表的创建<br><img src="/2018/07/22/大数据day20/1532053289556.png"></p>
+<p>实现一个网上商城案例，在商城中会有用户，商品，订单，商品分类。<br><img src="/2018/07/22/大数据day20/1532056068127.png"></p>
+<h3 id="多表查询之多表查询的概述"><a href="#多表查询之多表查询的概述" class="headerlink" title="多表查询之多表查询的概述"></a>多表查询之多表查询的概述</h3><p>连接查询<br>交叉连接：crossjoin<br>交叉连接：查询到的是两个表的笛卡尔积。<br>select <em> from 表 1 cross join 表 2<br>select </em> from 表1，表 2<br><strong>内连接</strong> ： innerjoin 是可以省略的<br>显示内连接：在SQL中显示的调用innerjoin关键字<br>select <em> from 表1 inner join 表2 on 关联条件<br>隐式内连接：在SQL中没有调用inner join 关键字<br>select </em> from 表 1，表 2 where 关联条件<br><strong>外连接</strong>：outer join ()outer可以省略)<br>左外连接：<br>select <em> from 表1 left outer join 表 2 on 关联条件<br>右外连接：<br>select </em> from 表 1 right outer join 表 2 on 关联条件</p>
+<p>子查询：一个查询语句条件需要依赖另一个查询语句的结果。</p>
+<h3 id="多表查询之数据准备"><a href="#多表查询之数据准备" class="headerlink" title="多表查询之数据准备"></a>多表查询之数据准备</h3><h3 id="多表查询之交叉连接"><a href="#多表查询之交叉连接" class="headerlink" title="多表查询之交叉连接"></a>多表查询之交叉连接</h3><p>使用cross join关键字<br>SELECT * FROM classes CROSS JOIN student;</p>
+<p>不使用cross join关键字<br>SELECT * FROM classes,student;</p>
+<h3 id="多表查询之内连接"><a href="#多表查询之内连接" class="headerlink" title="多表查询之内连接"></a>多表查询之内连接</h3><p>显示内连接<br>SELECT <em> FROM classes c INNER JOIN student s ON c.<code>cid</code> = s.<code>cno</code>;<br>SELECT </em> FROM classes c JOIN student s ON c.<code>cid</code> = s.<code>cno</code>;<br><img src="/2018/07/22/大数据day20/1532057296919.png"></p>
+<p>隐式内连接<br>SELECT * FROM classes c,student s WHERE c.<code>cid</code> = s.<code>cno</code>;<br><img src="/2018/07/22/大数据day20/1532057349324.png"></p>
+<h3 id="多表查询之外链接"><a href="#多表查询之外链接" class="headerlink" title="多表查询之外链接"></a>多表查询之外链接</h3><p>左外连接<br>SELECT * FROM classes c LEFT OUTER JOIN student s ON c.<code>cid</code> = s.<code>cno</code>;<br><img src="/2018/07/22/大数据day20/1532057516768.png"></p>
+<p>右外连接<br>SELECT * FROM classes c RIGHT OUTER JOIN student s ON c.<code>cid</code> = s.<code>cno</code>;<br><img src="/2018/07/22/大数据day20/1532057664834.png"></p>
+<h3 id="多表查询之内连接与外连接的区别"><a href="#多表查询之内连接与外连接的区别" class="headerlink" title="多表查询之内连接与外连接的区别"></a>多表查询之内连接与外连接的区别</h3><img src="/2018/07/22/大数据day20/1532068961164.png">
+<h3 id="多表查询之子查询"><a href="#多表查询之子查询" class="headerlink" title="多表查询之子查询"></a>多表查询之子查询</h3><p>带in的子查询<br>查询学生生日在91年之后的班级的信息<br>SELECT * FROM classes WHERE cid IN (SELECT cno FROM student WHERE birthday &gt; ‘1991-01-01’);</p>
+
+<p>带exists的子查询<br>查询学生生日大于91年，如果记录存在，那么前面的SQL语句就会执行。<br>SELECT * FROM classes WHERE EXISTS(SELECT cno FROM student WHERE birthday &gt; ‘1991-01-01’);</p>
+
+<p>带any的子查询<br>SELECT * FROM classes WHERE cid &gt; ANY (SELECT cno FROM student);</p>
+
+<p>带all的子查询<br>SELECT * FROM classes WHERE cid &gt; ALL (SELECT cno FROM student);</p>
+
+<h3 id="多表查询之练习"><a href="#多表查询之练习" class="headerlink" title="多表查询之练习"></a>多表查询之练习</h3><p>查询班级名称，和班级总人数<br>SELECT cname,COUNT(*) FROM classes c,student s WHERE c.<code>cid</code> = s.<code>cno</code> GROUP BY c.cname;</p>
+
+<p>查询学生的姓名和学生所选的总课程平均成绩。<br>SELECT s.<code>sname</code>,AVG(score) FROM student s,stu_cour sc WHERE s.<code>sid</code> = sc.<code>sno</code> GROUP BY s.sname;<br><img src="/2018/07/22/大数据day20/1532070341613.png"></p>
+<p>查询学生的姓名和学生的选课总数，显示选课超过2门的学生姓名。<br>SELECT s.sname,COUNT(sc.sno) cou FROM student s,stu_cour sc WHERE s.<code>sid</code> = sc.<code>sno</code> GROUP BY s.sname HAVING cou&gt;2;<br><img src="/2018/07/22/大数据day20/1532070621622.png"></p>
+<p>查询平均成绩大于80分的学生的总数。<br>SELECT COUNT(*) FROM student WHERE sid IN (SELECT sno FROM stu_cour GROUP BY sno HAVING AVG(score) &gt;80);</p>
+
+<p>查询学生和平均成绩，但是平均成绩大于01班的任何一个学生的平均成绩<br>SELECT s.sname,AVG(sc.score) FROM stu_cour sc,student s<br>WHERE s.<code>sid</code>=sc.<code>sno</code><br>GROUP BY s.<code>sname</code><br>HAVING AVG(score) &gt; ANY (SELECT AVG(sc.score) FROM student s,stu_cour sc,classes c<br>WHERE s.<code>sid</code>=sc.<code>sno</code> AND s.<code>cno</code>=c.<code>cid</code> AND c.<code>cname</code> =’01班’<br>GROUP BY s.<code>sname</code>);<br><img src="/2018/07/22/大数据day20/1532073619157.png"></p>
+<h3 id="事务的概述"><a href="#事务的概述" class="headerlink" title="事务的概述"></a>事务的概述</h3><blockquote>
+<p>create table account(<br>    id int primary key auto_increment,<br>    name varchar(20),<br>    money double<br>);</p>
+</blockquote>
+<p>insert into account values (null,’小张’,10000);<br>insert into account values (null,’小风’,10000);</p>
+<p>转账案例<br>开启事务：<br>start transaction;<br>提交事务：<br>commit;<br>回滚事务<br>rollback;<br><img src="/2018/07/22/大数据day20/1532074382178.png"></p>
+<p>事务的特性：</p>
+<ol>
+<li>原子性：事务的不可分割，组成事务的各个逻辑单元不可分割。</li>
+<li>一致性：事务执行的前后，数据完整性保持一致。</li>
+<li>隔离性：事务执行不应该受到其他事务的干扰。</li>
+<li>持久性：事务一旦结束，数据就持久化到数据库中。</li>
+</ol>
+<h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><p>隔离性：一个事务的执行，不应该受到其他事务的干扰。<br>如果不考虑隔离性（一个事务执行受到其他的事务的干扰），引发一些安全问题，主要体现在读取数据上：</p>
+<ul>
+<li>脏读：一个事务读到了另一个事务未提交的数据，导致查询结果不一致。</li>
+<li>不可重复读：一个事务读到了另一个事务已经提交的update的数据，导致多次查询结果不一致。</li>
+<li>虚读/幻读：一个事务读到了另一个事务已经提交的insert的数据，导致多次查询结果不一致。</li>
+</ul>
+<p>解决这些安全性问题<br>设置事务的隔离级别：<br>read uncommitted：脏读，不可重复读，虚读都有可能发生<br>read committed：避免脏读，但是不可重复读和虚读是有可能发生。<br>repeatable read：避免脏读和不可重复读，但是虚读有可能发生。<br>serializable：避免脏读，不可重复读，虚读。</p>
+<p><strong>效率由高到低，安全性由低到高</strong></p>
+<h3 id="事务的隔离级别的演示：演示脏读"><a href="#事务的隔离级别的演示：演示脏读" class="headerlink" title="事务的隔离级别的演示：演示脏读"></a>事务的隔离级别的演示：演示脏读</h3><p>开启两个窗口A，B<br>设置A窗口的隔离级别为 read uncommitted;<br>set session transaction isolation level read uncommitted;<br><strong>查询隔离级别：</strong><br>select @@tx_isolation;<br><img src="/2018/07/22/大数据day20/1532075197453.png"></p>
+<p>在A，B两个窗口中开启事务<br>start transaction<br>在B窗口完成转账的功能：<br>update account set money = money -  1000 where name =  ‘小张’;<br>update account set money = money + 1000 where name =  ‘小风’;<br><strong>事务未提交！！！！</strong><br><img src="/2018/07/22/大数据day20/1532075421570.png"></p>
+<p>在A窗口进行查询<br>select * from account;<br><img src="/2018/07/22/大数据day20/1532075453365.png"></p>
+<p><strong>发现A窗口中已经查询到转账成功了！！！已经发生了脏读：一个事务中已经读到了另一个事务未提交的数据。</strong></p>
+<h3 id="事务的隔离级别的演示：避免脏读和不可重复读演示"><a href="#事务的隔离级别的演示：避免脏读和不可重复读演示" class="headerlink" title="事务的隔离级别的演示：避免脏读和不可重复读演示"></a>事务的隔离级别的演示：避免脏读和不可重复读演示</h3><p><strong>在我的电脑中每次设置隔离级别必须重启cmd命令窗口</strong><br>开启两个窗口A，B<br>设置A窗口的隔离级别为 read committed;<br>set session transaction isolation level read committed;<br><img src="/2018/07/22/大数据day20/1532086106230.png"></p>
+<p>在A，B两个窗口中开启事务<br>start transaction；<br>在B窗口完成转账的功能：<br>update account set money = money -  1000 where name =  ‘小张’;<br>update account set money = money + 1000 where name =  ‘小风’;<br><strong>事务未提交！！！！</strong><br>在A窗口进行查询<br>select <em> from account;<br><strong>没有转账成功！！！没有查询到另一个事务未提交的数据：说明已经避免了脏读</strong><br>在B窗口中提交事务<br>commit;<br>在A窗口进行查询<br>select </em> from account;<br><strong>发现这次的结果已经发生了变化！！！已经发生不可重复读：一个事务已经读到了另一个事务提交的update数据，导致多次查询结果不一致。</strong></p>
+<h3 id="事务的隔离级别的演示：避免不可重复读"><a href="#事务的隔离级别的演示：避免不可重复读" class="headerlink" title="事务的隔离级别的演示：避免不可重复读"></a>事务的隔离级别的演示：避免不可重复读</h3><p>开启两个窗口A，B<br>设置A窗口的隔离级别为 repeatable read;<br>set session transaction isolation level repeatable read;<br>在A，B两个窗口中开启事务<br>start transaction;<br>在B窗口完成转账的功能：<br>update account set money = money -  1000 where name =  ‘小张’;<br>update account set money = money + 1000 where name =  ‘小风’;<br><strong>事务未提交！！！！</strong><br>在A窗口进行查询<br>select <em> from account;<br><strong>没有转账成功！！！已经避免了脏读</strong><br>在B窗口中提交事务<br>commit;<br>在A窗口进行查询<br>select </em> from account;<br><strong>发现在一个事务中的多次查询结果是一致！！！已经避免不可重复读</strong></p>
+<h3 id="事务的隔离级别的演示：演示串行化"><a href="#事务的隔离级别的演示：演示串行化" class="headerlink" title="事务的隔离级别的演示：演示串行化"></a>事务的隔离级别的演示：演示串行化</h3><p>开启两个窗口A，B<br>设置A窗口的隔离级别为 serializable;<br>set session transaction isolation level serializable;<br>A<br><img src="/2018/07/22/大数据day20/1532087838694.png"></p>
+<p>B<br><img src="/2018/07/22/大数据day20/1532087851246.png"></p>
+<p>在A，B两个窗口中开启事务<br>start transaction;<br>在B窗口完成转账的功能：<br>update account set money = money -  1000 where name =  ‘小张’;<br>update account set money = money + 1000 where name =  ‘小风’;<br>B<br><img src="/2018/07/22/大数据day20/1532087940434.png"></p>
+<p>A<br><img src="/2018/07/22/大数据day20/1532087999477.png"></p>
+<p><strong>发现A窗口已经卡住了，说明事务不允许出现并发,A窗口需要等待B窗口事务执行完成以后，才会执行A窗口的事务。当B窗口的事务结束（提交或者回滚），那么A窗口马上就会出现结果。</strong><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/20/大数据day19/" rel="next" title="大数据day19">
+                <i class="fa fa-chevron-left"></i> 大数据day19
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据day20视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据day20视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重置MySQL的密码"><span class="nav-number">1.0.1.</span> <span class="nav-text">重置MySQL的密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库的备份和还原"><span class="nav-number">1.0.2.</span> <span class="nav-text">数据库的备份和还原</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可视化工具的使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">可视化工具的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表设计之外键约束"><span class="nav-number">1.0.4.</span> <span class="nav-text">多表设计之外键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表设计之表关系的介绍"><span class="nav-number">1.0.5.</span> <span class="nav-text">多表设计之表关系的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表设计之一对多关系"><span class="nav-number">1.0.6.</span> <span class="nav-text">多表设计之一对多关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表设计之多对多关系"><span class="nav-number">1.0.7.</span> <span class="nav-text">多表设计之多对多关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表设计之一对一关系"><span class="nav-number">1.0.8.</span> <span class="nav-text">多表设计之一对一关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表设计之多表分析及创建"><span class="nav-number">1.0.9.</span> <span class="nav-text">多表设计之多表分析及创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之多表查询的概述"><span class="nav-number">1.0.10.</span> <span class="nav-text">多表查询之多表查询的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之数据准备"><span class="nav-number">1.0.11.</span> <span class="nav-text">多表查询之数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之交叉连接"><span class="nav-number">1.0.12.</span> <span class="nav-text">多表查询之交叉连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之内连接"><span class="nav-number">1.0.13.</span> <span class="nav-text">多表查询之内连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之外链接"><span class="nav-number">1.0.14.</span> <span class="nav-text">多表查询之外链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之内连接与外连接的区别"><span class="nav-number">1.0.15.</span> <span class="nav-text">多表查询之内连接与外连接的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之子查询"><span class="nav-number">1.0.16.</span> <span class="nav-text">多表查询之子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询之练习"><span class="nav-number">1.0.17.</span> <span class="nav-text">多表查询之练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的概述"><span class="nav-number">1.0.18.</span> <span class="nav-text">事务的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">1.0.19.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的隔离级别的演示：演示脏读"><span class="nav-number">1.0.20.</span> <span class="nav-text">事务的隔离级别的演示：演示脏读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的隔离级别的演示：避免脏读和不可重复读演示"><span class="nav-number">1.0.21.</span> <span class="nav-text">事务的隔离级别的演示：避免脏读和不可重复读演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的隔离级别的演示：避免不可重复读"><span class="nav-number">1.0.22.</span> <span class="nav-text">事务的隔离级别的演示：避免不可重复读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的隔离级别的演示：演示串行化"><span class="nav-number">1.0.23.</span> <span class="nav-text">事务的隔离级别的演示：演示串行化</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共57.5k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

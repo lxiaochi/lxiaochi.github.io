@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大数据day18视频笔记XML的概述 XML是指可扩展标记语言(eXtensible Markup Language),它是一种标记语言，很类似HTML。它被设计的宗旨描述数据，而非显示数据 XML标签没有被预定义，需要用户自定义标签。">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据day18">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/大数据day18/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="大数据day18视频笔记XML的概述 XML是指可扩展标记语言(eXtensible Markup Language),它是一种标记语言，很类似HTML。它被设计的宗旨描述数据，而非显示数据 XML标签没有被预定义，需要用户自定义标签。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-20T13:56:22.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据day18">
+<meta name="twitter:description" content="大数据day18视频笔记XML的概述 XML是指可扩展标记语言(eXtensible Markup Language),它是一种标记语言，很类似HTML。它被设计的宗旨描述数据，而非显示数据 XML标签没有被预定义，需要用户自定义标签。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/大数据day18/"/>
+
+
+
+
+
+  <title>大数据day18 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/大数据day18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据day18</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T21:55:25+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,209
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大数据day18视频笔记"><a href="#大数据day18视频笔记" class="headerlink" title="大数据day18视频笔记"></a>大数据day18视频笔记</h1><h3 id="XML的概述"><a href="#XML的概述" class="headerlink" title="XML的概述"></a>XML的概述</h3><ul>
+<li>XML是指可扩展标记语言(eXtensible Markup Language),它是一种标记语言，很类似HTML。它被设计的宗旨描述数据，而非显示数据</li>
+<li>XML标签没有被预定义，需要用户自定义标签。<a id="more"></a></li>
+<li>XML技术是W3C组织(World Wide Web Consortium王伟旺联盟)发布的，目前遵循的是W3C组织于2000发布的XML1.0规范。</li>
+<li>XML被广泛认为是继Java之后再Internet上最激动人心的新技术。</li>
+</ul>
+<h3 id="XML的文档声明"><a href="#XML的文档声明" class="headerlink" title="XML的文档声明"></a>XML的文档声明</h3><ul>
+<li>在编写XML文档时，需要先使用文档声明来声明XMl文档。<br><strong>且必须出现在文档的第一行。</strong></li>
+<li>最简单的语法：&lt;?xml version = “1.0” ?&gt;</li>
+<li>用encoding属性说明文档所使用的字符编码，<strong>默认为UTF-8</strong>。<br>保存在磁盘上的文件编码要与声明的编码一致。</li>
+<li>用standalone属性说明文档是否独立，即是否依赖其他文档。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version = &quot;1.0&quot; encoding = &quot;UTF-8&quot; ?&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="XML的元素"><a href="#XML的元素" class="headerlink" title="XML的元素"></a>XML的元素</h3><p><strong>一个XML文档必须有且仅有一个根标签，其他标签都是这个根标签的子标签或孙标签。</strong><br>元素(标签)的名称可以包含字母、数字、减号、下划线和英文句点，但必须遵守下面的一些规范：</p>
+<ul>
+<li>严格区分大小写；<p></p><p></p></li>
+<li>只能以字母或下划线开头；abc _abc</li>
+<li>不能以xml(或XML、Xml等)开头—-W3C保留日后使用；</li>
+<li>名称字符之间不能有空格或制表符；</li>
+<li>名称字符之间不能使用冒号； (有特殊用途)</li>
+</ul>
+<p>元素的属性</p>
+<ul>
+<li>一个元素可以有多个属性，每个属性都有它自己的名称和取值。</li>
+<li>属性值一定要用引号(单引号或双引号)引起来。</li>
+<li>属性名称的命名规范与元素的命名规范相同</li>
+<li>元素中的属性是不允许重复的</li>
+<li>在XML技术中，标签属性所代表的信息也可以被改成用子元素的形式来描述</li>
+</ul>
+<h3 id="XML的注释"><a href="#XML的注释" class="headerlink" title="XML的注释"></a>XML的注释</h3><p><strong>只能写在文档声明下面</strong><br><strong>注释不能嵌套注释</strong><br><strong>如果文档使用的编码格式不支持中文，再写中文注释程序保存时会报错</strong></p>
+<h3 id="XML的其他组成部分"><a href="#XML的其他组成部分" class="headerlink" title="XML的其他组成部分"></a>XML的其他组成部分</h3><p>CDATA Character data<br>&lt;![CDATA[<br>        内容<br>]]&gt;<br>&lt;&gt;&lt;/&gt;</p>
+<h3 id="DTD的入门案例"><a href="#DTD的入门案例" class="headerlink" title="DTD的入门案例"></a>DTD的入门案例</h3><p>book.dtd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!ELEMENT 书架 (书+) &gt;</span><br><span class="line">	&lt;!ELEMENT 书 (书名,作者,售价) &gt;</span><br><span class="line">	&lt;!ELEMENT 书名 (#PCDATA) &gt;</span><br><span class="line">	&lt;!ELEMENT 作者 (#PCDATA) &gt;</span><br><span class="line">	&lt;!ELEMENT 售价 (#PCDATA) &gt;</span><br></pre></td></tr></table></figure></p>
+<p>book.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE 书架 SYSTEM &quot;book.dtd&quot;&gt;</span><br><span class="line">&lt;书架&gt;</span><br><span class="line">	&lt;书&gt;</span><br><span class="line">		&lt;书名&gt;书名&lt;/书名&gt;</span><br><span class="line">		&lt;作者&gt;作者&lt;/作者&gt;</span><br><span class="line">		&lt;售价&gt;售价&lt;/售价&gt;</span><br><span class="line">	&lt;/书&gt;</span><br><span class="line">&lt;/书架&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="DTD的细节"><a href="#DTD的细节" class="headerlink" title="DTD的细节"></a>DTD的细节</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version = &quot;1.0&quot; encoding=&quot;GB2312&quot; standalone=&quot;yes&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE 购物篮 [</span><br><span class="line">   &lt;!ELEMENT 购物篮 (肉+)&gt;</span><br><span class="line">	&lt;!ELEMENT 肉 EMPTY&gt;</span><br><span class="line">	&lt;!ATTLIST 肉 品种 ( 鸡肉 | 牛肉 | 猪肉 | 鱼肉 ) &quot;鸡肉&quot;&gt;</span><br><span class="line">]&gt; </span><br><span class="line"></span><br><span class="line">&lt;购物篮&gt;</span><br><span class="line">	&lt;肉 品种=&quot;鱼肉&quot;/&gt;</span><br><span class="line">	&lt;肉 品种=&quot;牛肉&quot;/&gt;</span><br><span class="line">	&lt;肉/&gt;</span><br><span class="line">&lt;/购物篮&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Schema的概述"><a href="#Schema的概述" class="headerlink" title="Schema的概述"></a>Schema的概述</h3><p>XML Schema 也是一种用于定义和描述 XML 文档结构与内容的模式语言，其出现是为了克服 DTD 的局限性<br>XML Schema VS DTD：</p>
+<ul>
+<li>XML Schema符合XML语法结构。 </li>
+<li>DOM、SAX等XML API很容易解析出XML Schema文档中的内容。 </li>
+<li>XML Schema对<strong>名称空间</strong>支持得非常好。 </li>
+<li>XML Schema比XML DTD支持更多的数据类型，并支持用户自定义新的数据类型。 </li>
+<li>XML Schema定义约束的能力非常强大，可以对XML实例文档作出细致的语义限制。</li>
+</ul>
+<p><strong>Schema约束快速入门</strong></p>
+<ul>
+<li>XML Schema 文件自身就是一个XML文件，但它的扩展名通常为.xsd。</li>
+<li>一个XML Schema文档通常称之为模式文档(约束文档)，遵循这个文档书写的xml文件称之为实例文档。</li>
+<li>和XML文件一样，一个XML Schema文档也必须有一个根结点，但这个根结点的名称为schema。</li>
+<li>编写了一个XML Schema约束文档后，通常需要把这个文件中声明的元素绑定到一个ＵＲＩ地址上，在XML Schema技术中有一个专业术语来描述这个过程，即把XML Schema文档声明的元素绑定到一个名称空间上，以后XML文件就可以通过这个URI（即名称空间）来告诉解析引擎，xml文档中编写的元素来自哪里，被谁约束。</li>
+</ul>
+<h3 id="Schema的入门案例"><a href="#Schema的入门案例" class="headerlink" title="Schema的入门案例"></a>Schema的入门案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos; ?&gt; </span><br><span class="line">&lt;xs:schema xmlns:xs=&apos;http://www.w3.org/2001/XMLSchema&apos; </span><br><span class="line">		targetNamespace=&apos;http://www.itheima.com&apos; &gt;</span><br><span class="line">	&lt;xs:element name=&apos;书架&apos; &gt;</span><br><span class="line">		&lt;xs:complexType&gt;</span><br><span class="line">			&lt;xs:sequence maxOccurs=&apos;unbounded&apos; &gt;</span><br><span class="line">				&lt;xs:element name=&apos;书&apos; &gt;</span><br><span class="line">					&lt;xs:complexType&gt;</span><br><span class="line">						&lt;xs:sequence&gt;</span><br><span class="line">							&lt;xs:element name=&apos;书名&apos; type=&apos;xs:string&apos; /&gt;</span><br><span class="line">							&lt;xs:element name=&apos;作者&apos; type=&apos;xs:string&apos; /&gt;</span><br><span class="line">							&lt;xs:element name=&apos;售价&apos; type=&apos;xs:string&apos; /&gt;</span><br><span class="line">						&lt;/xs:sequence&gt;</span><br><span class="line">					&lt;/xs:complexType&gt;</span><br><span class="line">				&lt;/xs:element&gt;</span><br><span class="line">			&lt;/xs:sequence&gt;</span><br><span class="line">		&lt;/xs:complexType&gt;</span><br><span class="line">	&lt;/xs:element&gt;</span><br><span class="line">&lt;/xs:schema&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;itcast:书架 xmlns:itcast=&quot;http://www.itheima.com&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.itheima.com book.xsd &quot;&gt;</span><br><span class="line">  &lt;书&gt;</span><br><span class="line">    &lt;书名&gt;书名&lt;/书名&gt;</span><br><span class="line">    &lt;作者&gt;作者&lt;/作者&gt;</span><br><span class="line">    &lt;售价&gt;售价&lt;/售价&gt;</span><br><span class="line">  &lt;/书&gt;</span><br><span class="line">&lt;/itcast:书架&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="XML的解析方式"><a href="#XML的解析方式" class="headerlink" title="XML的解析方式"></a>XML的解析方式</h3><p>XML解析方式分为两种：DOM方式和SAX方式</p>
+<ul>
+<li>DOM：Document Object Model，文档对象模型。这种方式是W3C推荐的处理XML的一种方式。</li>
+<li>SAX：Simple API for XML。这种方式不是官方标准，属于开源社区XML-DEV，几乎所有的XML解析器都支持它。<br>XML解析开发包</li>
+<li>JAXP：是SUN公司推出的解析标准实现。</li>
+<li>Dom4J：是开源组织推出的解析开发包。(牛，大家都在用，包括 SUN公司的一些技术的实现都在用。)</li>
+<li>Dom for java four</li>
+<li>Log4j </li>
+</ul>
+<h3 id="Dom4J的方法概述"><a href="#Dom4J的方法概述" class="headerlink" title="Dom4J的方法概述"></a>Dom4J的方法概述</h3><p>常用方法：<br>Document<br>Element getRootElement():获取根元素对象（根标签）<br>Element</p>
+<ul>
+<li>List elements():获取所有的子元素</li>
+<li>List elements(String name)：根据指定的元素名称来获取相应的所有子元素</li>
+<li>Element element(String name)：根据指定的元素名称来获取子元素对象</li>
+<li>String elementTest(String name)：根据指定的元素名称，来获取子元素中的文本</li>
+<li>String getTest()：获取当前元素对象的文本</li>
+<li>void setTest(String test)：设置当前对象的文本</li>
+<li>String attributeValue(String name)：根据指定的属性名称获取其对应的值</li>
+<li>public Element addAttribute(String name,String value)：根据指定的属性名称和值进行添加或者修改</li>
+</ul>
+<h3 id="定义Dom4jUtils工具类"><a href="#定义Dom4jUtils工具类" class="headerlink" title="定义Dom4jUtils工具类"></a>定义Dom4jUtils工具类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">import org.dom4j.Document;</span><br><span class="line">import org.dom4j.io.*;</span><br><span class="line"></span><br><span class="line">public class Dom4JUtils &#123;</span><br><span class="line">	private Dom4JUtils()&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	public static Document getDocument() throws Exception&#123;</span><br><span class="line">		SAXReader reader = new SAXReader();</span><br><span class="line">		Document document = reader.read(&quot;src/com/itheima/city.xml&quot;);</span><br><span class="line">		return document;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void write2XML(Document document) throws IOException&#123;</span><br><span class="line">		OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">		XMLWriter writer = new XMLWriter(new FileOutputStream(&quot;src/com/itheima/city.xml&quot;));</span><br><span class="line">		writer.write(document);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Demo4J案例-获取"><a href="#Demo4J案例-获取" class="headerlink" title="Demo4J案例(获取)"></a>Demo4J案例(获取)</h3><p>获取单个子元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private static void method() throws Exception &#123;</span><br><span class="line">	Document document = Dom4JUtils.getDocument();</span><br><span class="line">	Element rootElement = document.getRootElement();</span><br><span class="line">	//获取根元素下的所有子元素</span><br><span class="line">	List&lt;Element&gt; elements = rootElement.elements();</span><br><span class="line">	Element cityElement = elements.get(0);</span><br><span class="line">	String text = cityElement.elementText(&quot;Name&quot;);</span><br><span class="line">	System.out.println(text);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>//获取所有子元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void treeWalk(Element element)&#123;</span><br><span class="line">		System.out.println(element.getName());</span><br><span class="line">		List&lt;Element&gt; es = element.elements();</span><br><span class="line">		for (Element e : es) &#123;</span><br><span class="line">			treeWalk(e);</span><br><span class="line">			if (!e.hasMixedContent()) &#123;</span><br><span class="line">				System.out.println(e.getText());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Demo4J案例-修改和删除"><a href="#Demo4J案例-修改和删除" class="headerlink" title="Demo4J案例(修改和删除)"></a>Demo4J案例(修改和删除)</h3><p><strong>修改和删除需要写回文件</strong><br>修改指定元素节点的文本内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">private static void method2() throws Exception, IOException &#123;</span><br><span class="line">		//修改某个元素节点的主体内容：信阳--&gt;安阳</span><br><span class="line">		//获取根元素</span><br><span class="line">		Document document = Dom4JUtils.getDocument();</span><br><span class="line">		Element rootrElement = document.getRootElement();</span><br><span class="line">		List&lt;Element&gt; elements = rootrElement.elements();</span><br><span class="line">		Element cityElement = elements.get(3);</span><br><span class="line">		cityElement.setText(&quot;安阳&quot;);</span><br><span class="line">		//写回文件</span><br><span class="line">		Dom4JUtils.write2XML(document);</span><br><span class="line">		treeWalk(rootrElement);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>删除指定元素节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private static void method3() throws Exception, IOException &#123;</span><br><span class="line">	//删除指定元素节点：删除元素开封</span><br><span class="line">	Document document = Dom4JUtils.getDocument();</span><br><span class="line">	Element element = document.getRootElement();</span><br><span class="line">	List&lt;Element&gt; rootElements = element.elements();</span><br><span class="line">	Element cityeElement = rootElements.get(1);</span><br><span class="line">	Element parElement = cityeElement.getParent();</span><br><span class="line">	parElement.remove(cityeElement);</span><br><span class="line">	Dom4JUtils.write2XML(document);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Dom4J的案例-添加"><a href="#Dom4J的案例-添加" class="headerlink" title="Dom4J的案例(添加)"></a>Dom4J的案例(添加)</h3><p><strong>添加需要写回文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private static void method4() throws Exception, IOException &#123;</span><br><span class="line">		Document document = Dom4JUtils.getDocument();</span><br><span class="line">		Element rootElement = document.getRootElement();</span><br><span class="line">		Element city = rootElement.addElement(&quot;City&quot;);</span><br><span class="line">		city.setText(&quot;南阳&quot;);</span><br><span class="line">		Dom4JUtils.write2XML(document);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Dom4J的案例-属性获取和添加"><a href="#Dom4J的案例-属性获取和添加" class="headerlink" title="Dom4J的案例(属性获取和添加)"></a>Dom4J的案例(属性获取和添加)</h3><p>向指定元素节点上增加同级元素节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private static void method5() throws Exception, IOException &#123;</span><br><span class="line">		//向指定元素节点上增加同级元素节点：在洛阳前面，添加一个&lt;city&gt;三门峡</span><br><span class="line">		Document document = Dom4JUtils.getDocument();</span><br><span class="line">		Element rootElement = document.getRootElement();</span><br><span class="line">		List&lt;Element&gt; es = rootElement.elements();</span><br><span class="line">		Element cityElement = DocumentHelper.createElement(&quot;city&quot;);</span><br><span class="line">		//设置文本</span><br><span class="line">		cityElement.setText(&quot;三门峡&quot;);</span><br><span class="line">		es.add(1, cityElement);</span><br><span class="line">		Dom4JUtils.write2XML(document);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>操作XML文件属性：答应State的Name<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private static void method6() throws Exception &#123;</span><br><span class="line">		//操作XML文件属性：答应State的Name</span><br><span class="line">		Document document = Dom4JUtils.getDocument();</span><br><span class="line">		Element rootElement = document.getRootElement();</span><br><span class="line">		String value = rootElement.attributeValue(&quot;Name&quot;);</span><br><span class="line">		System.out.println(value);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>添加属性：State：GDP=”9999亿”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private static void method7() throws Exception, IOException &#123;</span><br><span class="line">		//添加属性：State：GDP=&quot;9999亿&quot;</span><br><span class="line">		Document document = Dom4JUtils.getDocument();</span><br><span class="line">		Element rootElement = document.getRootElement();</span><br><span class="line">		rootElement.addAttribute(&quot;GDP&quot;, &quot;9999亿&quot;);</span><br><span class="line">		Dom4JUtils.write2XML(document);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/20/大数据day17/" rel="next" title="大数据day17">
+                <i class="fa fa-chevron-left"></i> 大数据day17
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/大数据day19/" rel="prev" title="大数据day19">
+                大数据day19 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据day18视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据day18视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">XML的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的文档声明"><span class="nav-number">1.0.2.</span> <span class="nav-text">XML的文档声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的元素"><span class="nav-number">1.0.3.</span> <span class="nav-text">XML的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的注释"><span class="nav-number">1.0.4.</span> <span class="nav-text">XML的注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的其他组成部分"><span class="nav-number">1.0.5.</span> <span class="nav-text">XML的其他组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD的入门案例"><span class="nav-number">1.0.6.</span> <span class="nav-text">DTD的入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD的细节"><span class="nav-number">1.0.7.</span> <span class="nav-text">DTD的细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schema的概述"><span class="nav-number">1.0.8.</span> <span class="nav-text">Schema的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schema的入门案例"><span class="nav-number">1.0.9.</span> <span class="nav-text">Schema的入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的解析方式"><span class="nav-number">1.0.10.</span> <span class="nav-text">XML的解析方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dom4J的方法概述"><span class="nav-number">1.0.11.</span> <span class="nav-text">Dom4J的方法概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义Dom4jUtils工具类"><span class="nav-number">1.0.12.</span> <span class="nav-text">定义Dom4jUtils工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo4J案例-获取"><span class="nav-number">1.0.13.</span> <span class="nav-text">Demo4J案例(获取)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo4J案例-修改和删除"><span class="nav-number">1.0.14.</span> <span class="nav-text">Demo4J案例(修改和删除)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dom4J的案例-添加"><span class="nav-number">1.0.15.</span> <span class="nav-text">Dom4J的案例(添加)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dom4J的案例-属性获取和添加"><span class="nav-number">1.0.16.</span> <span class="nav-text">Dom4J的案例(属性获取和添加)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共57.5k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
