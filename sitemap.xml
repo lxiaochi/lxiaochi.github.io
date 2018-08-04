@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/26/JDBC&%E8%BF%9E%E6%8E%A5%E6%B1%A0/</loc>
+    
+    <lastmod>2018-08-04T01:20:34.684Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/25/JDBC/</loc>
+    
+    <lastmod>2018-08-04T01:10:31.202Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/07/20/%E5%A4%A7%E6%95%B0%E6%8D%AEday19/</loc>
     
     <lastmod>2018-07-22T00:46:14.061Z</lastmod>
