@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="大数据day17视频笔记反射机制的概述和字节码对象的获取方式 反射： 在运行时，我们可以获取任意一个类的所有方法和属性 在运行时，让我们调用任意一个对象的所有方法和属性">
+<meta name="description" content="反射&amp;amp;JavaBean反射机制的概述和字节码对象的获取方式 反射： 在运行时，我们可以获取任意一个类的所有方法和属性 在运行时，让我们调用任意一个对象的所有方法和属性">
 <meta name="keywords" content="后台开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据day17">
+<meta property="og:title" content="反射&amp;JavaBean">
 <meta property="og:url" content="http://yoursite.com/2018/07/20/大数据day17/index.html">
 <meta property="og:site_name" content="lXiaoChi">
-<meta property="og:description" content="大数据day17视频笔记反射机制的概述和字节码对象的获取方式 反射： 在运行时，我们可以获取任意一个类的所有方法和属性 在运行时，让我们调用任意一个对象的所有方法和属性">
+<meta property="og:description" content="反射&amp;amp;JavaBean反射机制的概述和字节码对象的获取方式 反射： 在运行时，我们可以获取任意一个类的所有方法和属性 在运行时，让我们调用任意一个对象的所有方法和属性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T13:54:53.376Z">
+<meta property="og:updated_time" content="2018-08-04T08:02:01.669Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据day17">
-<meta name="twitter:description" content="大数据day17视频笔记反射机制的概述和字节码对象的获取方式 反射： 在运行时，我们可以获取任意一个类的所有方法和属性 在运行时，让我们调用任意一个对象的所有方法和属性">
+<meta name="twitter:title" content="反射&amp;JavaBean">
+<meta name="twitter:description" content="反射&amp;amp;JavaBean反射机制的概述和字节码对象的获取方式 反射： 在运行时，我们可以获取任意一个类的所有方法和属性 在运行时，让我们调用任意一个对象的所有方法和属性">
 
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <title>大数据day17 | lXiaoChi</title>
+  <title>反射&JavaBean | lXiaoChi</title>
   
 
 
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">大数据day17</h1>
+          <h1 class="post-title" itemprop="name headline">反射&JavaBean</h1>
         
 
         <div class="post-meta">
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,107
+                  2,102
                 </span>
               
 
@@ -400,7 +400,7 @@
       
 
       
-        <h1 id="大数据day17视频笔记"><a href="#大数据day17视频笔记" class="headerlink" title="大数据day17视频笔记"></a>大数据day17视频笔记</h1><h3 id="反射机制的概述和字节码对象的获取方式"><a href="#反射机制的概述和字节码对象的获取方式" class="headerlink" title="反射机制的概述和字节码对象的获取方式"></a>反射机制的概述和字节码对象的获取方式</h3><p> 反射：<br> 在运行时，我们可以获取任意一个类的所有方法和属性<br> 在运行时，让我们调用任意一个对象的所有方法和属性<br><a id="more"></a><br>反射的前提：<br>获取类的对象（Class对象）</p>
+        <h1 id="反射-amp-JavaBean"><a href="#反射-amp-JavaBean" class="headerlink" title="反射&amp;JavaBean"></a>反射&amp;JavaBean</h1><h3 id="反射机制的概述和字节码对象的获取方式"><a href="#反射机制的概述和字节码对象的获取方式" class="headerlink" title="反射机制的概述和字节码对象的获取方式"></a>反射机制的概述和字节码对象的获取方式</h3><p> 反射：<br> 在运行时，我们可以获取任意一个类的所有方法和属性<br> 在运行时，让我们调用任意一个对象的所有方法和属性<br><a id="more"></a><br>反射的前提：<br>获取类的对象（Class对象）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws ClassNotFoundException &#123;</span><br><span class="line">		//通过Object的getClass()方法获取，必须要有对象</span><br><span class="line">		Student s = new Student();</span><br><span class="line">		Class clazz = s.getClass();</span><br><span class="line">		</span><br><span class="line">		//通过类名获取字节码对象</span><br><span class="line">		Class clazz2 = Student.class;</span><br><span class="line">		</span><br><span class="line">		//static Class&lt;?&gt; forName(String className)</span><br><span class="line">		Class clazz3 = Class.forName(&quot;com.itheima.Student&quot;);</span><br><span class="line">		</span><br><span class="line">		System.out.println(clazz == clazz2);</span><br><span class="line">		System.out.println(clazz == clazz3);</span><br><span class="line">		System.out.println(clazz);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="通过反射获取构造方法并使用"><a href="#通过反射获取构造方法并使用" class="headerlink" title="通过反射获取构造方法并使用"></a>通过反射获取构造方法并使用</h3><p>getConstructor(Class&lt;?&gt;… parameterTypes)<br>返回一个 Constructor 对象，它反映此 Class 对象所表示的类的指定公共构造方法。<br>getConstructors()<br>返回一个包含某些 Constructor 对象的数组，这些对象反映此 Class 对象所表示的类的所有公共构造方法。</p>
 <p>注意：<br>直接打印对象为此对象的地址值<br>需重写此对象的toString（）方法</p>
@@ -420,9 +420,10 @@
 <h3 id="BeanUtils的概述"><a href="#BeanUtils的概述" class="headerlink" title="BeanUtils的概述"></a>BeanUtils的概述</h3><p>BeanUtils：Apache commons提供的一个组件。主要功能就是为了简化JavaBean封装数据的操作</p>
 <h3 id="BeanUtils的常用方法"><a href="#BeanUtils的常用方法" class="headerlink" title="BeanUtils的常用方法"></a>BeanUtils的常用方法</h3><p>/*</p>
 <ul>
-<li>static void    setProperty(Object bean, String name, Object value) ：给JavaBean对象的成员变量进行赋值</li>
-<li>static String    getProperty(Object bean, String name)：获取成员变量的值 </li>
-<li>static void    populate(Object bean, Map properties)： 通过Map集合给JavaBean对象进行键值对形式的赋值</li>
+<li>static void    setProperty(Object bean, String name, Object value) ：给JavaBean对象的成员变量进行赋值<ul>
+<li>static String    getProperty(Object bean, String name)：获取成员变量的值<br>   static void    populate(Object bean, Map properties)： 通过Map集合给JavaBean对象进行键值对形式的赋值</li>
+</ul>
+</li>
 <li>首先应准备一个Map集合，并将成员变量的键值put进去<br>*/</li>
 </ul>
 <p><strong>注意：BeanUtils的setProperty和getProperty方法底层并不是直接操作成员变量，而是操作和成员变量名有关的get和set方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public static void main(String[] args) throws ReflectiveOperationException &#123;</span><br><span class="line">		//static void	setProperty(Object bean, String name, Object value) :给JavaBean对象的成员变量赋值</span><br><span class="line">		Person p = new Person();</span><br><span class="line">		/*BeanUtils.setProperty(p, &quot;name&quot;, &quot;zhangsan&quot;);</span><br><span class="line">		BeanUtils.setProperty(p, &quot;gender&quot;, &quot;nan&quot;);</span><br><span class="line">		BeanUtils.setProperty(p, &quot;age&quot;, 18);</span><br><span class="line">		System.out.println(p);*/</span><br><span class="line">		</span><br><span class="line">		//static String	getProperty(Object bean, String name) </span><br><span class="line">		/*String name = BeanUtils.getProperty(p, &quot;name&quot;);</span><br><span class="line">		System.out.println(name);*/</span><br><span class="line">		</span><br><span class="line">		//static void	populate(Object bean, Map properties) </span><br><span class="line">		Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();</span><br><span class="line">		map.put(&quot;name&quot;, &quot;lisi&quot;);</span><br><span class="line">		map.put(&quot;age&quot;, 18);</span><br><span class="line">		map.put(&quot;gender&quot;, &quot;male&quot;);</span><br><span class="line">		map.put(&quot;birthday&quot;, &quot;6666666666&quot;);</span><br><span class="line">		BeanUtils.populate(p, map);</span><br><span class="line">		System.out.println(p);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
@@ -469,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/20/大数据day16/" rel="next" title="大数据day16">
-                <i class="fa fa-chevron-left"></i> 大数据day16
+              <a href="/2018/07/20/大数据day16/" rel="next" title="网络编程">
+                <i class="fa fa-chevron-left"></i> 网络编程
               </a>
             
           </div>
@@ -479,8 +480,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/20/大数据day18/" rel="prev" title="大数据day18">
-                大数据day18 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/20/大数据day18/" rel="prev" title="XML&Schema&Dome4J">
+                XML&Schema&Dome4J <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -562,7 +563,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -617,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据day17视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据day17视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射机制的概述和字节码对象的获取方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">反射机制的概述和字节码对象的获取方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取构造方法并使用"><span class="nav-number">1.0.2.</span> <span class="nav-text">通过反射获取构造方法并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取成员变量并使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">通过反射获取成员变量并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取私有成员变量并使用"><span class="nav-number">1.0.4.</span> <span class="nav-text">通过反射获取私有成员变量并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取成员方法并使用"><span class="nav-number">1.0.5.</span> <span class="nav-text">通过反射获取成员方法并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean的概述和规范"><span class="nav-number">1.0.6.</span> <span class="nav-text">JavaBean的概述和规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanUtils的概述"><span class="nav-number">1.0.7.</span> <span class="nav-text">BeanUtils的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanUtils的常用方法"><span class="nav-number">1.0.8.</span> <span class="nav-text">BeanUtils的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义BeanUtils的赋值和获取方法实现"><span class="nav-number">1.0.9.</span> <span class="nav-text">自定义BeanUtils的赋值和获取方法实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义BeanUtils的populate方法实现"><span class="nav-number">1.0.10.</span> <span class="nav-text">自定义BeanUtils的populate方法实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#反射-amp-JavaBean"><span class="nav-number">1.</span> <span class="nav-text">反射&amp;JavaBean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射机制的概述和字节码对象的获取方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">反射机制的概述和字节码对象的获取方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取构造方法并使用"><span class="nav-number">1.0.2.</span> <span class="nav-text">通过反射获取构造方法并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取成员变量并使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">通过反射获取成员变量并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取私有成员变量并使用"><span class="nav-number">1.0.4.</span> <span class="nav-text">通过反射获取私有成员变量并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取成员方法并使用"><span class="nav-number">1.0.5.</span> <span class="nav-text">通过反射获取成员方法并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean的概述和规范"><span class="nav-number">1.0.6.</span> <span class="nav-text">JavaBean的概述和规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanUtils的概述"><span class="nav-number">1.0.7.</span> <span class="nav-text">BeanUtils的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanUtils的常用方法"><span class="nav-number">1.0.8.</span> <span class="nav-text">BeanUtils的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义BeanUtils的赋值和获取方法实现"><span class="nav-number">1.0.9.</span> <span class="nav-text">自定义BeanUtils的赋值和获取方法实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义BeanUtils的populate方法实现"><span class="nav-number">1.0.10.</span> <span class="nav-text">自定义BeanUtils的populate方法实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -658,7 +659,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.7k字</span>
+  <span class="post-count">博客全站共67.2k字</span>
 </div>
         
 

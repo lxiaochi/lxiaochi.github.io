@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="大数据基础班day10视频笔记冒泡排序原理图解">
+<meta name="description" content="Arrays&amp;amp;Date冒泡排序原理图解">
 <meta name="keywords" content="后台开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据基础day10">
+<meta property="og:title" content="Arrays&amp;Date">
 <meta property="og:url" content="http://yoursite.com/2018/07/06/大数据基础day10/index.html">
 <meta property="og:site_name" content="lXiaoChi">
-<meta property="og:description" content="大数据基础班day10视频笔记冒泡排序原理图解">
+<meta property="og:description" content="Arrays&amp;amp;Date冒泡排序原理图解">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/07/06/大数据基础day10/1530236258815.png">
-<meta property="og:updated_time" content="2018-07-06T13:25:54.180Z">
+<meta property="og:updated_time" content="2018-08-04T07:56:31.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据基础day10">
-<meta name="twitter:description" content="大数据基础班day10视频笔记冒泡排序原理图解">
+<meta name="twitter:title" content="Arrays&amp;Date">
+<meta name="twitter:description" content="Arrays&amp;amp;Date冒泡排序原理图解">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/06/大数据基础day10/1530236258815.png">
 
 
@@ -143,7 +143,7 @@
 
 
 
-  <title>大数据基础day10 | lXiaoChi</title>
+  <title>Arrays&Date | lXiaoChi</title>
   
 
 
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">大数据基础day10</h1>
+          <h1 class="post-title" itemprop="name headline">Arrays&Date</h1>
         
 
         <div class="post-meta">
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,452
+                  1,443
                 </span>
               
 
@@ -402,7 +402,7 @@
       
 
       
-        <h1 id="大数据基础班day10视频笔记"><a href="#大数据基础班day10视频笔记" class="headerlink" title="大数据基础班day10视频笔记"></a>大数据基础班day10视频笔记</h1><h3 id="冒泡排序原理图解"><a href="#冒泡排序原理图解" class="headerlink" title="冒泡排序原理图解"></a>冒泡排序原理图解</h3><a id="more"></a>
+        <h1 id="Arrays-amp-Date"><a href="#Arrays-amp-Date" class="headerlink" title="Arrays&amp;Date"></a>Arrays&amp;Date</h1><h3 id="冒泡排序原理图解"><a href="#冒泡排序原理图解" class="headerlink" title="冒泡排序原理图解"></a>冒泡排序原理图解</h3><a id="more"></a>
 <img src="/2018/07/06/大数据基础day10/1530236258815.png">
 <h3 id="冒泡排序代码实现"><a href="#冒泡排序代码实现" class="headerlink" title="冒泡排序代码实现"></a>冒泡排序代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr = &#123;98,35,46,32,10&#125;;</span><br><span class="line">		sortArr(arr);</span><br><span class="line">		printArr(arr);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void sortArr(int[] arr)&#123;</span><br><span class="line">		for (int i = 0; i &lt; arr.length - 1; i++) &#123;</span><br><span class="line">			for (int j = 0; j &lt; arr.length - i -1 ; j++) &#123;</span><br><span class="line">				if (arr[j] &gt; arr[j+1]) &#123;</span><br><span class="line">					int temp = arr[j];</span><br><span class="line">					arr[j] = arr[j+1];</span><br><span class="line">					arr[j+1] = temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static int[] printArr(int[] arr)&#123;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			System.out.println(arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		return arr;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Arrays类的概述和使用"><a href="#Arrays类的概述和使用" class="headerlink" title="Arrays类的概述和使用"></a>Arrays类的概述和使用</h3><p>public static String toString(intp[] a):把数组转成字符串<br>public static void sort(int[] a):对数组进行升序排序</p>
@@ -468,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/06/大数据基础day09/" rel="next" title="大数据基础day09">
-                <i class="fa fa-chevron-left"></i> 大数据基础day09
+              <a href="/2018/07/06/大数据基础day09/" rel="next" title="字符串&集合">
+                <i class="fa fa-chevron-left"></i> 字符串&集合
               </a>
             
           </div>
@@ -478,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/06/大数据基础day11/" rel="prev" title="大数据基础day11">
-                大数据基础day11 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/06/大数据基础day11/" rel="prev" title="集合">
+                集合 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据基础班day10视频笔记"><span class="nav-number">1.</span> <span class="nav-text">大数据基础班day10视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序原理图解"><span class="nav-number">1.0.1.</span> <span class="nav-text">冒泡排序原理图解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序代码实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">冒泡排序代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays类的概述和使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">Arrays类的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays类中构造方法的问题"><span class="nav-number">1.0.4.</span> <span class="nav-text">Arrays类中构造方法的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型包装类的概述"><span class="nav-number">1.0.5.</span> <span class="nav-text">基本类型包装类的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer类的概述和构造方法"><span class="nav-number">1.0.6.</span> <span class="nav-text">Integer类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int和String的相互转换"><span class="nav-number">1.0.7.</span> <span class="nav-text">int和String的相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer的练习之把字符串中的数据排序"><span class="nav-number">1.0.8.</span> <span class="nav-text">Integer的练习之把字符串中的数据排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK5的新特性自动装箱和拆箱"><span class="nav-number">1.0.9.</span> <span class="nav-text">JDK5的新特性自动装箱和拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date类的概述和构造方法"><span class="nav-number">1.0.10.</span> <span class="nav-text">Date类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date类的成员方法getTime-和setTime"><span class="nav-number">1.0.11.</span> <span class="nav-text">Date类的成员方法getTime()和setTime()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleDateFormat类的概述和使用"><span class="nav-number">1.0.12.</span> <span class="nav-text">SimpleDateFormat类的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date的练习之日期工具类的定义和使用"><span class="nav-number">1.0.13.</span> <span class="nav-text">Date的练习之日期工具类的定义和使用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Arrays-amp-Date"><span class="nav-number">1.</span> <span class="nav-text">Arrays&amp;Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序原理图解"><span class="nav-number">1.0.1.</span> <span class="nav-text">冒泡排序原理图解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序代码实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">冒泡排序代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays类的概述和使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">Arrays类的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays类中构造方法的问题"><span class="nav-number">1.0.4.</span> <span class="nav-text">Arrays类中构造方法的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型包装类的概述"><span class="nav-number">1.0.5.</span> <span class="nav-text">基本类型包装类的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer类的概述和构造方法"><span class="nav-number">1.0.6.</span> <span class="nav-text">Integer类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int和String的相互转换"><span class="nav-number">1.0.7.</span> <span class="nav-text">int和String的相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer的练习之把字符串中的数据排序"><span class="nav-number">1.0.8.</span> <span class="nav-text">Integer的练习之把字符串中的数据排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK5的新特性自动装箱和拆箱"><span class="nav-number">1.0.9.</span> <span class="nav-text">JDK5的新特性自动装箱和拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date类的概述和构造方法"><span class="nav-number">1.0.10.</span> <span class="nav-text">Date类的概述和构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date类的成员方法getTime-和setTime"><span class="nav-number">1.0.11.</span> <span class="nav-text">Date类的成员方法getTime()和setTime()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleDateFormat类的概述和使用"><span class="nav-number">1.0.12.</span> <span class="nav-text">SimpleDateFormat类的概述和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Date的练习之日期工具类的定义和使用"><span class="nav-number">1.0.13.</span> <span class="nav-text">Date的练习之日期工具类的定义和使用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -657,7 +657,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.7k字</span>
+  <span class="post-count">博客全站共67.2k字</span>
 </div>
         
 
