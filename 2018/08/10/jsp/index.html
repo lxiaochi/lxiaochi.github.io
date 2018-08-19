@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="jspJSP的概述&amp;amp;入门案例 全称是Java Server pages,他和Servlet一样，也是Java所提供的一门用于开发动态WEB资源的技术，JSP也是JavaEE的规范之一，JSP的底层其实就是Servlet。JSP的特点">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/jsp/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="jspJSP的概述&amp;amp;入门案例 全称是Java Server pages,他和Servlet一样，也是Java所提供的一门用于开发动态WEB资源的技术，JSP也是JavaEE的规范之一，JSP的底层其实就是Servlet。JSP的特点">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-19T01:46:20.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jsp">
+<meta name="twitter:description" content="jspJSP的概述&amp;amp;入门案例 全称是Java Server pages,他和Servlet一样，也是Java所提供的一门用于开发动态WEB资源的技术，JSP也是JavaEE的规范之一，JSP的底层其实就是Servlet。JSP的特点">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/10/jsp/"/>
+
+
+
+
+
+  <title>jsp | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/jsp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jsp</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T11:20:22+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,627
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h1><h3 id="JSP的概述-amp-入门案例"><a href="#JSP的概述-amp-入门案例" class="headerlink" title="JSP的概述&amp;入门案例"></a>JSP的概述&amp;入门案例</h3><blockquote>
+<p>全称是Java Server pages,他和Servlet一样，也是Java所提供的一门用于开发动态WEB资源的技术，JSP也是JavaEE的规范之一，JSP的底层其实就是Servlet。<br>JSP的特点<br><a id="more"></a><br>编写JSP就像编写HTML一样<br>JSP和HTML的而区别<br>HTML只能向客户端提供静态数据<br>JSP技术允许我们在页面中嵌套Java代码，从而可以向客户端提供动态的数据</p>
+</blockquote>
+<h3 id="JSP的原理"><a href="#JSP的原理" class="headerlink" title="JSP的原理"></a>JSP的原理</h3><blockquote>
+<p>一个JSP文件第一次被客户端访问时(也包括JSP文件修改后的第一次被访问)，WEB服务器会把JSP文件翻译成一个Servlet，客户端访问JSP文件，其实就是访问JSP文件翻译后的Servlet，JSP的底层原理其实就是Servlet。</p>
+</blockquote>
+<h3 id="JSP默认编码设置"><a href="#JSP默认编码设置" class="headerlink" title="JSP默认编码设置"></a>JSP默认编码设置</h3><h3 id="模板元素-amp-脚本片段"><a href="#模板元素-amp-脚本片段" class="headerlink" title="模板元素&amp;脚本片段"></a>模板元素&amp;脚本片段</h3><blockquote>
+<p>模板元素<br>JSP页面中的HTML标签，css样式，以及JS都称之为JSP的模板元素，模板元素定义了页面的结构和外观，JSP翻译后的Servlet中，模板元素会被输出流对象直接发送到客户端。<br>脚本片段<br>JSP页面中可以签到Java代码，Java代码要定义在JSP的脚本片段中，也就是&lt;%%&gt;里面，<br>JSP页面中可以有多个脚本片段，<br>多个脚本片段之间，可以嵌套文本，嵌套HTML的标签，嵌套其他的JSP元素。</p>
+</blockquote>
+<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><blockquote>
+<p>在JSP页面里定义方法，定义成员变量等，&lt;%! %&gt;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line"> 		public int sum(int a,int b)&#123;</span><br><span class="line"> 			return a+b;</span><br><span class="line"> 		&#125;</span><br><span class="line">  %&gt;</span><br><span class="line">  &lt;%</span><br><span class="line">  		int result = sum(3,4);</span><br><span class="line">  		out.println(result);</span><br><span class="line">   %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="脚本表达式"><a href="#脚本表达式" class="headerlink" title="脚本表达式"></a>脚本表达式</h3><blockquote>
+<p>在JSP页面中将数据发送到客户端,替代JSP页面里的输出语句,<br>格式：&lt;%=变量/常量/表达式 %&gt;//1+1<br>注意：<strong>在脚本表达式中不可以写分号</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line"> 		SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line"> 		String now = sdf.format(new Date());</span><br><span class="line"> 	 %&gt;</span><br><span class="line"> 	 &lt;%=now %&gt;</span><br><span class="line"> 	 &lt;%=&quot;&lt;h1&gt;hello JSP&lt;/h1&gt;&quot; %&gt;</span><br><span class="line"> 	 &lt;%=1+1 %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><blockquote>
+<p>HTML的注释：<code>&lt;!-- --&gt;</code><br>Java代码的注释：<code>//,/**/</code><br>脚本片段的注释：<code>&lt;%-- --%&gt;</code><br><strong>脚本片段的注释不会翻译到Servlet</strong></p>
+</blockquote>
+<h3 id="指令的概述"><a href="#指令的概述" class="headerlink" title="指令的概述"></a>指令的概述</h3><blockquote>
+<p>指令并不会产生任何可见的输出，作用是告诉WEB服务器入户处理JSP页面的其他部分。<br>page<br>include<br>taglib<br>基本格式：<br>&lt;%@ 指令名称 属性=”值” %&gt;<br>&lt;%@ page contentType=”text/html;charset=UTF-8” %&gt;<br>如果一个指令有多个属性，可以把多个属性卸载同一个指令中，也可以吧多个属性分开来写<br>&lt;%@ page contentType = “text/html;charset=UTF-8” import=”java.util.Date”%&gt;<br>&lt;%@ page contentType = “text/html;charset=UTF-8”%&gt;<br>&lt;%@ page import=”java.util.Date”%&gt;</p>
+</blockquote>
+<h3 id="page指令的属性"><a href="#page指令的属性" class="headerlink" title="page指令的属性"></a>page指令的属性</h3><blockquote>
+<p>用于定义JSP页面的各种属性，无论定义在JSP页面的哪个位置，所影响的都是整个JSP页面。<br>建议将page指令定义在JSP页面的起始位置<br>属性：<br>contentType：设置响应的类型和编码<br>pageEcoding：设置JSP页面的编码，也设置JSP页面翻译成Servlet源文件的编码<br>import：导入JSP页面所需要使用的Java类<br>默认已经导入的类<br>Java.lang.<em>;<br>Javax.servlet.</em>;<br>javax.servlet.Jsp.<em>;<br>javax.servlet.http.</em>;</p>
+</blockquote>
+<h3 id="page指令的其他属性"><a href="#page指令的其他属性" class="headerlink" title="page指令的其他属性"></a>page指令的其他属性</h3><blockquote>
+<p>session：设置是否自动创建内置对象session，默认是true<br>buffer: 设置内置对象out的缓冲区大小，默认值是8K<br>autoFlush：设置内置对象out是否会自动刷新，默认是true<br>extends：设置JSP翻译后的Servlet要继承哪个类，默认值时HttpJspBase<br>language：设置脚本语言，只有一个值就是java，java也是默认值<br>isThreadSafe：设置JSP是否是多线程，默认值时true</p>
+</blockquote>
+<h3 id="JSP的异常处理机制"><a href="#JSP的异常处理机制" class="headerlink" title="JSP的异常处理机制"></a>JSP的异常处理机制</h3><blockquote>
+<p>在可能出现错误的JSP页面设置errorPage属性，属性值为URL</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--  以错误码进行分类 --&gt;</span><br><span class="line">  &lt;error-page&gt;</span><br><span class="line">  	&lt;error-code&gt;500&lt;/error-code&gt;</span><br><span class="line">  	&lt;location&gt;/error.jsp&lt;/location&gt;</span><br><span class="line">  &lt;/error-page&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 以错误类型进行分类 --&gt;</span><br><span class="line">  &lt;error-page&gt;</span><br><span class="line">  	&lt;exception-type&gt;&lt;/exception-type&gt;</span><br><span class="line">  	&lt;location&gt;&lt;/location&gt;</span><br><span class="line">  &lt;/error-page&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="include指令-amp-taglib指令"><a href="#include指令-amp-taglib指令" class="headerlink" title="include指令&amp;taglib指令"></a>include指令&amp;taglib指令</h3><blockquote>
+<p>include：用于在JSP页面中包含其他的WEB资源，把多个WEB资源一起翻译到了一个Servlet中<br>属性：<br>file：设置要包含的WEB资源的路径<br>taglib：引入标签库<br>属性：<br>url：设置引入标签库的路径<br>prefix：设置引入标签库的别名</p>
+</blockquote>
+<h3 id="JSP的九大内置对象"><a href="#JSP的九大内置对象" class="headerlink" title="JSP的九大内置对象"></a>JSP的九大内置对象</h3><ol>
+<li>HttpServletRequest requset 请求对象</li>
+<li>HttpServletResponse response 响应对象</li>
+<li>JspWrite out 输出流对象</li>
+<li>HttpSession session 会话对象</li>
+<li>Throwable exception 异常对象</li>
+<li>ServletContext application 代表了整个WEB应用</li>
+<li>ServletConfig config 配置参数，用户获取Servlet的配置参数</li>
+<li>Object page Servlet的对象，方法总的this对象</li>
+<li>PageContext pageContext JSP页面的上下文对象<h3 id="PageContext的概述和测试"><a href="#PageContext的概述和测试" class="headerlink" title="PageContext的概述和测试"></a>PageContext的概述和测试</h3><blockquote>
+<p>JSP技术中最重要的一个对象，呀代表了JSP页面的运行环境<br>封装了其他八个内置对象<br>也是一个域对象，可以用来保存数据，范围是当前页面，<br>提供了一些WEB开发的常用功能，比如转发和包含，还能操作检索其他域对象中的数据。</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">   		//获取其他八个内置对象</span><br><span class="line">   		pageContext.getRequest();</span><br><span class="line">   		pageContext.getResponse();</span><br><span class="line">   		pageContext.getSession();</span><br><span class="line">   		pageContext.getException();</span><br><span class="line">   		</span><br><span class="line">   		//保存数据</span><br><span class="line">   		</span><br><span class="line">   		//设置数据</span><br><span class="line">   		pageContext.setAttribute(&quot;username&quot;, &quot;zhangsan&quot;);</span><br><span class="line">   		//删除数据</span><br><span class="line">   		pageContext.removeAttribute(&quot;username&quot;);</span><br><span class="line">   		//获取数据</span><br><span class="line">   		Object name =pageContext.getAttribute(&quot;username&quot;);</span><br><span class="line">   		out.println(name);</span><br><span class="line">   		</span><br><span class="line">   		//转发</span><br><span class="line">   		pageContext.forward(&quot;/error.jsp&quot;);</span><br><span class="line">   		//包含</span><br><span class="line">   		pageContext.forward(&quot;/error.jsp&quot;);</span><br><span class="line">   		</span><br><span class="line">   		//操作其他域对象中的数据</span><br><span class="line">   		pageContext.setAttribute(&quot;username&quot;, &quot;lise&quot;, PageContext.SESSION_SCOPE);</span><br><span class="line">   		Object obj =pageContext.getAttribute(&quot;username&quot;, PageContext.SESSION_SCOPE);</span><br><span class="line">   		//分别在4个域对象中查找数据，顺序pageContext,request,session,application</span><br><span class="line">   		Object objs = pageContext.findAttribute(&quot;username&quot;);</span><br><span class="line">   		out.println(obj);</span><br><span class="line">    %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="JSP的四大域对象"><a href="#JSP的四大域对象" class="headerlink" title="JSP的四大域对象"></a>JSP的四大域对象</h3><ol>
+<li>pageContext：当前页面 <strong>其他页面访问得不到数据</strong></li>
+<li>requset：当前请求 <strong>不与其他页面共享数据，需要使用转发或者包含</strong></li>
+<li>session：整个会话 <strong>在整个会话过程中与其他页面共享数据，不同浏览器之间不能共享</strong></li>
+<li>application：整个应用 <strong>在整个WEB应用实现数据共享，不同浏览器之间也能共享</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">		//其他页面访问得不到数据</span><br><span class="line">		pageContext.setAttribute(&quot;username&quot;, &quot;li&quot;);</span><br><span class="line">		out.println(pageContext.getAttribute(&quot;username&quot;));</span><br><span class="line">		//不与其他页面共享数据，需要使用转发或者包含</span><br><span class="line">		request.setAttribute(&quot;username&quot;, &quot;li&quot;);</span><br><span class="line">		out.println(request.getAttribute(&quot;username&quot;));</span><br><span class="line">		pageContext.forward(&quot;/scope/scope02.jsp&quot;);</span><br><span class="line">		//在整个会话过程中与其他页面共享数据，不同浏览器之间不能共享</span><br><span class="line">		session.setAttribute(&quot;username&quot;, &quot;li&quot;);</span><br><span class="line">		out.println(session.getAttribute(&quot;username&quot;));</span><br><span class="line">		//在整个WEB应用实现数据共享，不同浏览器之间也能共享</span><br><span class="line">		application.setAttribute(&quot;username&quot;, &quot;li&quot;);</span><br><span class="line">		out.println(application.getAttribute(&quot;username&quot;));</span><br><span class="line">	 %&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/08/session与cookie/" rel="next" title="session与cookie">
+                <i class="fa fa-chevron-left"></i> session与cookie
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/12/EL&JSTL&MVC/" rel="prev" title="EL&JSTL&MVC">
+                EL&JSTL&MVC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp"><span class="nav-number">1.</span> <span class="nav-text">jsp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的概述-amp-入门案例"><span class="nav-number">1.0.1.</span> <span class="nav-text">JSP的概述&amp;入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的原理"><span class="nav-number">1.0.2.</span> <span class="nav-text">JSP的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP默认编码设置"><span class="nav-number">1.0.3.</span> <span class="nav-text">JSP默认编码设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板元素-amp-脚本片段"><span class="nav-number">1.0.4.</span> <span class="nav-text">模板元素&amp;脚本片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明"><span class="nav-number">1.0.5.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本表达式"><span class="nav-number">1.0.6.</span> <span class="nav-text">脚本表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.0.7.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令的概述"><span class="nav-number">1.0.8.</span> <span class="nav-text">指令的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page指令的属性"><span class="nav-number">1.0.9.</span> <span class="nav-text">page指令的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page指令的其他属性"><span class="nav-number">1.0.10.</span> <span class="nav-text">page指令的其他属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的异常处理机制"><span class="nav-number">1.0.11.</span> <span class="nav-text">JSP的异常处理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include指令-amp-taglib指令"><span class="nav-number">1.0.12.</span> <span class="nav-text">include指令&amp;taglib指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的九大内置对象"><span class="nav-number">1.0.13.</span> <span class="nav-text">JSP的九大内置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PageContext的概述和测试"><span class="nav-number">1.0.14.</span> <span class="nav-text">PageContext的概述和测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的四大域对象"><span class="nav-number">1.0.15.</span> <span class="nav-text">JSP的四大域对象</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共81.0k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
