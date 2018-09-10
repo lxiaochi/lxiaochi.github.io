@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="spring框架的概述以及spring中基于XML的IOC配置Spring的概述 Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control： 反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring框架的概述以及spring中基于XML的IOC配置">
+<meta property="og:url" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="spring框架的概述以及spring中基于XML的IOC配置Spring的概述 Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control： 反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535618140906.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/无标题.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/ioc.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535698220926.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699223261.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699237369.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699246155.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699468240.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699472956.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699476908.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699603198.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535699620189.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/全局session.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535703763623.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535703768351.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535703722666.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535703733702.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535706292939.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535706972248.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535707884877.png">
+<meta property="og:updated_time" content="2018-08-31T13:52:52.872Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring框架的概述以及spring中基于XML的IOC配置">
+<meta name="twitter:description" content="spring框架的概述以及spring中基于XML的IOC配置Spring的概述 Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control： 反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/1535618140906.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/"/>
+
+
+
+
+
+  <title>spring框架的概述以及spring中基于XML的IOC配置 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/spring框架的概述以及spring中基于XML的IOC配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring框架的概述以及spring中基于XML的IOC配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T21:09:45+08:00">
+                2018-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,264
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="spring框架的概述以及spring中基于XML的IOC配置"><a href="#spring框架的概述以及spring中基于XML的IOC配置" class="headerlink" title="spring框架的概述以及spring中基于XML的IOC配置"></a>spring框架的概述以及spring中基于XML的IOC配置</h1><h3 id="Spring的概述"><a href="#Spring的概述" class="headerlink" title="Spring的概述"></a>Spring的概述</h3><blockquote>
+<p>Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control： 反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多 著名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架</p>
+</blockquote>
+<h3 id="Spring的发展历程"><a href="#Spring的发展历程" class="headerlink" title="Spring的发展历程"></a>Spring的发展历程</h3><blockquote>
+<p>1997 年 IBM提出了EJB 的思想<br>1998 年，SUN制定开发标准规范 EJB1.0<br>1999 年，EJB1.1 发布<br>2001 年，EJB2.0 发布<br>2003 年，EJB2.1 发布<br>2006 年，EJB3.0 发布<br>Rod Johnson（spring之父）<br>Expert One-to-One J2EE Design and Development(2002)<br>阐述了 J2EE 使用EJB 开发设计的优点及解决方案    Expert One-to-One J2EE Development without EJB(2004)<br>阐述了 J2EE 开发不使用 EJB的解决方式（Spring 雏形）<br>2017 年 9 月份发布了 spring 的最新版本 spring 5.0 通用版（GA） </p>
+</blockquote>
+<h3 id="Spring的优势"><a href="#Spring的优势" class="headerlink" title="Spring的优势"></a>Spring的优势</h3><p><strong>方便解耦，简化开发</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过spring提供的Ioc容器，可以将对象间的依赖关系交由Spring进行控制，避免硬编码所造成的过渡程序耦合。用户也不必再为单例模式类、属性文件解析等这些很底层的需求编写代码。可以更专注与上层的应用。<br><strong>AOP编程的支持</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过Spring的AOP功能，方便进行面向切面的编程，许多不容易用传统OOP实现的功能可以通过AOP轻松应付。<br><strong>声明式事务的支持</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以将我们从单调烦闷的事物管理代码中解脱出来，通过声明式方式灵活的进行事务的管理，提高开发效率和质量。<br><strong>方便程序的测试 </strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以用非容器依赖的编程方式进行几乎所有的测试工作，测试不再是昂贵的操作，而是随手可 做的事情。<br><strong>方便集成各种优秀框架</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring可以降低各种框架的使用难度，提供了对各种优秀框架（Struts、Hibernate、Hessian、Quartz 等）的直接支持。<br><strong>降低 JavaEE API的使用难度</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring对 JavaEE API（如 JDBC、JavaMail、远程调用等）进行了薄薄的封装层，使这些 API 的 使用难度大为降低。<br><strong>Java源码是经典学习范例</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对Java 设计模式灵活运用以 及对 Java技术的高深造诣。它的源代码无意是 Java 技术的最佳实践的范例。 </p>
+<h3 id="Spring的体系结构"><a href="#Spring的体系结构" class="headerlink" title="Spring的体系结构"></a>Spring的体系结构</h3><p><img src="./1535618140906.png" alt="Alt text"></p>
+<h3 id="编写jdbc的工程代码用于分析程序的耦合"><a href="#编写jdbc的工程代码用于分析程序的耦合" class="headerlink" title="编写jdbc的工程代码用于分析程序的耦合"></a>编写jdbc的工程代码用于分析程序的耦合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws SQLException &#123;</span><br><span class="line">    //注册驱动</span><br><span class="line">    DriverManager.registerDriver(new com.mysql.jdbc.Driver());</span><br><span class="line">    //获取连接</span><br><span class="line">    Connection conn = DriverManager.getConnection(&quot;jdbc:mysql:///eesy_01&quot;, &quot;root&quot;, &quot;root&quot;);</span><br><span class="line">    //获取操作数据库的预处理对象</span><br><span class="line">    PreparedStatement pst = conn.prepareStatement(&quot;select * from account&quot;);</span><br><span class="line">    //执行SQL,得到结果集</span><br><span class="line">    ResultSet rs = pst.executeQuery();</span><br><span class="line">    //遍历结果集</span><br><span class="line">    while (rs.next())&#123;</span><br><span class="line">        System.out.println(rs.getString(&quot;name&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    //释放资源</span><br><span class="line">    rs.close();</span><br><span class="line">    pst.close();</span><br><span class="line">    conn.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编译器依赖"><a href="#编译器依赖" class="headerlink" title="编译器依赖"></a>编译器依赖</h3><p>如果把<code>mysql</code>的相关<code>jar</code>包依赖给删除，那么程序就会直接报错，这错误出现在编译时期，必须立即修改才能使用。</p>
+<h3 id="程序的耦合和解耦的思路分析"><a href="#程序的耦合和解耦的思路分析" class="headerlink" title="程序的耦合和解耦的思路分析"></a>程序的耦合和解耦的思路分析</h3><p>程序间的依赖关系<br>包括：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类之间的依赖<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法间的依赖<br>解耦：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;降低程序间的依赖关系<br>实际开发中：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应该做到：编译器不依赖，运行时才依赖<br>解耦的思路：</p>
+<ol>
+<li>使用反射来创建对象，而避免使用new关键字</li>
+<li>通过读取配置文件来获取创建的对象全限定类名</li>
+</ol>
+<h3 id="曾经代码中的问题分析"><a href="#曾经代码中的问题分析" class="headerlink" title="曾经代码中的问题分析"></a>曾经代码中的问题分析</h3><p>当我们表现层调用业务层时，需要使用<code>new</code>关键字创建业务层实体类调取相应的方法，然后再使用<code>new</code>关键字调用持久层实体类相应的方法以返回相应的数据到表现层。这样就形成了<strong>很强的耦合性</strong></p>
+<h3 id="编写工厂类和配置文件"><a href="#编写工厂类和配置文件" class="headerlink" title="编写工厂类和配置文件"></a>编写工厂类和配置文件</h3><p>Bean:在计算机英语中，有可重用组件的含义。<br>JavaBean：用java语言编写的可重用组件。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javabean &gt; 实体类<br>他就是我们的service和dao对象。</p>
+<ol>
+<li>需要创建一个配置文件来配置我们service和dao</li>
+<li>通过读取配置文件中的配置的内容，反射创建对象</li>
+</ol>
+<p>配置文件可以使xml也可以是properties</p>
+<h3 id="工厂模式解耦"><a href="#工厂模式解耦" class="headerlink" title="工厂模式解耦"></a>工厂模式解耦</h3><ol>
+<li>将各个接口实现类通过<code>bean.properties</code>文件保存，需要使用时，获取相应的全限定类名，使用反射来创建实现类对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accountService = com.yu.service.impl.AccountServiceImpl</span><br><span class="line">accountDao = com.yu.dao.impl.AccountDaoImpl</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建BeanFactory工厂对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class BeanFactory &#123;</span><br><span class="line">    //定义一个Properties对象</span><br><span class="line">    private static Properties props;</span><br><span class="line"></span><br><span class="line">    //使用静态代码块Properties对象赋值</span><br><span class="line">    static &#123;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            //实例化对象</span><br><span class="line">            props = new Properties();</span><br><span class="line">            //获取proes文件的流对象</span><br><span class="line">            InputStream in = BeanFactory.class.getClassLoader().getResourceAsStream(&quot;bean.properties&quot;);</span><br><span class="line">            props.load(in);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            throw  new ExceptionInInitializerError(&quot;初始化properties错误&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">    * @Description: 根据Bean的名称获取bean对象</span><br><span class="line">    * @Param: [beanName]</span><br><span class="line">    * @return: java.lang.Object</span><br><span class="line">    * @Date: 2018/8/31</span><br><span class="line">    */</span><br><span class="line">    public static Object getBean(String beanName)&#123;</span><br><span class="line">        Object bean = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            String beanPath = props.getProperty(beanName);</span><br><span class="line">            bean = Class.forName(beanPath).newInstance();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>测试</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @program: factory</span><br><span class="line"> * @description: 模拟一个表现层，用于调用业务层</span><br><span class="line"> * @author: lxiaochi</span><br><span class="line"> * @create: 2018-08-31 09:01</span><br><span class="line"> **/</span><br><span class="line">public class Client &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">//        IAccountService as = new AccountServiceImpl();</span><br><span class="line">        IAccountService as = (IAccountService) BeanFactory.getBean(&quot;accountService&quot;);</span><br><span class="line">        as.saveAccount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @program: factory</span><br><span class="line"> * @description: 账户的业务层实现类</span><br><span class="line"> * @author: lxiaochi</span><br><span class="line"> * @create: 2018-08-31 08:58</span><br><span class="line"> **/</span><br><span class="line">public class AccountServiceImpl implements IAccountService&#123;</span><br><span class="line"></span><br><span class="line">//    private IAccountDao accountDao = new AccountDaoImpl();</span><br><span class="line">    private IAccountDao accountDao = (IAccountDao) BeanFactory.getBean(&quot;accountDao&quot;);</span><br><span class="line"></span><br><span class="line">    public void saveAccount() &#123;</span><br><span class="line">        accountDao.saveAccount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @program: factory</span><br><span class="line"> * @description: 账户的持久层实现</span><br><span class="line"> * @author: lxiaochi</span><br><span class="line"> * @create: 2018-08-31 09:00</span><br><span class="line"> **/</span><br><span class="line">public class AccountDaoImpl implements IAccountDao&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public void saveAccount() &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;保存成功!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析工厂模式中的问题并改造"><a href="#分析工厂模式中的问题并改造" class="headerlink" title="分析工厂模式中的问题并改造"></a>分析工厂模式中的问题并改造</h3><p>我们使用for循环打印五次IAccountService对象，发现他每次的对象都是不一样的，每次都会通过全限定类名去反射调用默认函数创建一个新的对象，这就是我们说的多例。<br><img src="./无标题.png" alt="Alt text"><br>在实际开发中，我们只需要获取一个对象，那怎么改造呢？<br><strong>使用单例会有多线程的问题，当多个用户修改会引发其他用户的数据。所以我们在业务层实现类中不会使用成员变量。而是在成员方法内定义成员变量。</strong></p>
+<p>改造BeanFactory，使用静态代码块初始化数据，将配置文件中的键值对存入到Map容器中保存，之后返回。这样不管有多少用户，都只会拿到同一个对象，因为静态代码块只会在类加载的时候加载一次，之后就不会再次加载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class BeanFactory &#123;</span><br><span class="line">    //定义一个Properties对象</span><br><span class="line">    private static Properties props;</span><br><span class="line"></span><br><span class="line">    //定义一个Map,用于存放我们要创建的对象。我们把他称之为容器</span><br><span class="line">    private static Map&lt;String,Object&gt; beans;</span><br><span class="line">    </span><br><span class="line">    //使用静态代码块Properties对象赋值</span><br><span class="line">    static &#123;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            //实例化对象</span><br><span class="line">            props = new Properties();</span><br><span class="line">            //获取proes文件的流对象</span><br><span class="line">            InputStream in = BeanFactory.class.getClassLoader().getResourceAsStream(&quot;bean.properties&quot;);</span><br><span class="line">            props.load(in);</span><br><span class="line">            //实例化容器</span><br><span class="line">            beans = new HashMap&lt;String, Object&gt;();</span><br><span class="line">            //取出配置文件中所有的key</span><br><span class="line">            Enumeration keys = props.keys();</span><br><span class="line">            //遍历枚举</span><br><span class="line">            while (keys.hasMoreElements())&#123;</span><br><span class="line">                //取出每个key</span><br><span class="line">                String key = keys.nextElement().toString();</span><br><span class="line">                //根据key获取values</span><br><span class="line">                String beanPath = props.getProperty(key);</span><br><span class="line">                //反射创建对象</span><br><span class="line">                Object value = Class.forName(beanPath).newInstance();</span><br><span class="line">                //把key和value存入容器</span><br><span class="line">                beans.put(key,value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            throw  new ExceptionInInitializerError(&quot;初始化properties错误&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Object getBean(String beanName)&#123;</span><br><span class="line">        return beans.get(beanName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ioc的概念和作用"><a href="#ioc的概念和作用" class="headerlink" title="ioc的概念和作用"></a>ioc的概念和作用</h3><blockquote>
+<p>控制反转(Inversion of Control，英文缩写为IoC)把创建对象的权利交给狂阶，是框架的重要特征，并非面向对象编程的专用术语。他包括依赖注入(Dependency Injection,简称DI)和依赖查找(Dependency Lookup)。<br>明确ioc的作用：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;削减计算机程序的耦合(解除代码中的依赖关系)。</p>
+</blockquote>
+<p><img src="./ioc.png" alt="Alt text"></p>
+<h3 id="spring基于XML的IOC环境搭建和入门"><a href="#spring基于XML的IOC环境搭建和入门" class="headerlink" title="spring基于XML的IOC环境搭建和入门"></a>spring基于XML的IOC环境搭建和入门</h3><ol>
+<li>在官网找到Core进入 找到bean的xml配置文件</li>
+<li>创建bean.xml核心配置文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--把对象的创建交给spring来管理--&gt;</span><br><span class="line">    &lt;bean id=&quot;accountService&quot; class=&quot;com.yu.service.impl.AccountServiceImpl&quot;&gt;&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;bean id=&quot;accountDao&quot; class=&quot;com.yu.dao.impl.AccountDaoImpl&quot;&gt;&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>test</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/** </span><br><span class="line"> * @Description: 获取spring的IoC核心容器，并根据id获取对象</span><br><span class="line"> * @Param: [args] </span><br><span class="line"> * @return: void </span><br><span class="line"> * @Date: 2018/8/31 </span><br><span class="line"> */ </span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">     //1.获取核心容器对象</span><br><span class="line">     ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);</span><br><span class="line">     //2.根据id获取Bean对象</span><br><span class="line">     IAccountService as = (IAccountService) ac.getBean(&quot;accountService&quot;);</span><br><span class="line">     IAccountDao aDao = ac.getBean(&quot;accountDao&quot;,IAccountDao.class);</span><br><span class="line">     System.out.println(as);</span><br><span class="line">     System.out.println(aDao);</span><br><span class="line">     as.saveAccount();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="./1535698220926.png" alt="Alt text"></p>
+<h3 id="ApplicationContext的三个实现类"><a href="#ApplicationContext的三个实现类" class="headerlink" title="ApplicationContext的三个实现类"></a>ApplicationContext的三个实现类</h3><p>ApplicationContext的三个常用实现类：</p>
+<ol>
+<li>ClasspathXmlApplicationContext：它可以加载类路径下的配置文件，要求配置文件必须在类路径下。不在的话，加载不了。（更加常用）</li>
+<li>FileSystemXmlApplicationContext：他可以加载磁盘任意路径下的配置文件(必须有访问权限)</li>
+<li>AnnotationConfigApplicationContext：用于读取注解创建的容器的。</li>
+</ol>
+<h3 id="BeanFactory和ApplicationContext的区别"><a href="#BeanFactory和ApplicationContext的区别" class="headerlink" title="BeanFactory和ApplicationContext的区别"></a>BeanFactory和ApplicationContext的区别</h3><p>ApplicationContext: <strong>单例对象适用</strong> 常采用此接口</p>
+<ul>
+<li>它在构建核心容器时，创建对象采取的策略是采用<strong>立即加载</strong>的方式。也就是说，<strong>只要一读取完配置文件马上就创建配置文件中配置的对象</strong>。<br><img src="./1535699223261.png" alt="Alt text"><br><img src="./1535699237369.png" alt="Alt text"><br><img src="./1535699246155.png" alt="Alt text"><br><strong>当我们走完创建核心容器对象时，对象就已经创建了</strong><br>BeanFactory：<strong>多例对象适用</strong></li>
+<li>它在构建核心容器时，创建对象采取的策略是采用<strong>延迟加载</strong>的方式。也就是说，<strong>什么时候根据id获取对象了，什么时候才真正的创建对象。</strong><br><img src="./1535699468240.png" alt="Alt text"><br><img src="./1535699472956.png" alt="Alt text"><br><img src="./1535699476908.png" alt="Alt text"><br><strong>当我们走完读取配置文件，以及创建工厂对象，对象此时还没有创建。</strong><br><strong>继续往下走，相应的对象创建了</strong><br><img src="./1535699603198.png" alt="Alt text"><br><img src="./1535699620189.png" alt="Alt text"></li>
+</ul>
+<h3 id="spring中的细节之三种创建Bean对象的方式"><a href="#spring中的细节之三种创建Bean对象的方式" class="headerlink" title="spring中的细节之三种创建Bean对象的方式"></a>spring中的细节之三种创建Bean对象的方式</h3><ol>
+<li>使用默认构造函数创建。<br><br>在spring的配置文件中使用bean标签，配以id和class属性之后，且没有其他属性和标签时。<br>采用的就是默认构造函数创建bean对象，此时如果类中没有默认构造函数,则对象无法创建。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to instantiate [com.yu.service.impl.AccountServiceImpl]: No default constructor found;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用普通工厂中的方法创建对象(使用某个类中的方法创建对象，并存入spring容器)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @program: spring_01</span><br><span class="line"> * @description: 模拟一个工厂类(该类可能是存在于jar包中的 ， 我们无法通过修改源码的方式来提供默认构造函数)</span><br><span class="line"> * @author: lxiaochi</span><br><span class="line"> * @create: 2018-08-31 15:45</span><br><span class="line"> **/</span><br><span class="line">public class InstanceFactory &#123;</span><br><span class="line">    public IAccountService getAccountService()&#123;</span><br><span class="line">        return new AccountServiceImpl();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;instranceFactory&quot; class=&quot;com.yu.factory.InstanceFactory&quot;&gt;&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;accountService&quot; factory-bean=&quot;instranceFactory&quot; factory-method=&quot;getAccountService&quot;&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用工厂中的静态方法创建对象(使用某个类中的静态方法创建对象，并存入spring容器)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class StaticFactory &#123;</span><br><span class="line">    public static IAccountService getAccountService()&#123;</span><br><span class="line">        return new AccountServiceImpl();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;accountService&quot; class=&quot;com.yu.factory.StaticFactory&quot; factory-method=&quot;getAccountService&quot;&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="spring中bean的细节之作用范围"><a href="#spring中bean的细节之作用范围" class="headerlink" title="spring中bean的细节之作用范围"></a>spring中bean的细节之作用范围</h3><p>bean标签的scope属性：</p>
+<ul>
+<li>作用：用于指定bean的作用范围</li>
+<li>取值：<br><strong>singleton</strong>：单例的(default)<br><strong>prototype</strong>：多例的<br>request：作用于web应用的请求范围<br>session：作用于web应用的会话范围<br>global-session：作用于集群环境的会话范围（全局会话范围），当不是集群环境时，他就是session<br>global-session的介绍：<br><img src="./全局session.png" alt="Alt text"></li>
+</ul>
+<h3 id="spring中bean的细节之生命周期"><a href="#spring中bean的细节之生命周期" class="headerlink" title="spring中bean的细节之生命周期"></a>spring中bean的细节之生命周期</h3><p>单例对象：</p>
+<ul>
+<li>出生：当容器创建时对象出生</li>
+<li>活着：只要容器还在，对象一直或者</li>
+<li>死亡：容器销毁，对象消亡<br>总结：单例对象的生命周期和容器相同。<br><img src="./1535703763623.png" alt="Alt text"><br><img src="./1535703768351.png" alt="Alt text"></li>
+</ul>
+<p>多例对象：</p>
+<ul>
+<li>出生：当我们使用对象时spring框架为我们创建</li>
+<li>活着：对象只要是在使用过程中就一直活着</li>
+<li>死亡：当对象长时间不用，且没有别的对象引用时，由Java的垃圾回收器回收<br><img src="./1535703722666.png" alt="Alt text"><br><img src="./1535703733702.png" alt="Alt text"></li>
+</ul>
+<h3 id="spring中依赖注入"><a href="#spring中依赖注入" class="headerlink" title="spring中依赖注入"></a>spring中依赖注入</h3><p>依赖注入：<br>Dependency Injection<br>IOC的作用：降低程序间的耦合(依赖关系)<br>依赖关系的管理：以后都交给spring来维护<br>在当前类需要用到其他类的对象，由spring为我们提供，我们只需要在配置文件中说明<br>依赖关系的维护：就称之为依赖注入<br>依赖注入：能注入的数据</p>
+<ol>
+<li>基本类型和String</li>
+<li>其他bean类型(在配置文件中或者注解配置过的bean)</li>
+<li>复杂类型/集合类型<br>注入的方式：</li>
+<li>使用构造函数提供</li>
+<li>使用set方法提供</li>
+<li>使用注解提供</li>
+</ol>
+<h3 id="构造函数的注入"><a href="#构造函数的注入" class="headerlink" title="构造函数的注入"></a>构造函数的注入</h3><p>使用的标签：Constructor-arg<br>标签出现的位置：bean标签的内部<br>标签中的属性</p>
+<ul>
+<li>type:用于指定要注入的数据的数据类型，该数据类型也是构造函数中某个或某些参数的类型</li>
+<li>index：用于指定要注入的数据给构造函数中指定索引位置的参数赋值。索引的位置是从0开始</li>
+<li><strong>name</strong>：用于指定给构造函数中指定名称的参数赋值<br>以上三个用于指定给构造函数中哪个参数赋值</li>
+<li>value：用于提供基本类型和String类型的数据</li>
+<li>ref：用于指定其他的bean类型数据。他指的就是在spring的Ioc核心容器中出现过的bean对象</li>
+</ul>
+<p>优势：在获取bean对象时，注入数据是必须的操作，否则对象无法创建成功。<br>弊端：改变了bean对象的实例化方式，使我们在创建对象时，如果用不到这些数据，也必须注入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;accountService&quot; class=&quot;com.yu.service.impl.AccountServiceImpl&quot;&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;name&quot; value=&quot;皮皮虾&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;age&quot; value=&quot;12&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;brithday&quot; ref=&quot;now&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--利用反射创建Date对象--&gt;</span><br><span class="line">&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class AccountServiceImpl implements IAccountService&#123;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line">    private Integer age;</span><br><span class="line">    private Date brithday;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public AccountServiceImpl(String name, Integer age, Date brithday) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">        this.brithday = brithday;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public AccountServiceImpl()&#123;</span><br><span class="line">        System.out.println(&quot;对象创建了&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public void saveAccount() &#123;</span><br><span class="line">        System.out.println(&quot;AccountServiceImpl&#123;&quot; +</span><br><span class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</span><br><span class="line">                &quot;, age=&quot; + age +</span><br><span class="line">                &quot;, brithday=&quot; + brithday +</span><br><span class="line">                &apos;&#125;&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="./1535706292939.png" alt="Alt text"></p>
+<h3 id="set方法注入–常用"><a href="#set方法注入–常用" class="headerlink" title="set方法注入–常用"></a>set方法注入–常用</h3><p>使用的标签：property<br>标签出现的位置：bean标签的内部<br>标签中的属性：</p>
+<ul>
+<li><strong>name</strong>：用于指定注入时所调用的set方法名称</li>
+<li>value：用于提供基本类型和String类型的数据</li>
+<li>ref：用于指定其他的bean类型数据。他指的就是在spring的Ioc核心容器中出现过的bean对象<br>优势：创建对象时没有明确的限制，可以直接使用默认构造函数<br>弊端：<br>如果有某个成员必须有值，则获取对象是有可能set方法没有执行。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public class AccountServiceImpl2 implements IAccountService&#123;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line">    private Integer age;</span><br><span class="line">    private Date brithday;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Integer getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(Integer age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Date getBrithday() &#123;</span><br><span class="line">        return brithday;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setBrithday(Date brithday) &#123;</span><br><span class="line">        this.brithday = brithday;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void saveAccount() &#123;</span><br><span class="line">        System.out.println(&quot;AccountServiceImpl&#123;&quot; +</span><br><span class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</span><br><span class="line">                &quot;, age=&quot; + age +</span><br><span class="line">                &quot;, brithday=&quot; + brithday +</span><br><span class="line">                &apos;&#125;&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--利用反射创建Date对象--&gt;</span><br><span class="line">&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;bean id=&quot;accountService2&quot; class=&quot;com.yu.service.impl.AccountServiceImpl2&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;name&quot; value=&quot;五五开&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;age&quot; value=&quot;23&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;brithday&quot; ref=&quot;now&quot;&gt;&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="./1535706972248.png" alt="Alt text"></p>
+<h3 id="注入集合数据"><a href="#注入集合数据" class="headerlink" title="注入集合数据"></a>注入集合数据</h3><p>用于给List结构集合注入的标签：</p>
+<ul>
+<li>list</li>
+<li>array</li>
+<li>set<br>用于给Map结构集合注入的标签：</li>
+<li>map</li>
+<li>props<br>结构相同，标签可以互换</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--复杂类型的注入/集合类型的注入--&gt;</span><br><span class="line">    &lt;bean id=&quot;accountService3&quot; class=&quot;com.yu.service.impl.AccountServiceImpl3&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;myStrs&quot;&gt;</span><br><span class="line">            &lt;array&gt;</span><br><span class="line">                &lt;value&gt;AAAA&lt;/value&gt;</span><br><span class="line">                &lt;value&gt;BBBB&lt;/value&gt;</span><br><span class="line">                &lt;value&gt;CCCC&lt;/value&gt;</span><br><span class="line">            &lt;/array&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">        &lt;property name=&quot;myList&quot;&gt;</span><br><span class="line">            &lt;array&gt;</span><br><span class="line">                &lt;value&gt;AAAA&lt;/value&gt;</span><br><span class="line">                &lt;value&gt;BBBB&lt;/value&gt;</span><br><span class="line">                &lt;value&gt;CCCC&lt;/value&gt;</span><br><span class="line">            &lt;/array&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">        &lt;property name=&quot;mySet&quot;&gt;</span><br><span class="line">            &lt;array&gt;</span><br><span class="line">                &lt;value&gt;AAAA&lt;/value&gt;</span><br><span class="line">                &lt;value&gt;BBBB&lt;/value&gt;</span><br><span class="line">                &lt;value&gt;CCCC&lt;/value&gt;</span><br><span class="line">            &lt;/array&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">        &lt;property name=&quot;myMap&quot;&gt;</span><br><span class="line">            &lt;props&gt;</span><br><span class="line">                &lt;prop key=&quot;testC&quot;&gt;ccc&lt;/prop&gt;</span><br><span class="line">                &lt;prop key=&quot;testD&quot;&gt;ddd&lt;/prop&gt;</span><br><span class="line">                &lt;prop key=&quot;testE&quot;&gt;eee&lt;/prop&gt;</span><br><span class="line">            &lt;/props&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">        &lt;property name=&quot;myProps&quot;&gt;</span><br><span class="line">            &lt;map&gt;</span><br><span class="line">                &lt;entry key=&quot;testA&quot; value=&quot;AAAA&quot;&gt;&lt;/entry&gt;</span><br><span class="line">                &lt;entry key=&quot;testB&quot;&gt;</span><br><span class="line">                    &lt;value&gt;BBBB&lt;/value&gt;</span><br><span class="line">                &lt;/entry&gt;</span><br><span class="line">            &lt;/map&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="./1535707884877.png" alt="Alt text"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/29/mybatis的缓存、注解开发/" rel="next" title="mybatis的缓存、注解开发">
+                <i class="fa fa-chevron-left"></i> mybatis的缓存、注解开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/01/spring中基于注解的IOC和IoC的案例/" rel="prev" title="spring中基于注解的IOC和IoC的案例">
+                spring中基于注解的IOC和IoC的案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring框架的概述以及spring中基于XML的IOC配置"><span class="nav-number">1.</span> <span class="nav-text">spring框架的概述以及spring中基于XML的IOC配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">Spring的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的发展历程"><span class="nav-number">1.0.2.</span> <span class="nav-text">Spring的发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的优势"><span class="nav-number">1.0.3.</span> <span class="nav-text">Spring的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的体系结构"><span class="nav-number">1.0.4.</span> <span class="nav-text">Spring的体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写jdbc的工程代码用于分析程序的耦合"><span class="nav-number">1.0.5.</span> <span class="nav-text">编写jdbc的工程代码用于分析程序的耦合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译器依赖"><span class="nav-number">1.0.6.</span> <span class="nav-text">编译器依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序的耦合和解耦的思路分析"><span class="nav-number">1.0.7.</span> <span class="nav-text">程序的耦合和解耦的思路分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#曾经代码中的问题分析"><span class="nav-number">1.0.8.</span> <span class="nav-text">曾经代码中的问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写工厂类和配置文件"><span class="nav-number">1.0.9.</span> <span class="nav-text">编写工厂类和配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式解耦"><span class="nav-number">1.0.10.</span> <span class="nav-text">工厂模式解耦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析工厂模式中的问题并改造"><span class="nav-number">1.0.11.</span> <span class="nav-text">分析工厂模式中的问题并改造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ioc的概念和作用"><span class="nav-number">1.0.12.</span> <span class="nav-text">ioc的概念和作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring基于XML的IOC环境搭建和入门"><span class="nav-number">1.0.13.</span> <span class="nav-text">spring基于XML的IOC环境搭建和入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationContext的三个实现类"><span class="nav-number">1.0.14.</span> <span class="nav-text">ApplicationContext的三个实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanFactory和ApplicationContext的区别"><span class="nav-number">1.0.15.</span> <span class="nav-text">BeanFactory和ApplicationContext的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring中的细节之三种创建Bean对象的方式"><span class="nav-number">1.0.16.</span> <span class="nav-text">spring中的细节之三种创建Bean对象的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring中bean的细节之作用范围"><span class="nav-number">1.0.17.</span> <span class="nav-text">spring中bean的细节之作用范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring中bean的细节之生命周期"><span class="nav-number">1.0.18.</span> <span class="nav-text">spring中bean的细节之生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring中依赖注入"><span class="nav-number">1.0.19.</span> <span class="nav-text">spring中依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数的注入"><span class="nav-number">1.0.20.</span> <span class="nav-text">构造函数的注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set方法注入–常用"><span class="nav-number">1.0.21.</span> <span class="nav-text">set方法注入–常用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注入集合数据"><span class="nav-number">1.0.22.</span> <span class="nav-text">注入集合数据</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共117.6k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="mybatis中事务、多表操作，JNDI###连接池介绍 mybatis连接池的分类mybatis连接池提供了3种方式的配置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;配置的位置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属">
+<meta name="description" content="mybatis中事务、多表操作，JNDI连接池介绍 mybatis连接池的分类mybatis连接池提供了3种方式的配置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;配置的位置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属性就是">
 <meta name="keywords" content="后台开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mybatis中事务、多表操作，JNDI">
 <meta property="og:url" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/index.html">
 <meta property="og:site_name" content="lXiaoChi">
-<meta property="og:description" content="mybatis中事务、多表操作，JNDI###连接池介绍 mybatis连接池的分类mybatis连接池提供了3种方式的配置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;配置的位置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属">
+<meta property="og:description" content="mybatis中事务、多表操作，JNDI连接池介绍 mybatis连接池的分类mybatis连接池提供了3种方式的配置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;配置的位置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属性就是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/1535415702339.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/2.png">
@@ -117,10 +117,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/3.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/4.png">
-<meta property="og:updated_time" content="2018-08-30T06:28:16.509Z">
+<meta property="og:updated_time" content="2018-09-09T07:49:15.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis中事务、多表操作，JNDI">
-<meta name="twitter:description" content="mybatis中事务、多表操作，JNDI###连接池介绍 mybatis连接池的分类mybatis连接池提供了3种方式的配置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;配置的位置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属">
+<meta name="twitter:description" content="mybatis中事务、多表操作，JNDI连接池介绍 mybatis连接池的分类mybatis连接池提供了3种方式的配置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;配置的位置：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属性就是">
 <meta name="twitter:image" content="http://yoursite.com/2018/08/27/mybatis中事务、多表操作，JNDI/1535415702339.png">
 
 
@@ -416,7 +416,7 @@
       
 
       
-        <h3 id="mybatis中事务、多表操作，JNDI"><a href="#mybatis中事务、多表操作，JNDI" class="headerlink" title="mybatis中事务、多表操作，JNDI"></a>mybatis中事务、多表操作，JNDI</h3><p>###连接池介绍<br><img src="./1535415702339.png" alt="Alt text"></p>
+        <h3 id="mybatis中事务、多表操作，JNDI"><a href="#mybatis中事务、多表操作，JNDI" class="headerlink" title="mybatis中事务、多表操作，JNDI"></a>mybatis中事务、多表操作，JNDI</h3><h3 id="连接池介绍"><a href="#连接池介绍" class="headerlink" title="连接池介绍"></a>连接池介绍</h3><p><img src="./1535415702339.png" alt="Alt text"></p>
 <h3 id="mybatis连接池的分类"><a href="#mybatis连接池的分类" class="headerlink" title="mybatis连接池的分类"></a>mybatis连接池的分类</h3><p>mybatis连接池提供了3种方式的配置：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置的位置：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主配置文件sqlMapConfig.xml中的dataSource标签，type属性就是表示采用何种连接池方式<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type属性的取值：</p>
 <ol>
 <li>POOLED 采用传统的javax.sql.DataSource规范中的连接池，mybatis中有针对规范的实现</li>
@@ -573,8 +573,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/24/mybatis的CRUD、参数的深入/" rel="next" title="mybatis的CRUD、参数的深入">
-                <i class="fa fa-chevron-left"></i> mybatis的CRUD、参数的深入
+              <a href="/2018/08/24/mybatis的入门/" rel="next" title="mybatis的入门">
+                <i class="fa fa-chevron-left"></i> mybatis的入门
               </a>
             
           </div>
@@ -666,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -721,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis中事务、多表操作，JNDI"><span class="nav-number">1.</span> <span class="nav-text">mybatis中事务、多表操作，JNDI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis连接池的分类"><span class="nav-number">2.</span> <span class="nav-text">mybatis连接池的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis使用unpooled配置连接池的原理分析"><span class="nav-number">3.</span> <span class="nav-text">mybatis使用unpooled配置连接池的原理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis使用poolead配置连接的原理分析"><span class="nav-number">4.</span> <span class="nav-text">mybatis使用poolead配置连接的原理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回顾事务"><span class="nav-number">5.</span> <span class="nav-text">回顾事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis中的事物原理和自动提交设置"><span class="nav-number">6.</span> <span class="nav-text">mybatis中的事物原理和自动提交设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis中的动态sql语句-if标签"><span class="nav-number">7.</span> <span class="nav-text">mybatis中的动态sql语句-if标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#where标签"><span class="nav-number">8.</span> <span class="nav-text">where标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach标签和SQL标签"><span class="nav-number">9.</span> <span class="nav-text">forEach标签和SQL标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis表之间关系分析"><span class="nav-number">10.</span> <span class="nav-text">mybatis表之间关系分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成表的建立及实现单表查询"><span class="nav-number">11.</span> <span class="nav-text">完成表的建立及实现单表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对一操作"><span class="nav-number">12.</span> <span class="nav-text">一对一操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对多查询操作"><span class="nav-number">13.</span> <span class="nav-text">一对多查询操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析mybatis多对多的步骤"><span class="nav-number">14.</span> <span class="nav-text">分析mybatis多对多的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询用户获取用户所包含的角色信息"><span class="nav-number">15.</span> <span class="nav-text">查询用户获取用户所包含的角色信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JNDI的概述和原理"><span class="nav-number">16.</span> <span class="nav-text">JNDI的概述和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JNDI搭建maven的war工程"><span class="nav-number">17.</span> <span class="nav-text">JNDI搭建maven的war工程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis中事务、多表操作，JNDI"><span class="nav-number">1.</span> <span class="nav-text">mybatis中事务、多表操作，JNDI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接池介绍"><span class="nav-number">2.</span> <span class="nav-text">连接池介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis连接池的分类"><span class="nav-number">3.</span> <span class="nav-text">mybatis连接池的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis使用unpooled配置连接池的原理分析"><span class="nav-number">4.</span> <span class="nav-text">mybatis使用unpooled配置连接池的原理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis使用poolead配置连接的原理分析"><span class="nav-number">5.</span> <span class="nav-text">mybatis使用poolead配置连接的原理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回顾事务"><span class="nav-number">6.</span> <span class="nav-text">回顾事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis中的事物原理和自动提交设置"><span class="nav-number">7.</span> <span class="nav-text">mybatis中的事物原理和自动提交设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis中的动态sql语句-if标签"><span class="nav-number">8.</span> <span class="nav-text">mybatis中的动态sql语句-if标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#where标签"><span class="nav-number">9.</span> <span class="nav-text">where标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach标签和SQL标签"><span class="nav-number">10.</span> <span class="nav-text">forEach标签和SQL标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis表之间关系分析"><span class="nav-number">11.</span> <span class="nav-text">mybatis表之间关系分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成表的建立及实现单表查询"><span class="nav-number">12.</span> <span class="nav-text">完成表的建立及实现单表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对一操作"><span class="nav-number">13.</span> <span class="nav-text">一对一操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对多查询操作"><span class="nav-number">14.</span> <span class="nav-text">一对多查询操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析mybatis多对多的步骤"><span class="nav-number">15.</span> <span class="nav-text">分析mybatis多对多的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询用户获取用户所包含的角色信息"><span class="nav-number">16.</span> <span class="nav-text">查询用户获取用户所包含的角色信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JNDI的概述和原理"><span class="nav-number">17.</span> <span class="nav-text">JNDI的概述和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JNDI搭建maven的war工程"><span class="nav-number">18.</span> <span class="nav-text">JNDI搭建maven的war工程</span></a></li></ol></div>
             
 
           </div>
@@ -762,7 +762,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共92.7k字</span>
+  <span class="post-count">博客全站共117.6k字</span>
 </div>
         
 
