@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="后台开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Maven高级应用Maven基础知识Maven是一个项目管理工具  依赖管理：   Maven对项目中jar包的管理过程。传统工程我们直接把jar包放置在项目中。 maven工程真正的jar包放置在仓库中，项目中只用放置jar包的坐标   仓库的种类：本地仓库，远程仓库【私服】，中央仓库   仓库之间的关系：当我们启动一个maven工程的时候，maven工程会通过pom文件中jar-  - 默认情">
+<meta name="keywords" content="后台开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven高级应用">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/index.html">
+<meta property="og:site_name" content="lXiaoChi">
+<meta property="og:description" content="Maven高级应用Maven基础知识Maven是一个项目管理工具  依赖管理：   Maven对项目中jar包的管理过程。传统工程我们直接把jar包放置在项目中。 maven工程真正的jar包放置在仓库中，项目中只用放置jar包的坐标   仓库的种类：本地仓库，远程仓库【私服】，中央仓库   仓库之间的关系：当我们启动一个maven工程的时候，maven工程会通过pom文件中jar-  - 默认情">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/maven工程拆分与聚合的思想.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/传递依赖下来的包是否能用.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/1536568030220.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/1536568581236.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/1536569933713.png">
+<meta property="og:updated_time" content="2018-09-10T12:35:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven高级应用">
+<meta name="twitter:description" content="Maven高级应用Maven基础知识Maven是一个项目管理工具  依赖管理：   Maven对项目中jar包的管理过程。传统工程我们直接把jar包放置在项目中。 maven工程真正的jar包放置在仓库中，项目中只用放置jar包的坐标   仓库的种类：本地仓库，远程仓库【私服】，中央仓库   仓库之间的关系：当我们启动一个maven工程的时候，maven工程会通过pom文件中jar-  - 默认情">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/maven工程拆分与聚合的思想.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'lxiaochi'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/"/>
+
+
+
+
+
+  <title>Maven高级应用 | lXiaoChi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lxiaochi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lXiaoChi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/Maven高级应用/Maven高级应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Hui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lome.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lXiaoChi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Maven高级应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T23:21:34+08:00">
+                2018-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,941
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Maven高级应用"><a href="#Maven高级应用" class="headerlink" title="Maven高级应用"></a>Maven高级应用</h1><h3 id="Maven基础知识"><a href="#Maven基础知识" class="headerlink" title="Maven基础知识"></a>Maven基础知识</h3><p>Maven是一个项目管理工具</p>
+<ol>
+<li>依赖管理：</li>
+</ol>
+<ul>
+<li>Maven对项目中jar包的管理过程。传统工程我们直接把jar包放置在项目中。</li>
+<li>maven工程真正的jar包放置在仓库中，项目中只用放置jar包的坐标</li>
+</ul>
+<ol start="2">
+<li>仓库的种类：本地仓库，远程仓库【私服】，中央仓库</li>
+</ol>
+<ul>
+<li>仓库之间的关系：当我们启动一个maven工程的时候，maven工程会通过pom文件中jar-  - 默认情况下，如果本地仓库没有对应jar包，maven工程会自动去中央仓库下载jar包</li>
+<li>在公司中，如果本地没有对应jar包，会先从私服下载jar包，如果私服没有jar包，可以从中央仓库下载，可以从本地上传。</li>
+</ul>
+<ol start="3">
+<li>一键构建：maven自身集成了tomcat插件，可以对项目进行编译，测试，打包，安装，发布等操作。</li>
+<li>常用命令：clean，compile,test,package,install,deploy.</li>
+<li>maven三套生命周期：清理生命周期，默认生命周期，站点生命周期。</li>
+</ol>
+<h3 id="maven导入jar包时冲突的解决"><a href="#maven导入jar包时冲突的解决" class="headerlink" title="maven导入jar包时冲突的解决"></a>maven导入jar包时冲突的解决</h3><p>方式一：</p>
+<ol>
+<li>第一声明优先原则：哪个jar包的坐标在靠上的位置，这个jar包就是先声明的。</li>
+</ol>
+<ul>
+<li>先声明的jar包坐标下的依赖包，可以优先进入项目中。</li>
+</ul>
+<p>maven导入jar包中的一些概念</p>
+<ol>
+<li>直接依赖：项目中直接导入的jar包，就是该项目的直接依赖包。</li>
+<li>传递依赖：项目中没有直接导入的jar包，可以通过项目直接依赖jar包传递到项目中去。</li>
+</ol>
+<p>方式二：</p>
+<ol>
+<li>路径近者优先原则。直接依赖路径比传递依赖路径近，那么最终项目进入的jar包会是路径近的直接依赖包。</li>
+</ol>
+<p>方式三：<br>直接排除法。</p>
+<ol>
+<li>当我们要排除某个jar包下依赖包，在配置exclusions标签的时候，你不可以不写版本号。<ul>
+<li>因为此时依赖包使用的版本和默认和本jar包一样.</li>
+</ul>
+</li>
+</ol>
+<h3 id="pom文件内标签的讲解"><a href="#pom文件内标签的讲解" class="headerlink" title="pom文件内标签的讲解"></a>pom文件内标签的讲解</h3><p>maven工程是可以分父子依赖关系的。<br>范式依赖别的项目后，拿到的别的项目的依赖包，都属于传递依赖。<br>比如：当前A项目，被B项目依赖，那么我们A项目中所有jar包都会传递到B项目中。<br>B项目开发者，如果再在B项目中导入一套ssm框架的jar包，对于B项目是直接依赖，<br>那么直接依赖jar包就会把我们A项目传递过去的jar包覆盖掉。<br>为了防止以上情况的触发，我们可以吧A项目中主要jar包的坐标锁住，那么其他依赖该项目的项目中，<br>即便是有同名jar包直接依赖，也无法覆盖</p>
+<h3 id="maven工程拆分与聚合的思想"><a href="#maven工程拆分与聚合的思想" class="headerlink" title="maven工程拆分与聚合的思想"></a>maven工程拆分与聚合的思想</h3><p><img src="./maven工程拆分与聚合的思想.png" alt="Alt text"></p>
+<h3 id="工程和模块的关系以及继承和依赖的概念"><a href="#工程和模块的关系以及继承和依赖的概念" class="headerlink" title="工程和模块的关系以及继承和依赖的概念"></a>工程和模块的关系以及继承和依赖的概念</h3><p>工程和模块的区别：<br>工程不等于完整的项目，模块也不等于完整的项目，一个完整的项目看的是代码，代码完整，就可以说这是一个完整的项目，和此项目是工程和模块没有关系。</p>
+<p>工程天生只能使用自己内部资源，工程是独立的。后天可以和其他工程或模块建立关联关系。<br>模块天生不是独立的，模块天生是属于父工程的，模块一旦创建，所有父工程的资源都可以使用。</p>
+<p>父子工程之间，子模块天生继承父工程，可以使用父工程所有资源。<br>子模块之间天生是没有任何关系的。</p>
+<p>父子工程之间不用建立关系，继承关系是先天的。不需要手动建立。</p>
+<p>平级之间的引用叫依赖，依赖不是先天的，依赖是需要后天建立的。</p>
+<h3 id="传递依赖下来的包是否能用"><a href="#传递依赖下来的包是否能用" class="headerlink" title="传递依赖下来的包是否能用"></a>传递依赖下来的包是否能用</h3><p><img src="./传递依赖下来的包是否能用.png" alt="Alt text"></p>
+<h3 id="私服的需求分析"><a href="#私服的需求分析" class="headerlink" title="私服的需求分析"></a>私服的需求分析</h3><ol>
+<li><p>需求<br>正式开发，不同的项目组开发不同的工程。<br>ssm_dao工程开发完毕，发布到私服。<br>ssm_service 从私服下载 dao </p>
+</li>
+<li><p>分析<br>公司在自己的局域网内搭建自己的远程仓库服务器，称为私服，私服服务器即是公司内<br>部的 maven 远程仓库，每个员工的电脑上安装 maven 软件并且连接私服服务器，员工将自<br>己开发的项目打成 jar 并发布到私服服务器，其它项目组从私服服务器下载所依赖的构件<br>（jar） 。<br>私服还充当一个代理服务器，当私服上没有 jar 包会从互联网中央仓库自动下载，如下<br>图： </p>
+<p><img src="./1536568030220.png" alt="Alt text"></p>
+</li>
+</ol>
+<h3 id="私服的安装以及启动"><a href="#私服的安装以及启动" class="headerlink" title="私服的安装以及启动"></a>私服的安装以及启动</h3><ol>
+<li>下载nexus<br>Nexus 是 Maven 仓库管理器，通过 nexus 可以搭建 maven 仓库，同时 nexus 还提供强<br>大的仓库管理功能，构件搜索功能等。<br>下载 Nexus， 下载地址：<a href="http://www.sonatype.org/nexus/archived/" target="_blank" rel="noopener">http://www.sonatype.org/nexus/archived/</a> </li>
+<li>解压,进入bin目录，cmd进入 bin目录，执行 nexus.bat install </li>
+<li>在服务中查看nexus服务</li>
+<li>cmd进入 nexus 的 bin目录，执行：nexus.bat uninstall 卸载nexus</li>
+<li>启动服务</li>
+</ol>
+<ul>
+<li>方法 1：<br>cmd 进入 bin目录，执行 nexus.bat start </li>
+<li>方法 2：<br>直接启动 nexus 服务<br>如果启动失败，请检查jdk版本以及环境变量<ol start="6">
+<li>查看 nexus 的配置文件conf/nexus.properties </li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Jetty section </span><br><span class="line">application-port=8081   # nexus 的访问端口配置 </span><br><span class="line">application-host=0.0.0.0  # nexus 主机监听配置(不用修改) </span><br><span class="line">nexus-webapp=$&#123;bundleBasedir&#125;/nexus  # nexus 工程目录 </span><br><span class="line">nexus-webapp-context-path=/nexus  # nexus 的 web 访问路径 </span><br><span class="line"># Nexus section </span><br><span class="line">nexus-work=$&#123;bundleBasedir&#125;/../sonatype-work/nexus   # nexus 仓库目录 </span><br><span class="line">runtime=$&#123;bundleBasedir&#125;/nexus/WEB-INF  # nexus 运行程序目录</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>访问：<br><a href="http://localhost:8081/nexus/" target="_blank" rel="noopener">http://localhost:8081/nexus/</a> </li>
+<li>登录<br>使用 Nexus 内置账户admin/admin123 登陆：<br>点击右上角的 Log in，输入账号和密码 登陆 </li>
+</ol>
+<h3 id="私服的仓库类型"><a href="#私服的仓库类型" class="headerlink" title="私服的仓库类型"></a>私服的仓库类型</h3><p>nexus的仓库有4种类型：</p>
+<ol>
+<li>hosted，宿主仓库，部署自己的 jar 到这个类型的仓库，包括 releases 和 snapshot 两部<br>分，Releases公司内部发布版本仓库、 Snapshots 公司内部测试版本仓库 </li>
+<li>proxy，代理仓库，用于代理远程的公共仓库，如 maven 中央仓库，用户连接私服，私<br>服自动去中央仓库下载 jar 包或者插件。  </li>
+<li>group，仓库组，用来合并多个 hosted/proxy 仓库，通常我们配置自己的 maven 连接仓<br>库组。 </li>
+<li>virtual(虚拟)：兼容 Maven1 版本的 jar 或者插件</li>
+</ol>
+<p>nexus 仓库默认在 sonatype-work 目录中： </p>
+<ul>
+<li><p>central：代理仓库，代理中央仓库 </p>
+</li>
+<li><p>apache-snapshots：代理仓库<br>存储 snapshots 构件，代理地址 <a href="https://repository.apache.org/snapshots/" target="_blank" rel="noopener">https://repository.apache.org/snapshots/</a> </p>
+</li>
+<li>central-m1：virtual 类型仓库，兼容 Maven1 版本的 jar 或者插件 </li>
+<li>releases：本地仓库，存储 releases构件。 </li>
+<li>snapshots：本地仓库，存储 snapshots构件。 </li>
+<li>thirdparty：第三方仓库 </li>
+<li>public：仓库组 </li>
+</ul>
+<h3 id="将项目发布到私服"><a href="#将项目发布到私服" class="headerlink" title="将项目发布到私服"></a>将项目发布到私服</h3><ol>
+<li><p>需求<br>企业中多个团队协作开发通常会将一些公用的组件、开发模块等发布到私服供其它团队<br>或模块开发人员使用。<br>本例子假设多团队分别开发 ssm_dao、ssm_service、ssm_web，某个团队开发完在<br>ssm_dao会将 ssm_dao 发布到私服供 ssm_service团队使用，本例子会将 ssm_dao 工程打成<br>jar 包发布到私服。 </p>
+<p><img src="./1536568581236.png" alt="Alt text"></p>
+</li>
+<li><p>配置<br>第一步： 需要在客户端即部署 ssm_dao工程的电脑上配置 maven环境，并 修改 settings.xml<br>文件，配置连接私服的用户和密码 。<br>此用户名和密码用于私服校验，因为私服需要知道上传的账号和密码是否和私服中的账号和<br>密码一致。 </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;server&gt; </span><br><span class="line">      &lt;id&gt;releases&lt;/id&gt; </span><br><span class="line">      &lt;username&gt;admin&lt;/username&gt; </span><br><span class="line">      &lt;password&gt;admin123&lt;/password&gt; </span><br><span class="line">    &lt;/server&gt; </span><br><span class="line"> &lt;server&gt; </span><br><span class="line">      &lt;id&gt;snapshots&lt;/id&gt; </span><br><span class="line">      &lt;username&gt;admin&lt;/username&gt; </span><br><span class="line">      &lt;password&gt;admin123&lt;/password&gt; </span><br><span class="line">    &lt;/server&gt;</span><br></pre></td></tr></table></figure>
+<p>第二步： 配置项目 pom.xml<br>配置私服仓库的地址，本公司的自己的 jar 包会上传到私服的宿主仓库，根据工程的版本号<br>决定上传到哪个宿主仓库，如果版本为 release 则上传到私服的 release 仓库，如果版本为<br>snapshot 则上传到私服的 snapshot仓库 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;distributionManagement&gt;     &lt;repository&gt;         &lt;id&gt;releases&lt;/id&gt;         &lt;url&gt;http://localhost:8081/nexus/content/repositories/releases/&lt;/url&gt;     &lt;/repository&gt;     &lt;snapshotRepository&gt;         &lt;id&gt;snapshots&lt;/id&gt;         &lt;url&gt;http://localhost:8081/nexus/content/repositories/snapshots/&lt;/url&gt;     &lt;/snapshotRepository&gt; &lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：pom.xml 这里<id> 和 settings.xml 配置 <id> 对应！</id></id></p>
+<ol start="3">
+<li>测试<br>将项目 dao 工程打成 jar 包发布到私服：<br>1、首先启动 nexus<br>2、对 ssm_dao工程执行 deploy 命令<br>根据本项目pom.xml中version定义决定发布到哪个仓库，如果version定义为snapshot，<br>执行deploy后查看nexus的snapshot仓库，如果 version定义为release则项目将发布到nexus<br>的 release仓库，本项目将发布到 snapshot仓库</li>
+</ol>
+<h3 id="从私服下载jar包"><a href="#从私服下载jar包" class="headerlink" title="从私服下载jar包"></a>从私服下载jar包</h3><ol>
+<li><p>需求：<br>没有配置 nexus 之前，如果本地仓库没有，去中央仓库下载，通常在企业中会在局域网<br>内部署一台私服服务器，有了私服本地项目首先去本地仓库找 jar，如果没有找到则连接私<br>服从私服下载 jar 包，如果私服没有 jar 包私服同时作为代理服务器从中央仓库下载 jar 包，<br>这样做的好处是一方面由私服对公司项目的依赖 jar 包统一管理，一方面提高下载速度，项<br>目连接私服下载 jar 包的速度要比项目连接中央仓库的速度快的多。 </p>
+<p>本例子测试从私服下载 ssm_dao 工程 jar 包。 </p>
+</li>
+<li><p>管理仓库组<br>nexus中包括很多仓库，hosted中存放的是企业自己发布的jar包及第三方公司的jar包，<br>proxy 中存放的是中央仓库的 jar，为了方便从私服下载 jar 包可以将多个仓库组成一个仓库<br>组，每个工程需要连接私服的仓库组下载 jar 包。<br>打开 nexus 配置仓库组，如下图：<br><img src="./1536569933713.png" alt="Alt text"><br>上图中仓库组包括了本地仓库、代理仓库等。 </p>
+</li>
+<li><p>在setting.xml中配置仓库<br>在客户端的 setting.xml 中配置私服的仓库，由于 setting.xml 中没有 repositories 的配置<br>标签需要使用 profile 定义仓库。 </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 下载jar包配置 --&gt;</span><br><span class="line">&lt;profile&gt; </span><br><span class="line">	&lt;!--profile的id --&gt;</span><br><span class="line">	&lt;id&gt;dev&lt;/id&gt;</span><br><span class="line">	&lt;repositories&gt;</span><br><span class="line">		&lt;repository&gt; &lt;!--仓库id，repositories可以配置多个仓库，保证id不重复 --&gt;</span><br><span class="line">			&lt;id&gt;nexus&lt;/id&gt; &lt;!--仓库地址，即nexus仓库组的地址 --&gt;</span><br><span class="line">			&lt;url&gt;http://localhost:8081/nexus/content/groups/public/&lt;/url&gt; &lt;!--是否下载releases构件 --&gt;</span><br><span class="line">			&lt;releases&gt;</span><br><span class="line">				&lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">			&lt;/releases&gt; &lt;!--是否下载snapshots构件 --&gt;</span><br><span class="line">			&lt;snapshots&gt;</span><br><span class="line">				&lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">			&lt;/snapshots&gt;</span><br><span class="line">		&lt;/repository&gt;</span><br><span class="line">	&lt;/repositories&gt;</span><br><span class="line">	&lt;pluginRepositories&gt; &lt;!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 --&gt;</span><br><span class="line">		&lt;pluginRepository&gt; &lt;!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 --&gt;</span><br><span class="line">			&lt;id&gt;public&lt;/id&gt;</span><br><span class="line">			&lt;name&gt;Public Repositories&lt;/name&gt;</span><br><span class="line">			&lt;url&gt;http://localhost:8081/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">		&lt;/pluginRepository&gt;</span><br><span class="line">	&lt;/pluginRepositories&gt;</span><br><span class="line">&lt;/profile&gt;</span><br><span class="line"></span><br><span class="line">&lt;activeProfiles&gt;</span><br><span class="line">	&lt;activeProfile&gt;dev&lt;/activeProfile&gt;</span><br><span class="line">&lt;/activeProfiles&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="安装第三方jar包到本地仓库"><a href="#安装第三方jar包到本地仓库" class="headerlink" title="安装第三方jar包到本地仓库"></a>安装第三方jar包到本地仓库</h3><p>–安装第三方jar包到本地仓库</p>
+<p>—-进入jar包所在目录运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dfile=fastjson-1.1.37.jar -Dpackaging=jar<br>—-打开cmd直接运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=<strong>jar包所在目录路径</strong></p>
+<h3 id="安装第三方jar包到私服"><a href="#安装第三方jar包到私服" class="headerlink" title="安装第三方jar包到私服"></a>安装第三方jar包到私服</h3><p>–在settings配置文件中添加登录私服第三方登录信息</p>
+<p><server></server></p>
+<p><id>thirdparty</id></p>
+<p><username>admin</username></p>
+<p><password>admin123</password><br><br>—-进入jar包所在目录运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty<br>—-打开cmd直接运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=<strong>jar包所在目录路径</strong>-Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台开发/" rel="tag"><i class="fa fa-tag"></i> 后台开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/09/SSM框架的整合/" rel="next" title="SSM框架的整合">
+                <i class="fa fa-chevron-left"></i> SSM框架的整合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lome.jpg"
+                alt="Li Hui" />
+            
+              <p class="site-author-name" itemprop="name">Li Hui</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven高级应用"><span class="nav-number">1.</span> <span class="nav-text">Maven高级应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven基础知识"><span class="nav-number">1.0.1.</span> <span class="nav-text">Maven基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven导入jar包时冲突的解决"><span class="nav-number">1.0.2.</span> <span class="nav-text">maven导入jar包时冲突的解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pom文件内标签的讲解"><span class="nav-number">1.0.3.</span> <span class="nav-text">pom文件内标签的讲解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven工程拆分与聚合的思想"><span class="nav-number">1.0.4.</span> <span class="nav-text">maven工程拆分与聚合的思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程和模块的关系以及继承和依赖的概念"><span class="nav-number">1.0.5.</span> <span class="nav-text">工程和模块的关系以及继承和依赖的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递依赖下来的包是否能用"><span class="nav-number">1.0.6.</span> <span class="nav-text">传递依赖下来的包是否能用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私服的需求分析"><span class="nav-number">1.0.7.</span> <span class="nav-text">私服的需求分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私服的安装以及启动"><span class="nav-number">1.0.8.</span> <span class="nav-text">私服的安装以及启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私服的仓库类型"><span class="nav-number">1.0.9.</span> <span class="nav-text">私服的仓库类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将项目发布到私服"><span class="nav-number">1.0.10.</span> <span class="nav-text">将项目发布到私服</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从私服下载jar包"><span class="nav-number">1.0.11.</span> <span class="nav-text">从私服下载jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装第三方jar包到本地仓库"><span class="nav-number">1.0.12.</span> <span class="nav-text">安装第三方jar包到本地仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装第三方jar包到私服"><span class="nav-number">1.0.13.</span> <span class="nav-text">安装第三方jar包到私服</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Hui</span>
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共120.6k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
